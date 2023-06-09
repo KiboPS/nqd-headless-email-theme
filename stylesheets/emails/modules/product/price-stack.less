@@ -1,0 +1,13 @@
+﻿.mz-pricestack {
+    position: relative;
+    .mz-pricestack-price-upper {
+        position: relative;
+        &::before {
+            content: "\2014";
+            position: absolute;
+            top: 50%;
+            left: -@gutter;
+            margin-top: -16px;
+        }
+    }    
+}

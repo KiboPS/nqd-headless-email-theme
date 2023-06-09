@@ -1,0 +1,26 @@
+﻿.mz-breadcrumbs {
+    .mz-breadcrumb-link {
+        .permalink(#666);
+    }
+    .mz-breadcrumb-current {
+        font-weight: bold;
+        color: @textColor;
+    }
+    .mz-breadcrumb-separator {
+        display: inline-block;
+        font-size: @fontSizeSmall;
+        margin: 0 2px;
+    }
+}
+.site-atticsalt{
+    .mz-breadcrumbs {
+        .mz-breadcrumb-link {
+            .permalink(#666);
+            font-size: 12px;
+            text-transform: uppercase;
+            &[aria-current="page"]{
+                font-weight: bold;
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="23px" height="17px" viewBox="0 0 23 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch Beta 3.3.2 (12041) - http://www.bohemiancoding.com/sketch -->
+    <title>cart icon</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs></defs>
+    <g id="Header:-Default" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Header:-Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-1390.000000, -23.000000)" fill="#4A4A4A">
+            <g sketch:type="MSLayerGroup" id="Cart-Icon">
+                <g transform="translate(1390.500000, 8.500000)" sketch:type="MSShapeGroup">
+                    <path d="M22,17.9090909 L18.4516125,26.6363636 L4.96774189,26.6363636 L2.83870968,17.1818182 L6.39822876e-10,17.1818182 C4.02780463e-09,17.1317869 -1.86483421e-09,15 6.39822876e-10,15 L4.96774194,15 C4.96774194,15 6.93079893,24.1422041 6.93079893,24.1422041 L16.671945,24.1422041 L19.1612903,17.9090909 L22,17.9090909 Z M5.67743594,29.2858367 C5.67743594,28.3396186 6.47197899,27.5716735 7.45096954,27.5716735 C8.42996009,27.5716735 9.22450314,28.3396186 9.22450314,29.2858367 C9.22450314,30.2320549 8.42996009,31 7.45096954,31 C6.47197899,31 5.67743594,30.2320549 5.67743594,29.2858367 L5.67743594,29.2858367 Z M14.1936644,29.2858367 C14.1936644,28.3396186 14.9882075,27.5716735 15.967198,27.5716735 C16.9461886,27.5716735 17.7407316,28.3396186 17.7407316,29.2858367 C17.7407316,30.2320549 16.9461886,31 15.967198,31 C14.9882075,31 14.1936644,30.2320549 14.1936644,29.2858367 L14.1936644,29.2858367 Z" id="cart-icon"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

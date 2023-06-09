@@ -1,13 +1,12 @@
 ﻿  {% extends "email/email" %}
 
   {% block body-content %}
-  <div class="mz-productdetails">
-	<dl class="mz-orderheader">
-		<dt>{{ labels.orderNo }}</dt>
-		<dd>{{ model.order.orderNumber }}</dd>
 
-		<dt>{{ labels.externalOrderId }}</dt>
-		<dd>{{ model.order.externalId }}</dd>
+	<dl class="mz-orderheader">
+	<!--
+		<dt>{{ labels.orderNo }}</dt>
+		<dd><a href="https://{{domainName}}/checkout/{{model.id}}/confirmation">{{ model.orderNumber }}</a></dd>
+		-->
 
 		<dt>{{ labels.return }}</dt>
 		<dd>{{ model.returnNumber }}</dd>
@@ -29,22 +28,21 @@
 	</p>
 
 	{{ labels.returnApprovedBlob1|string_format(siteContext.generalSettings.websiteName, domainName)|safe }}
-	</div>
-	
-	<table class="mz-ordersummary">		
+
+	<table class="mz-ordersummary">
         <thead>
             <tr>
                 <th class="mz-ordersummary-header-qty">{{ labels.qty }}</th>
                 <th class="mz-ordersummary-header-product">{{ labels.product }}</th>
             </tr>
-		</thead>		
+		</thead>
 		<tbody class="mz-ordersummary-lineitems">
 		{% for item in model.items %}
 			{% for reason in item.reasons %}
-				<tr class="mz-ordersummary-line mz-ordersummary-line-item">
-					<td>{{ reason.quantity }}</td>
-					<td class="mz-ordersummary-item-product">{{ item.product.name }}</td>
-				</tr>
+			<tr class="mz-ordersummary-line mz-ordersummary-line-item">
+				<td>{{ reason.quantity }}</td>
+				<td class="mz-ordersummary-item-product">{{ item.product.name }}</td>
+			</tr>
 			{% endfor %}
 		{% endfor %}
 		</tbody>

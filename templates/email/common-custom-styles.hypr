@@ -1,0 +1,39 @@
+﻿.email-body {
+}
+
+.email-logo {
+  margin-top: 1em;
+  text-align: center;
+  width: 100%;
+}
+
+.email-logo img {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 200px !important;
+}
+
+.header-links {
+  text-align: center !important;
+}
+
+.header-links a {
+  color: black !important;
+  margin-left: 0.7em;
+  margin-right: 0.7em;
+}
+
+.small-text {
+  font-size: 0.8em;
+}
+
+.gray-text {
+  color: lightgray;
+}
+
+#backgroundTable {
+  line-height: 100% !important;
+  margin: auto;
+  padding: 0;
+  width: 640px !important;
+}

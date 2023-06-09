@@ -22,7 +22,7 @@
 			<td>
 				{% if model.content.productShortDescription and themeSettings.showProductDetailShortDesc %}
 				<div class="mz-productdetail-shortdesc mz-l-stack-section">
-				  <span itemscope="description">{{ model.content.productShortDescription|safe }}</span>
+				  <span>{{ model.content.productShortDescription|safe }}</span>
 				</div>
 				{% endif %}
 				{% if model.options %}
@@ -33,7 +33,7 @@
 				{{model.productCode}}
 			</td>
 			<td>
-				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="mz-productdetail-price mz-l-stack-section">
+				<div class="mz-productdetail-price mz-l-stack-section">
 				{% include "modules/product/price-stack" %}
 				</div>
 			</td>

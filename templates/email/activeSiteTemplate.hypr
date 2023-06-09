@@ -1,0 +1,7 @@
+{% if model %}
+    {% with model|first as entityModel %}
+        <p>{{ label }} <a href="https://{{domainName}}/user/resetpasswordconfirm?t={{validationToken }}&u={{userId}}&c={% if entityModel.activeSite == themeSettings.langRootCategoryCode %}lang{% else %}calendars{% endif %}">Click here</a> to reset your password.</p>
+    {% endwith %}
+{% else %}
+    <p>{{ label }} <a href="https://{{domainName}}/user/resetpasswordconfirm?t={{validationToken }}&u={{userId}}">Click here</a> to reset your password, please.</p>
+{% endif %}

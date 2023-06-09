@@ -1,0 +1,99 @@
+﻿.mz-itemlisting {
+    padding-top: @gutter;
+    .clearfix();
+    .mz-itemlisting-thumb {
+        float: left;
+        margin-right: @gutter/2;
+        width: @itemListingThumbSize;
+        .mz-itemlisting-thumb-img{
+            width: 65px;
+        }
+    }
+    .mz-itemlisting-details {
+        float: left;
+        margin-right: @gutter/2;
+        overflow: hidden;
+    }
+    .mz-itemlisting-actions {
+        float: right;
+        margin-right: @gutter/2;
+        text-align: center;
+        a {
+            display: block;
+            margin: 4px 0;
+            font-size: @fontSizeSmall;
+            .permalink(#666);
+        }
+        button {
+            display: block;
+            margin: 4px 0;
+            font-size: @fontSizeSmall!important;
+            float: right;
+            border: 0;
+            background-color: transparent;
+            font-weight: 400;
+            text-transform: none;
+            .permalink(#666);
+        }
+    }
+    .mz-itemlisting-title {
+        font-size: @fontSizeLarger;
+        font-weight: bold;
+        .permalink(#666);
+    }
+    .mz-itemlisting-description {
+        margin: 4px 0;
+        font-size: @fontSizeSmall;
+    }
+    .mz-reorderitem-errormessages {
+        margin: 5px;
+    }
+    .mz-reorderitem-actions {
+        margin-top: 5px;
+        .reorder-item {
+            @media (min-width: 200px) and (max-width: 767px) {
+                display: flex;
+            }
+            .reorder-item-tooltip {
+                @media (min-width: 200px) and (max-width: 767px) {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+    .mz-itemlisting-prompt {
+        float: left;
+        max-width: 50%;
+        a.mz-action {
+            display: inline-block;
+            margin: 0 5px;
+        }
+        button {
+            .permalink(var(--main-color));
+            text-transform: capitalize;
+            letter-spacing: normal;
+            margin: 0;
+            padding: 0 10px!important;
+            text-decoration: underline;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+    }
+    .mz-itemlisting-select {
+        float: left;
+        margin: 0 15px;
+        margin-top: 25px;
+    }
+    .mz-itemlisting-item-total {
+        .is-crossedout {
+            color: red;
+        }
+        div {
+            float: right;
+            margin-left: 15px;
+        }
+        .mz-item-rowtotal  {
+            font-weight: 600;
+        }
+    }
+}

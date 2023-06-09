@@ -1,0 +1,18 @@
+﻿.mz-pagenumbers {
+    .mz-pagenumbers-number {
+        &.is-current {
+            font-weight: bold;
+            text-decoration: none;
+        }
+        &.is-last {
+            margin-left: 16px;
+
+            &:before {
+                content: '...';
+                position: absolute;
+                left: -14px;
+                bottom: -5px;
+            }
+        }
+    }
+}

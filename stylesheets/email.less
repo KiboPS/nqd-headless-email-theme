@@ -6,60 +6,75 @@
  */
 
 // Non-outputting utilities
-@import "/stylesheets/base/variables.less";
-@import "/stylesheets/base/mixins.less";
+@import "/stylesheets/emails/base/variables.less";
+@import "/stylesheets/emails/base/mixins.less";
 
 // Base
-@import "/stylesheets/base/normalize.less";
-@import "/stylesheets/base/global.less";
+@import "/stylesheets/emails/base/normalize.less";
+@import "/stylesheets/emails/base/global.less";
 
 // Layouts
-@import "/stylesheets/layouts/l-container.less";
-@import "/stylesheets/layouts/l-formfieldgroup.less";
-@import "/stylesheets/layouts/l-pagecontent.less";
-@import "/stylesheets/layouts/l-pagewrapper.less";
-@import "/stylesheets/layouts/l-paginatedlist.less";
-@import "/stylesheets/layouts/l-2column.less";
-@import "/stylesheets/layouts/l-sidebar.less";
-@import "/stylesheets/layouts/l-tiles.less";
-@import "/stylesheets/layouts/l-stack.less";
+@import "/stylesheets/emails/layouts/l-container.less";
+@import "/stylesheets/emails/layouts/l-formfieldgroup.less";
+@import "/stylesheets/emails/layouts/l-pagecontent.less";
+@import "/stylesheets/emails/layouts/l-pagewrapper.less";
+@import "/stylesheets/emails/layouts/l-paginatedlist.less";
+@import "/stylesheets/emails/layouts/l-2column.less";
+@import "/stylesheets/emails/layouts/l-sidebar.less";
+@import "/stylesheets/emails/layouts/l-tiles.less";
+@import "/stylesheets/emails/layouts/l-stack.less";
 
 // Modules
 // Common
-@import "/stylesheets/modules/common/address-summary.less";
-@import "/stylesheets/modules/common/button.less";
-@import "/stylesheets/modules/common/icon.less";
-@import "/stylesheets/modules/common/item-listing.less";
-@import "/stylesheets/modules/common/message-bar.less";
-@import "/stylesheets/modules/common/order-list.less";
-@import "/stylesheets/modules/common/order-listing.less";
-@import "/stylesheets/modules/common/order-summary.less";
-@import "/stylesheets/modules/common/price.less";
-@import "/stylesheets/modules/common/page-title.less";
-@import "/stylesheets/modules/common/property-list.less";
-@import "/stylesheets/modules/common/table.less";
+@import "/stylesheets/emails/modules/common/address-summary.less";
+@import "/stylesheets/emails/modules/common/button.less";
+@import "/stylesheets/emails/modules/common/icon.less";
+@import "/stylesheets/emails/modules/common/item-listing.less";
+@import "/stylesheets/emails/modules/common/message-bar.less";
+@import "/stylesheets/emails/modules/common/order-list.less";
+@import "/stylesheets/emails/modules/common/order-listing.less";
+@import "/stylesheets/emails/modules/common/order-summary.less";
+@import "/stylesheets/emails/modules/common/price.less";
+@import "/stylesheets/emails/modules/common/page-title.less";
+@import "/stylesheets/emails/modules/common/property-list.less";
+@import "/stylesheets/emails/modules/common/table.less";
 // Locations
-@import "/stylesheets/modules/location/location-list.less";
+@import "/stylesheets/emails/modules/location/location-list.less";
 // Page Header
-@import "/stylesheets/modules/page-header/store-branding.less";
+@import "/stylesheets/emails/modules/page-header/store-branding.less";
 // Product
-@import "/stylesheets/modules/product/price-stack.less";
-@import "/stylesheets/modules/product/product-list.less";
-@import "/stylesheets/modules/product/product-listing.less";
-@import "/stylesheets/modules/product/product-images.less";
-@import "/stylesheets/modules/product/product-detail.less";
+@import "/stylesheets/emails/modules/product/price-stack.less";
+@import "/stylesheets/emails/modules/product/product-list.less";
+@import "/stylesheets/emails/modules/product/product-listing.less";
+@import "/stylesheets/emails/modules/product/product-images.less";
+@import "/stylesheets/emails/modules/product/product-detail.less";
 // State
-@import "/stylesheets/state/is-disabled.less";
-@import "/stylesheets/state/is-required.less";
-@import "/stylesheets/state/is-crossedout.less";
-@import "/stylesheets/state/is-saleprice.less";
-@import "/stylesheets/state/notices.less";
+@import "/stylesheets/emails/state/is-disabled.less";
+@import "/stylesheets/emails/state/is-required.less";
+@import "/stylesheets/emails/state/is-crossedout.less";
+@import "/stylesheets/emails/state/is-saleprice.less";
+@import "/stylesheets/emails/state/notices.less";
 
-
-
-#backgroundTable td {
-    padding: 15px;
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459WRhyyTh89ZNpQ.woff2) format('woff2');
+  }
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gnD_vx3rCs.woff2) format('woff2');
 }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
 
 .mz-email-header {
     background: #eee;
@@ -93,9 +108,6 @@
         &.mz-ordersummary-item-product {
             text-align: left;
         }
-        &.mz-ordersummary-regular-hours {
-            text-align: left;
-        }
     }
     .mz-ordersummary-lineitems tr:last-child td {
         border-bottom: 1px solid #fff;
@@ -109,7 +121,6 @@
     .mz-ordersummary-totalname, .mz-ordersummary-discountname {
         display: inline-block;
         padding-right: @gutter;
-        margin-right:10px;
     }
     .mz-ordersummary-grandtotal {
         border-top: 1px solid #fff;
@@ -132,490 +143,160 @@
 
 dl.mz-orderheader {
     dt { margin: 0; float: left; clear: left; width: 150px; }
-    dd { margin: 0; -webkit-margin-start: 150px; margin-start: 150px; padding-bottom: 0.5em; }
+    dd { margin: 0; -webkit-margin-start: 150px; margin-start: 150px; padding-bottom: 0.5em }
 }
 
-.mz-productdetails {
-    dl { float: left !important; }
-    dd { -webkit-margin-start: 50px !important; margin-start: 50px !important; float: left !important; }
-    p { clear: left  !important; }
-}
-.mz-multiship-email{
+.mz-multiship-email {
   width: 75%;
 
   // Styles only applying to the multiship email confirmation.
-  .mz-table-header{
+  .mz-table-header {
     background-color: #666;
     padding: @gutter/2;
     color: #fff;
   }
-  .mz-email-section{
+
+  .mz-email-section {
     h1, h2, h3, h4 {
       border-bottom: 1px solid #ddd;
       padding: @gutter/2;
     }
 
-//Container for a 'grouping', holds a table of items.
+    //Container for a 'grouping', holds a table of items.
     .mz-container-header {
       background-color: #666;
       padding: @gutter/2;
       color: #fff;
+
       a {
         color: #ddd;
       }
+
       a:hover {
         color: #fff;
       }
     }
-    .mz-email-summary-container{
+
+    .mz-email-summary-container {
       padding: @gutter/4 @gutter/2 @gutter/4 @gutter/2;
       margin: 0 0 @gutter/2 0;
       border: 1px solid #ddd;
     }
 
-//Table containing item details
+    //Table containing item details
     .mz-ordersummary-email {
       width: 100%;
       border-bottom: 1px solid #ddd;
 
       th {
-          text-align: right;
-          padding: @gutter/2 @gutter/2;
-          border-bottom: 1px solid #ddd;
-          &.mz-ordersummary-header-product {
-              text-align: left;
-          }
+        text-align: right;
+        padding: @gutter/2 @gutter/2;
+        border-bottom: 1px solid #ddd;
+
+        &.mz-ordersummary-header-product {
+          text-align: left;
         }
-        td {
-            text-align: right;
-            padding: @gutter/2 @gutter/2;
-            &.mz-ordersummary-item-product, &.mz-addresssummary {
-                text-align: left;
-            }
-        }
-        tr:last-child {
-          border-bottom: 1px solid #ddd;
-        }
-
-        .mz-email-fulfillment-info {
-          border-top: 1px solid #ddd;
-          border-bottom: 1px solid #ddd;
-        }
-
-
-        .mz-ordersummary-grandtotal {
-          color: #ae1231;
-        }
-
-        .mz-ordersummary-totals {
-            float: right;
-            td:last-child {
-                padding-right: 0;
-            }
-        }
-        .mz-ordersummary-totalname {
-            display: inline-block;
-            padding-right: @gutter;
-        }
-        .mz-ordersummary-grandtotal {
-            font-size: @fontSizeLarge;
-        }
-        .mz-ordersummary-totalvalue, .mz-ordersummary-itemtotal {
-            font-weight: bold;
-        }
-
-            .mz-item-discount, .mz-ordersummary-discount {
-            font-weight: bold;
-
-            .mz-item-discountamt, .mz-ordersummary-discountamt {
-                color: #900;
-            }
-        }
-
-    }  
-
-//Price summary
-
-.mz-confirmation-price-summary {
-  background-color: #f7f7f7;
-  width: 100%;
-  padding: @gutter/4 @gutter/2 @gutter/4 @gutter/2;
-  margin: @gutter/2 0 @gutter/2 0;
-  box-sizing: border-box;
-
-
-   .mz-ordersummary-confirmation {
-     border-bottom: 0px;
-   }
-
-
-}
-  }
-}
-
-//curbside 
-.mz-curbside-email-header {
-    height: 75px;  
-    background-color: #f7f7f7;
-  
-    .mz-curbside-header-body {
-      position: relative;
-      top: 25%;
-      left: 10px;
-    }
-  }
-  
-  .mz-curbside-email-header img {
-    float: left;
-    width: 20%;
-    height: 100%;
-    background: #FFFFFF;
-  }
-  
-  .mz-curbside-header-body p, h3 {
-    margin: 0;
-    padding-bottom: 0.4em;
-  }
-
-  .mz-b2b-email-header {
-    display: flex;
-    justify-content: center;
-    height: 5rem;  
-  
-    .header-logo {
-      flex-basis: 20%;
-
-      img {
-        width: 80%;
-        margin: 1rem;
       }
-    }
 
-    .header-text {
-      color: black;
-      background-color: #f7f7f7;
-      flex-basis: 80%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      
-      .subject {
-        font-size: 2rem;
+      td {
+        text-align: right;
+        padding: @gutter/2 @gutter/2;
+
+        &.mz-ordersummary-item-product, &.mz-addresssummary {
+          text-align: left;
+        }
+      }
+
+      tr:last-child {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .mz-email-fulfillment-info {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+      }
+
+
+      .mz-ordersummary-grandtotal {
+        color: #ae1231;
+      }
+
+      .mz-ordersummary-totals {
+        float: right;
+
+        td:last-child {
+          padding-right: 0;
+        }
+      }
+
+      .mz-ordersummary-totalname {
+        display: inline-block;
+        padding-right: @gutter;
+      }
+
+      .mz-ordersummary-grandtotal {
+        font-size: @fontSizeLarge;
+      }
+
+      .mz-ordersummary-totalvalue, .mz-ordersummary-itemtotal {
         font-weight: bold;
-        margin-left: 1rem;
       }
-  
-      .store-name {
-        font-size: 1.5rem;
-        margin-left: 1rem;
+
+      .mz-item-discount, .mz-ordersummary-discount {
+        font-weight: bold;
+
+        .mz-item-discountamt, .mz-ordersummary-discountamt {
+          color: #900;
+        }
       }
-    }
-  }
-  
-  .mz-b2b-email-body {
-    font-size: 1rem;
-    line-height: 1rem;
-    color: black;
-  }
 
-  .mz-store-details {
-    background-color: #f7f7f7;
-    width: 100%;
-    padding: @gutter/4 @gutter/2 @gutter/4 @gutter/2;
-    margin: @gutter/2 0 @gutter/2 0;
-    box-sizing: border-box;   
-    border-bottom: 0px;
-  }
-  
-  .mz-curbside-card {  
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-  
-    .mz-curbside-card-header {
-      padding: 0.75rem;
-      margin-bottom: 0;
-      background-color: rgba(0, 0, 0, 0.03);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-      font-weight: bold;
-    }
-  
-    .mz-curbside-card-header:first-child {
-      border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
-    }
-  
-    .mz-curbside-card-body {
-      -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-      flex: 1 1 auto;
-      min-height: 1px;
-      padding: 0.75rem;
-    }
-  
-    .mz-curbside-card-body, p {
-      margin: 0;
-    }     
-  }
-
-  .mz-curbside-alert {
-    color: #185578;
-    background-color: #d5edfa;
-    border-color: #c5e6f8;  
-    padding: 0.75rem 1.25rem;    
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-  }
-
-  .location-hours-info {
-    font-weight: bold;
-      padding-bottom: 6px;
-  }
-
-  .order-details-right {
-    width: 50%;
-    margin-left: 80px;
-    text-align: right;
-    color: white;
-    padding-right: 10px;
-    ALIGN-SELF: center;
-  }
-  
-  .order-details-left {
-    width: 50%;
-    vertical-align: middle;   
-    color: white !important; 
-    padding-left: 10px;
-    font-weight: 1000;   
-  }
-  
-  .order-details-header {
-    background-color:#666666;
-    margin-bottom: 0!important;
-    padding: 18px 100px;
-    display: flex;
-    text-align: left;
-    padding-top: 8px;
-    padding: 0px;
-    color: white !important; 
-    margin-top: 20px;
-    vertical-align: middle;
-    align-self: center;
-  }
-
- .label-order-details
- {
-  color: white !important;
-  font-size: xx-large !important;
-  font-family: sans-serif !important;
- }
-
- .tableStyle
-{
-  border:1px black solid;
- 
-}
-
-.orderTotalTableStyle
-{
-  margin-left: auto;
-  background: "#B3B3B3" !important;
-  width: 25%;
-  
-}
-
-.orderTotalValue
-{
-  float: right;
-}
-  
-.storeHours
-{
-  text-align: center !important;
-  
-}
-
-.quote-name {
-  color: #3A3A3A;
-  font-family: Roboto;
-  font-size: 20px;
-  line-height: 24px;
-  text-align: left;
-  font-weight: bold;
-}
-
-.quote-details-table {
-  background-color: #FFFFFF;
-  border: 1px solid #DCDCDC;
-}
-
-.quote-account-details {
-  border-right: 2px solid #eeeeef;
-}
-
-.quote-account-details-table {
-  tr {
-    line-height: 2px;
-  }
-
-  th {
-    text-align: right;
-  }
-}
-.quote-shipping-summary {
-  border-top: 2px solid #eeeeef;
-}
-
-.quoteSummary-font {
-  font-size: 15px;
-}
-.quote-shipping-child-table {
-  padding-top: 0px !important;
-}
-
-.quote-total-summary-font {
-  font-size: 17px;
-}
-
-@media screen and (max-width: 640px) {
-
-  .quote-account-details-table tr {
-    line-height: 15px !important; 
-  }
-
-  .mz-b2b-email-header {
-    .header-logo {
-      img {
-        margin: 2rem 0.5rem;
-      }
     }
 
-    .header-text {
-      .subject {
-        font-size: 1.5rem;
-      }
-  
-      .store-name {
-        font-size: 1.25rem;
+    //Price summary
+
+    .mz-confirmation-price-summary {
+      background-color: #f7f7f7;
+      width: 100%;
+      padding: @gutter/4 @gutter/2 @gutter/4 @gutter/2;
+      margin: @gutter/2 0 @gutter/2 0;
+      box-sizing: border-box;
+
+
+      .mz-ordersummary-confirmation {
+        border-bottom: 0px;
       }
     }
   }
 }
-  
-.emailWrapper{ width:88vw; margin:0 auto; }
-.header-container {  display: flex;  justify-content: center;  align-items: center; }
-.delivery-logo{ 
-    width: 30vw;
-    text-align: left;
-    img { max-width: 220px; }    
-}
-.delivery-title { 
-    width:70vw;
-    padding: 0 10px;
-    background: #EAEAEA;
-    p.storename {
-        font-size:14px;
-        margin: 5px 0;
-    }
-    p.title {
-        font-size: calc(20px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-        line-height:calc(24px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-        font-family: arial-black;
-        margin: 5px 0;
-    }
-}
-.subscription-detail {
-  width: 100%;
-  .pull-left {
-    text-align: left;
-  }
-}
-.subscription-info {
-  background-color: #fff;
-  padding-left: 12.5px;
+
+// PoC Kibo Emailing Styles
+.email-logo img {
+  margin: 20px auto auto;
+  display: block;
 }
 
-td.subscription-item-total {
-  width: 126px;
+.header-links {
+  text-align: center;
 }
-.body-container {    padding: 20px;}
-.d-flex { display:flex; }
-.content-right { justify-content: flex-end; }
-.bggrey { background:#F0F0F0; color: #5A646F; }
-.deliveryTable { 
-    width: 100%;
-    border: 1px solid #DEE2E6; 
-    th, td { border: 1px solid #DEE2E6; padding: 10px; }
+
+.shipping-info {
+  list-style: inside;
 }
-.text-right { text-align: right; }
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.pr-fourvw {     padding: 10px 4vw !important; }
-.no-border { border: none;}
-@media (max-width: 767.98px) { 
-  .header-container {
-    display: block;
+
+.email-mozu-content {
+  padding: 20px;
+
+  a {
+    text-decoration: none;
+    color: #48708a;
   }
-  .delivery-logo{ width:80vw; text-align: center; }
-  .delivery-title{ width: 80vw; padding: 3px 10px 0; margin: 13px auto 0; }
 }
-.grid {
-  border: 1px solid #bfbfbf;
-  margin: 10px 0;
-  width: 100%;
+
+.email-bottom {
+  text-align: center;
 }
-.grid.payment-details {
-  display: none;
-}
-.grid.payment-details.show {
-  display: table;
-}
-.grid th {
-  background-color: #e5e5e5;
-  font-weight: 600;
-  padding: 8px 14px;
-  text-align: left;
-  white-space: nowrap;
-}
-.grid td {
-  border-top: 1px solid #e7e9eb;
-  padding: 8px 14px;
-  text-align: left;
-}
-.grid tr:nth-of-type(1) td {
-  border-top-width: 0;
-}
-.no-border {
-    border:none;
-}
-.substitute-table th {
-white-space: normal;
-}
-.break-word{
-word-wrap: break-word
-}
-.no-left-padding {
-  padding-left: 0  !important;
-}
-.substitute-table {
-  border: none;
-}
-.substitute-table tr th{
-  background-color: #666666;
-  color: #ffffff;
-  padding: 15px;
-  font-weight: 400;
-}
-.align-right {
-  text-align: right !important;
+
+.email-content-text {
+  padding-left: 30px;
+  padding-right: 30px;
 }

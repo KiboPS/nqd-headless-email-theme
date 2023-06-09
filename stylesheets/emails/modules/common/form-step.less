@@ -1,0 +1,89 @@
+﻿.mz-formstep {
+    float: left;
+    width: 100%;
+    .mz-formstep-header {
+        border-bottom: 1px solid #eee;
+        padding: @gutter/4 0;
+        margin-bottom: @gutter;
+        font-size: @fontSizeLarge;
+        font-weight: bold;
+        position: relative;
+        &-wrapper{
+            display: flex;
+            display: -ms-flexbox;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            justify-content: space-between;
+            border-bottom: 1px solid #e1e1e1;
+            margin-bottom: 10px;
+            >h2.mz-formstep-header {
+                border: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+    button.mz-formstep-edit{
+        position: unset;
+        color: var(--main-color);
+        letter-spacing: normal;
+        font-weight: 500;
+        &:focus{
+            border: thin dotted;
+        }
+        &:after{
+            content: '>';
+            margin-left: 5px;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .mz-formstep-edit {
+        font-size: @fontSize;
+        font-weight: normal;
+        position: absolute;
+        right: 0;
+        bottom: @gutter/4;
+        text-transform: uppercase;
+        white-space: nowrap;
+        border: 0;
+        background-color: transparent;
+    }
+    
+    .mz-formstep-cancel {
+      font-size: @fontSize;
+      font-weight: normal;
+      position: absolute;
+      right: 0;
+      bottom: @gutter/4;
+    }
+
+    .mz-formstep-next {
+        margin-top: @gutter/2;
+    }
+    .mz-formstep-desc {
+        font-size: @fontSizeLarger;
+        font-weight: bold;
+    }
+    &.is-new {
+        //.opacity(.4);
+        .mz-formstep-body, .mz-formstep-edit {
+            display: none;
+        }
+    }
+    &.is-invalid, &.is-incomplete {
+        .mz-formstep-edit, .mz-formstep-summary {
+            display: none;
+        }
+    }
+    &.is-complete {
+        .mz-formstep-fields, .mz-formstep-next {
+            display: none;
+        }
+    }
+    .mz-ordersummary {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

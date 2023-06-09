@@ -123,6 +123,15 @@
             }
             /* end Android targeting */
 
+            {% include "email/common-custom-styles" %}
+
+            {% if pageContext.cmsContext.page.document.name == "order.changed" %}
+              {% include "email/order-confirmation-custom-styles" %}
+            {% endif %}
+
+            {% if pageContext.cmsContext.page.document.name == "order.fulfilled" %}
+              {% include "email/order-shipped-custom-styles" %}
+            {% endif %}
         </style>
 
         <!-- Targeting Windows Mobile -->
@@ -150,8 +159,8 @@
     </head>
   
   
-    <body>
-        <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable">
+    <body class="email-body">
+        <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" style="mline-height: 100% !important; margin: auto; padding: 0; width: 640px !important;">
             <tr>
                 <td valign="top">
 				

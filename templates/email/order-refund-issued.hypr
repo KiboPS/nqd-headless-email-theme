@@ -1,85 +1,177 @@
-﻿  {% extends "email/email" %}
+﻿{% extends "email/email" %}
 
-  {% block body-content %}
-    <div class="mz-productdetails">
-	<dl class="mz-orderheader">
-		<dt>{{ labels.orderNo }}</dt>
-		<dd>{{ model.orderNumber }}</dd>
-		<dt>{{ labels.externalOrderId }}</dt>
-		<dd>{{ model.externalId }}</dd>
-		<dt>{{ labels.orderDate }}:</dt>
-		<dd>{{ model.submittedDate }}</dd>
-	</dl>
-	<br />
+{% block body-content %}
 
-	<p>
-	{% if user and user.firstName %}
-		{{ labels.emailOpening|string_format(user.firstName)|safe }}
-	{% else %}
-		{{ labels.emailOpeningAlternative|safe }}
-	{% endif %}
-	</p>
+  {% for attribute in model.attributes %}
+      {% if attribute.fullyQualifiedName == "tenant~active-site-name" %}
+        {% set_var activeSite=attribute.values %}
+      {% endif %}
+  {% endfor %}
 
-	{{ labels.orderRefundBlob|string_format(siteContext.generalSettings.websiteName, domainName)|safe }}
-	</div>
-	<table class="mz-ordersummary">
-        <thead>
-            <tr>
-                <th class="mz-ordersummary-header-product">Refund Method</th>
-                <th>Amount Refunded</th>
-				<th>Refund Date</th>
-            </tr>
-		</thead>
-		<tbody>
-		{% for refund in model.refunds %}
-		<tr class="mz-ordersummary-line">
-			<td class="mz-ordersummary-item-product">
-				{% if refund.payment.paymentType == "CreditCard" %}
-					{{ refund.payment.billingInfo.card.paymentOrCardType }}
-					{% if refund.payment.billingInfo.card.cCLastFour != null %} 
-							************{{ refund.payment.billingInfo.card.cCLastFour }}
-						{% else %}
-							{{ refund.payment.billingInfo.card.cardNumberPartOrMask }}
-						{% endif %}
-				{% else %}
-					{% if refund.payment.paymentType == "PurchaseOrder" %}
-						{{ labels.purchaseOrder }}
-					{% else %}
-						{% if refund.payment.paymentType == "PayPalExpress2" %}
-							{{ labels.payPal }}
-						{% else %}
-							{% if refund.payment.paymentType == "StoreCredit" %}
-								{{ labels.storeCredit }} {{ refund.payment.billingInfo.storeCreditCode|default("") }}
-                  {% else %}
-                    {% if refund.payment.paymentType == "GiftCard" %}
-                      {{ labels.giftCard }} {{ refund.payment.billingInfo.card.cardNumberPartOrMask }}
-                    {% endif %}
+  {% if activeSite and activeSite|first == "atticsalt" %}
+    {% set_var logo="https://cdn-tp4.mozu.com/27977-m2/cms/files/d13d23c5-332d-4b67-a1a9-873f76eedfa7" %}
+    {% set_var logoAlt="Attic Salt" %}
+    {% set_var background-color="#e7e5d4" %}
+  {% else %}
+    {% if activeSite and activeSite|first == "lang" %}
+      {% set_var logo="https://cdn-tp4.mozu.com/27977-m1/cms/files/659713df-955c-4bd2-83f1-8da9c50be155" %}
+      {% set_var logoAlt="Lang" %}
+      {% set_var background-color="#cfdbb9" %}
+    {% else %}
+      {% set_var logo="https://cdn-tp4.mozu.com/27977-m1/cms/files/708d285a-674a-4630-838a-f492c8473da2" %}
+      {% set_var logoAlt="Calendars" %}
+      {% set_var background-color="#3e6db5" %}
+    {% endif %}
+  {% endif %}
+
+  <div class="email-mozu-content">
+      <div>
+        <p style="font-size: 0.8em; color: lightgray">{{ labels.emailRefundHeader|safe }}</p>
+      </div>
+      <div class="email-logo">
+        {% if activeSite and activeSite|first == "atticsalt" %}
+          <img  src="{{ logo }}" alt="{{ logoAlt }}" halign="middle" style="display:block;margin-left: auto;margin-right: auto; width:50%;height:auto;"/>
+        {% else %}
+          <img  src="{{ logo }}" alt="{{ logoAlt }}" halign="middle" style="display:block;margin-left: auto;margin-right: auto; width:250px;height:75px;"/>
+        {% endif %} 
+      </div>
+      <hr/>
+
+      {% if themeSettings.themeSelector == "calendars" %}
+        <div class="header-links" >
+          <p style="text-align:center;">{{ labels.emailHeader|safe }}</p>
+        </div>
+        <hr/>
+      {% endif %}
+
+   {% comment %}
+ 	{% if user and user.firstName %} 
+	 {% endcomment %}
+        <div class="email-content-text" style="line-height:normal; padding:10px; text-align:left; text-decoration:none; width:100%;" align="left">
+            <p>{{ labels.emailRefundOpening|string_format(model.billingInfo.billingContact.firstName)|safe }}</p>
+            <p>{{ labels.emailRefundText|string_format(model.orderNumber)|safe }}</p>
+			<table style="width: 97%">
+				<thead style="height: 40px;">
+					<tr style="background-color: {{ background-color }};color: white;text-align: center;">
+						<th>Refund Method</th>
+						<th>Refund Amount</th>
+						<th>Refund Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for refund in model.refunds %}
+					<tr  style="text-align: center;">
+						<td style="padding-top: 10px; padding-left: 15px;" valign="top">
+							{% if refund.payment.paymentType == "CreditCard" %}
+								{{ refund.payment.billingInfo.card.paymentOrCardType }} {{ refund.payment.billingInfo.card.cardNumberPartOrMask }}
+							{% else %}
+								{% if refund.payment.paymentType == "PurchaseOrder" %}
+									{{ labels.purchaseOrder }}
+								{% else %}
+									{% if refund.payment.paymentType == "PayPalExpress2" %}
+										{{ labels.payPal }}
+									{% else %}
+										{% if refund.payment.paymentType == "StoreCredit" %}
+											{{ labels.storeCredit }} {{ refund.payment.billingInfo.storeCreditCode|default("") }}
+							  {% else %}
+								{% if refund.payment.paymentType == "GiftCard" %}
+								  {{ labels.giftCard }} {{ refund.payment.billingInfo.card.cardNumberPartOrMask }}
+								{% endif %}
+										{% endif %}
+									{% endif %}
+								{% endif %}
 							{% endif %}
-						{% endif %}
-					{% endif %}
-				{% endif %}
-				{% if refund.payment.paymentType == "PayWithAmazon" %}
-					{{labels.payWithAmazon}}
-				{% endif %}
-				{% if refund.payment.paymentType|lower == "token"%}
-					{%if refund.payment.billingInfo.token.type|lower == "paywithamazon" %}
-						{{labels.payWithAmazon}}
-					{% endif %}
-					{%if refund.payment.billingInfo.token.type|lower == "applepay" %}
-						{{labels.applePay}}
-					{% endif %}
-				{% endif %}
-				{% if refund.payment.paymentType == "Check" %}
-				{{labels.check}}
-				{% endif %}
-			</td>
-			<td>{{ refund.amount|currency }}</td>
-			<td>{{ refund.auditInfo.createDate }}</td>
-		</tr>
-		{% endfor %}
-		</tbody>
-    </table>
+							{% if refund.payment.paymentType == "PayWithAmazon" %}
+								{{labels.payWithAmazon}}
+							{% endif %}
+							{% if refund.payment.paymentType|lower == "token"%}
+								{%if refund.payment.billingInfo.token.type|lower == "paywithamazon" %}
+									{{labels.payWithAmazon}}
+								{% endif %}
+								{%if refund.payment.billingInfo.token.type|lower == "applepay" %}
+									{{labels.applePay}}
+								{% endif %}
+								{%if refund.payment.billingInfo.token.type|lower == "googlepay" %}
+									{{labels.googlePay}}
+								{% endif %}
+							{% endif %}
+						</td>
+						<td style="padding-top: 10px; padding-left: 15px;" valign="top">{{ refund.amount|currency }}</td>
+						<td style="padding-top: 10px; padding-left: 15px;" valign="top">{{ refund.auditInfo.createDate }}</td>
+					</tr>
+					{% endfor %} <br/>
+				</tbody>
+			</table>
+		</div>
+	  {% comment %}	
+      {% endif %}
+	  {% endcomment %}
 
-	{{ labels.emailClosing|string_format(siteContext.generalSettings.websiteName)|safe }}
-
+      <div class="email-bottom" style="text-align: center;">
+        <div style="width: 100%; background-color: gray; height: 40px;" align="center">
+        {% comment %}
+          <table class="stack" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+            <tbody>
+              {% if themeSettings.themeSelector == "atticsalt" %}
+                <tr align="center" style="display:block; font-size:0;">
+                  <td align="center" valign="top" style="display:inline-block; padding:5px 10px;">
+                    <a href="https://twitter.com/SHOPFUEGO/" target="_blank">
+                      <img src="http://hosting.fyleio.com/36795/public/Template%20Assets/TwitterIcon.png" width="25" alt="Twitter" style="display:block; height:auto; max-width:100%;">
+                    </a>
+                  </td>
+                  <td align="center" valign="top" style="display:inline-block; padding:5px 10px;">
+                    <a href="https://www.facebook.com/ShopFuego/" target="_blank">
+                      <img src="http://hosting.fyleio.com/36795/public/Template%20Assets/FacebookIcon.png" width="25" alt="Facebook" style="display:block; height:auto; max-width:100%;">
+                    </a>
+                  </td>
+                  <td align="center" valign="top" style="display:inline-block; padding:5px 10px;">
+                    <a href="https://www.instagram.com/shop_atticsalt/" target="_blank">
+                      <img src="http://hosting.fyleio.com/36795/public/Template%20Assets/InstagramIcon.png" width="25" alt="Instagram" style="display:block; height:auto; max-width:100%;">
+                    </a>
+                  </td>
+                </tr>
+              {% else %}
+                  <tr align="center" style="display:block; font-size:0;">
+                    <td align="center" valign="top" style="display:inline-block; padding:5px 10px;">
+                      <a href="https://facebook.com/calendarscom/" target="_blank">
+                        <img src="http://hosting.fyleio.com/36795/public/Template%20Assets/FacebookIcon.png" width="25" alt="Facebook" style="display:block; height:auto; max-width:100%;">
+                      </a>
+                    </td>
+                    <td align="center" valign="top" style="display:inline-block; padding:5px 10px;">
+                      <a href="https://instagram.com/calendarscom/" target="_blank">
+                        <img src="http://hosting.fyleio.com/36795/public/Template%20Assets/InstagramIcon.png" width="25" alt="Instagram" style="display:block; height:auto; max-width:100%;">
+                      </a>
+                    </td>
+                    <td align="center" valign="top" style="display:inline-block; padding:5px 10px;">
+                      <a href="https://pinterest.com/calendarscom/" target="_blank">
+                        <img src="http://hosting.fyleio.com/36795/public/Template%20Assets/PinterestIcon.png" width="25" alt="Pinterest" style="display:block; height:auto; max-width:100%;">
+                      </a>
+                    </td>
+                    <td align="center" valign="top" style="display:inline-block; padding:5px 10px;">
+                      <a href="https://twitter.com/calendars/" target="_blank">
+                        <img src="http://hosting.fyleio.com/36795/public/Template%20Assets/TwitterIcon.png" width="25" alt="Twitter" style="display:block; height:auto; max-width:100%;">
+                      </a>
+                    </td>
+                  </tr>
+              {% endif %}
+            </tbody>
+          </table>    
+        {% endcomment %}
+        </div>
+        <br />
+        {% if themeSettings.themeSelector == "atticsalt" %}
+          <a href="https://www.atticsalt.com/customer-service">{{ labels.emailCustomerService }}</a>
+          <br /><hr/><br />
+          {{ labels.emailClosingText |string_format(labels.emailBrandingAS)|safe }}
+        {% else %}
+          <a href="https://www.calendars.com/customer-service">{{ labels.emailCustomerService }}</a>
+          <br /><hr/><br />
+          {% if activeSite and activeSite|first == "lang" %}
+            {{ labels.emailClosingText |string_format(labels.emailBrandingLang)|safe }}
+          {% else %}
+            {{ labels.emailClosingText |string_format(labels.emailBrandingCal)|safe }}
+          {% endif %}
+        {% endif %}
+      </div>
+  </div>
 {% endblock body-content %}

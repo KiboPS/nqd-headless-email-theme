@@ -15,9 +15,7 @@
 
   <div class="mz-table-header" style="padding:15px">
     <span style="font-size:25px">{{ labels.orderDetails }}</span>
-	<div style="font-size:14px;float:right;">
-		<span> {{ labels.orderNumber }}: {{ model.number }} </span>
-    </div>
+    <span style="font-size:15px;float:right"> {{ labels.orderNumber }}: {{ model.number }}</span>
   </div>
   <br/>
   <!-- Purchase summaries -->
@@ -25,10 +23,10 @@
   {% for order in model.orders %}
     <div class="mz-email-section">
       <div class="mz-container-header">
-        Customer Care Number: {{ order.orderNumber }} <small><a href="http://{{ domainName }}/user/order-status">{{ labels.checkOrderStatus }}</a><br/></small>
+        Customer Care Number: {{ order.orderNumber }} <small><a href="http://{{ domainName }}/user/order-status">{{ labels.checkOrderStatus }}</a><br/><br/></small>
       </div>
       <div class="mz-email-summary-container">
-        {% include "modules/common/email-order-summary-v2" with items=order.items fulfillmentInfo=order.fulfillmentInfo locations=model.locations order=order %}
+        {% include "modules/common/email-order-summary-v2" with items=order.items fulfillmentInfo=order.fulfillmentInfo locations=model.locations %}
       </div>
     </div>
 
@@ -90,6 +88,10 @@
                  {% if payment.billingInfo.token.type|lower == "applepay" %}
                    <small>{{ labels.paymentMethod }}</small>
                    <div>{{ labels.applePay }}</div>
+                 {% endif %}
+                 {% if payment.billingInfo.token.type|lower == "googlepay" %}
+                   <small>{{ labels.paymentMethod }}</small>
+                   <div>{{ labels.googlePay }}</div>
                  {% endif %}
                </div>
               {% endif %}

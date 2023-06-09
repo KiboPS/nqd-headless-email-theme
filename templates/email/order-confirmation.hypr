@@ -1,225 +1,423 @@
-{% extends "email/email" %}
+﻿{% extends "email/email" %}
 
 {% block body-content %}
-    <br>
-    {% if model.isCurbside == true %}
-                    <!--- Header --->
-            <div class="mz-curbside-email-header">  
-            <img src="https://kibocommerce.com/wp-content/themes/kibo/images/logo.png" alt="logo">
-            <div class="mz-curbside-header-body">
-                <p><strong>{{ siteContext.generalSettings.websiteName }}</strong></p>
-                <h3>{{ labels.curbsideOrderConfirmationtxt }}</h3>
-            </div>
-            </div>
-            <br/>
-            <p>{{ labels.curbsideorderConfiramtionBlob|string_format(siteContext.generalSettings.websiteName, domainName)|safe}}</p>
+  
+  {% for attribute in model.attributes %}
+      {% if attribute.fullyQualifiedName == "tenant~active-site-name" %}
+        {% set_var activeSite=attribute.values %}
+      {% endif %}
+      {% if attribute.fullyQualifiedName == "tenant~custom-state-tax" %}
+        {% set_var customStateTaxApplies=true %}
+        {% set_var customStateTax=attribute.values %}
+      {% else %}
+        {% set_var customStateTaxApplies=false %}
+      {% endif %}
+  {% endfor %}
 
-            <!--- Order Details Header--->
-            <div class="mz-multiship-email" style="width: 100%;">
-                <div class="mz-table-header" style="padding:15px">
-                    <span style="font-size:25px">{{ labels.orderDetails }}</span>
-                    <div style="font-size:14px;float:right;">
-                        <div> {{ labels.orderNumber }}: </div>
-                        <div style="float:right;"> {{ model.orderNumber }} </div>
-                    </div>
-                </div>
-            </div>
+  {% if themeSettings.themeSelector == "atticsalt" %}
+    {% set_var logo="https://cdn-tp4.mozu.com/27977-m2/cms/files/d13d23c5-332d-4b67-a1a9-873f76eedfa7" %}
+    {% set_var logoAlt="Attic Salt" %}
+    {% set_var background-color="#e7e5d4" %}
+    {% set_var activeSiteParam="atticsalt" %}
+    {% set_var orderProcessingPath="shipping-info" %}
+    {% set_var siteName="AtticSalt.com" %}
+    {% set_var facebookIconUrl="https://cdn-tp4.mozu.com/27977-m2/cms/files/FacebookIcon.png" %}
+    {% set_var facebookAlt="Facebook" %}
+    {% set_var instagramIconUrl="https://cdn-tp4.mozu.com/27977-m2/cms/files/InstagramIcon.png" %}
+    {% set_var instagramAlt="Instagram" %}
+    {% set_var pinterestIconUrl="https://cdn-tp4.mozu.com/27977-m2/cms/files/PinterestIcon.png" %}
+    {% set_var pinterestAlt="Pinterest" %}
+    {% set_var twitterIconUrl="https://cdn-tp4.mozu.com/27977-m2/cms/files/TwitterIcon.png" %}
+    {% set_var twitterAlt="Twitter" %}
+    {% set_var mapIconUrl="https://cdn-tp4.mozu.com/27977-m2/cms/files/MapPinIcon.png" %}
+    {% set_var mapAlt="Map" %}
+    {% set_var facebookUrl="https://www.facebook.com/ShopFuego" %}
+    {% set_var instagramUrl="https://www.instagram.com/shop_atticsalt/" %}
+    {% set_var pinterestUrl="" %}
+    {% set_var twitterUrl="https://twitter.com/SHOPFUEGO" %}
+  {% else %}
+    {% set_var facebookIconUrl="https://cdn-tp4.mozu.com/27977-m1/cms/files/FacebookIcon.png" %}
+    {% set_var facebookAlt="Facebook" %}
+    {% set_var instagramIconUrl="https://cdn-tp4.mozu.com/27977-m1/cms/files/InstagramIcon.png" %}
+    {% set_var instagramAlt="Instagram" %}
+    {% set_var pinterestIconUrl="https://cdn-tp4.mozu.com/27977-m1/cms/files/PinterestIcon.png" %}
+    {% set_var pinterestAlt="Pinterest" %}
+    {% set_var twitterIconUrl="https://cdn-tp4.mozu.com/27977-m1/cms/files/TwitterIcon.png" %}
+    {% set_var twitterAlt="Twitter" %}
+    {% set_var mapIconUrl="https://cdn-tp4.mozu.com/27977-m1/cms/files/MapPinIcon.png" %}
+    {% set_var mapAlt="Map" %}
 
-            <!--- Store Details --->
-            <div class="mz-store-details">
-                <div>
-                    <strong>{{ labels.storeDetails }}</strong>
-                </div>
-                <div>
-                    <div> {{ labels.storeLocation }} : {{ model.locations.0.name }}</div>
-                    <div> {{ model.locations.0.address.address1 }} </div>
-                    <div> {{ model.locations.0.address.cityOrTown }}, {{ model.locations.0.address.stateOrProvince }}, {{ model.locations.0.address.postalOrZipCode }} </div>
-                    <div> {{ model.locations.0.phone }}</div>
-                </div>
-            </div>
-            <hr/>
-            <br/>
-            <div class="location-hours-info">{{labels.locationHoursText }} </div>
-                {% block location-hours %}
-                        {% include "email/location-hours" location=model.locations.0.regularHours %}
-                {% endblock location-hours %}
-
-            <br>
-            {% include "modules/common/pickup-contacts" with model=model %}
-
-            <!--- Item Details --->
-            <p>{{ labels.curbsidePickupReadyBlob|safe }}</p>
-
-            <table width="100%" cellpadding="1" cellspacing="1" width="50%" style="border:solid thin;">
-                <thead>
-                    <tr>
-                        <td bgcolor="#666666"><font color="#FFFFFF">{{ labels.item }}</font></td>
-                        <td bgcolor="#666666" style="text-align: right;"><font color="#FFFFFF">{{ labels.subtotal }}</font></td>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for item in model.items %}
-                    <tr class="mz-ordersummary-line mz-ordersummary-line-item">
-                    <td>
-                        {{ item.product.name }}
-                        <dl>
-                            <dd>{{ labels.part }} #: {{ item.product.productCode }}</dd>
-                            <dd>{{ labels.qty }}: {{ item.quantity }}</dd>&nbsp;
-                        </dl>
-                    </td>
-                     <td align="right">{{item.subtotal}}</td>
-                    </tr>
-                {% endfor %}
-                <tr bgcolor="#666666">
-                <td></td>
-                <td style="text-align: right;">
-                    <font color="#FFFFFF">
-                        <span>{{ labels.tax }}:</span>
-                        <span>{% filter currency %} {{  model.dutyTotal|add:model.taxTotal }} {% endfilter %}</span>
-                    </font>
-                </td>
-                </tr>
-                <tr bgcolor="#666666">
-                <td></td>
-                <td style="text-align: right;"><font color="#FFFFFF">{{ labels.orderTotal }} : <span class="mz-item-price">{% filter currency %} {{ model.total }} {% endfilter %}</span></font></td>
-                </tr>
-            </tbody>
-            </table>
-            <br/><hr/><br/>
-
-            {% if model.shopperNotes.comments %}
-            <h5>{{ labels.comments }}</h5>
-            <br><p>{{ model.shopperNotes.comments }}</p>
-            <hr/><br>
-            {% endif %}
-
-            <!--- Need Order Help Card --->
-            <div class="mz-curbside-card">
-                <div class="mz-curbside-card-header">{{ labels.orderCompleteBlob3 }}</div>
-                <div class="mz-curbside-card-body">
-                    <p>{{ labels.orderCompleteBlob4|string_format(domainName)|safe }}</p>
-                </div>
-            </div>
-            <br/>
-
-            <p>{{ labels.emailClosing|string_format(siteContext.generalSettings.websiteName)|safe }}</p>
+    {% if themeSettings.themeSelector == "niquead" %}
+      {% set_var logo="https://cdn-tp4.mozu.com/27977-m1/cms/files/a6c7f6e4-fbc1-44fa-b39a-9ed655175749" %}
+      {% set_var logoAlt="NIQUEA.D" %}
+      {% set_var background-color="#0A2240" %}
+      {% set_var activeSiteParam="niquead" %}
+      {% set_var siteName="Niquead.com" %}
+      {% set_var nqdProdEnv="www.niquead.com" %}
+      {% set_var nqdUatEnv="uat.niquead.com" %}
     {% else %}
-            <p>{{ labels.orderWelcome }} {{ model.billingInfo.billingContact.firstName }} {{ model.billingInfo.billingContact.lastNameOrSurname }}!</p>
-            <br>
-            <p>{{ labels.orderConfirmationBlob1|string_format(siteContext.generalSettings.websiteName, domainName)|safe }}</p>
+      {% if activeSite and activeSite|first == "lang" %}
+        {% set_var logo="https://cdn-tp4.mozu.com/27977-m1/cms/files/659713df-955c-4bd2-83f1-8da9c50be155" %}
+        {% set_var logoAlt="Lang" %}
+        {% set_var background-color="#cfdbb9" %}
+        {% set_var activeSiteParam="lang" %}
+        {% set_var siteName="Lang by Calendars.com" %}
+        {% set_var orderProcessingPath="preorder-backorder-items" %}
+        {% set_var facebookUrl="https://www.facebook.com/thelangcompany/" %}
+        {% set_var instagramUrl="https://www.instagram.com/langartwork/" %}
+        {% set_var pinterestUrl="https://www.pinterest.com/thelangcompany/" %}
+        {% set_var twitterUrl="https://www.twitter.com/LangArtwork/" %}
+      {% else %}
+        {% set_var logo="https://cdn-tp4.mozu.com/27977-m1/cms/files/708d285a-674a-4630-838a-f492c8473da2" %}
+        {% set_var logoAlt="Calendars" %}
+        {% set_var background-color="#3e6db5" %}
+        {% set_var activeSiteParam="calendars" %}
+        {% set_var orderProcessingPath="preorder-backorder-items" %}
+        {% set_var siteName="Calendars.com" %}
+        {% set_var facebookUrl="https://facebook.com/calendarscom/" %}
+        {% set_var instagramUrl="https://instagram.com/calendarscom/" %}
+        {% set_var pinterestUrl="https://pinterest.com/calendarscom/" %}
+        {% set_var twitterUrl="https://twitter.com/calendars/" %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
 
-            <table width="100%" cellpadding="1" width="100%">
-                <thead>
-                    <tr>
-                        <td bgcolor="#666666">
-                            <font color="#FFFFFF">{{ labels.orderDetails }}</font>
-                        </td>
-                    </tr>
-                </thead>
+  <div class="email-mozu-content">
+  {% if activeSiteParam == "atticsalt" %}
+    <div class="small-text gray-text">{{ labels.thankYouAtticSalt }}</div>
+    <div>
+      <img src="{{ logo }}" alt="{{ logoAlt }}" halign="middle" style="display: block; margin-left: auto; margin-right: auto; height: 50%; width: 50%; margin-bottom: -7em;margin-top: -5em;" />
+    </div>
+  {% else %}
+    <div class="small-text gray-text">{{ labels.thankYou|string_format(siteName)|safe }}</div>
+    <div>
+      <img src="{{ logo }}" alt="{{ logoAlt }}" halign="middle" style="display: block; margin-left: auto; margin-right: auto; height: 4em;margin-top: 1em;margin-bottom: -0.4em; max-height: 50%; max-width: 50%;" />
+    </div>
+  {% endif %}
+<br>
+<hr/><br>
+    <div class="email-content-text">
+      {% if activeSiteParam == "atticsalt" %}
+        <p>{{ labels.emailHeaderTextAtticSalt|string_format(model.orderNumber)|safe }}</p>
+        <p>{{ labels.emailOrderProcessingAtticSalt|string_format(activeSiteParam, orderProcessingPath)|safe }}</p>
+        <p>{{ labels.emailInfoShipping|string_format(activeSiteParam)|safe }}</p>
+        <p>{{ labels.emailExplanationBeAwareAtticSalt|safe }}</p>
+      {% else %}
+        <p>{{ labels.emailHeaderText|string_format(siteName, model.orderNumber)|safe }}</p>
+        {% if activeSiteParam == "niquead" %}
+          {% if domainName and domainName == nqdProdEnv %}
+            <p>{{ labels.emailOrderProcessingNqd|string_format(nqdProdEnv)|safe }}</p>
+            <p>{{ labels.emailInfoShippingNqd|string_format(nqdProdEnv)|safe }}</p>
+          {% else %}
+            <p>{{ labels.emailOrderProcessingNqd|string_format(nqdUatEnv)|safe }}</p>
+            <p>{{ labels.emailInfoShippingNqd|string_format(nqdUatEnv)|safe }}</p>
+          {% endif %}
+          <p>{{ labels.emailExplanationBeAwareNqd|safe }}</p>
+        {% else %}
+          <p>{{ labels.emailOrderProcessing|string_format(activeSiteParam, orderProcessingPath)|safe }}</p>
+          <p>{{ labels.emailInfoShipping|string_format(activeSiteParam)|safe }}</p>
+          <p>{{ labels.emailExplanationBeAware|safe }}</p>
+        {% endif %}
+        
+      {% endif %}
+      <br>
 
-                <tbody>
-                    <tr>
-                        <td>
-                            <b>{{ labels.orderNo }}</b>: {{ model.orderNumber }} <a href="https://{{ domainName }}/user/order-status">{{ labels.checkOrderStatus }}</a><br/><br/>
-                            <b>{{ labels.externalOrderId }}</b>: {{ model.externalId }}<br/><br/>
-                            {% set_var subscriptionWithDelivery=false %}
-                            {% for item in model.items %}
-                                {% if item.fulfillmentMethod == "Delivery" %}
-                                    {% for property in item.product.properties %}
-                                        {% if property && property.attributeFQN == "system~subscription-mode" %}
-                                            {% for value in property.values %}
-                                                {% if value.value == "SO" || value.value == "SOAT" %}
-                                                    {% set_var subscriptionWithDelivery=true %}
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endif %}
-                                    {% endfor %}
-                                {% endif %}
-                            {% endfor %}
-                            {% if subscriptionWithDelivery == false %}
-                                <b>{{ labels.shipTo }}</b>:<br><br>{% include "modules/common/email-address-summary" with model=model.fulfillmentInfo.fulfillmentContact %}<br>
-                            {% endif %}
-                            {% if model.fulfillmentInfo.shippingMethodName %}
-                                <br>
-                                <b>{{ labels.shippingMethod }}</b>: {{ model.fulfillmentInfo.shippingMethodName }}
-                                <br>
-                            {% endif %}
+      <h3>{{ labels.shippingAndBilling }}</h3>
 
-                            {% if model.hasPickupItems %}
-                                <br>
-                                {% include "modules/common/pickup-contacts" with model=model %}
-                            {% endif %}
-                        </td>
-                    </tr>
-
-                    {% ifnotequal model.total 0 %}
-                <tr>
-                        <td>
-                            {% if model.billingInformation.firstName or model.billingInformation.lastNameOrSurname %}
-                                <b>{{ labels.billingInformation }}</b>:<br><br>{% include "modules/common/email-address-summary" with model=model.billingInfo.billingContact %}<br><br>
-                            {% endif %}
-                            {% for payment in model.payments %}
-                            {% if payment.status != "Voided" and payment.status != "Declined" %}
-                                {% if payment.billingInfo.paymentType == "CreditCard" %}
-                                     <b>{{ labels.paymentMethod }}</b>: {{ payment.billingInfo.card.paymentOrCardType }} 
-									 {% if payment.billingInfo.card.cCLastFour != null %} 
-                                          ************{{ payment.billingInfo.card.cCLastFour }}
-                                            {% else %}
-                                            {{ payment.billingInfo.card.cardNumberPartOrMask }}
-                                     {% endif %}
-                                     <br>
-                                {% endif %}
-                                {% if payment.billingInfo.paymentType == "GiftCard" %}
-                                    <b>{{ labels.paymentMethod }}</b>: {{ payment.billingInfo.card.paymentOrCardType }} {{ payment.billingInfo.card.cardNumberPartOrMask }}<br>
-                                {% endif %}
-                                {% if payment.billingInfo.paymentType == "StoreCredit" %}
-                                    <b>{{ labels.paymentMethod }}</b>: {{ labels.storeCreditCode }} {{ payment.billingInfo.storeCreditCode }}<br>
-                                {% endif %}
-                                {% if payment.billingInfo.paymentType == "PurchaseOrder" %}
-                                    <b>{{ labels.paymentMethod }}</b>: {{ label.purchaseOrder }}<br>
-                                    <b>{{ labels.purchaseOrderNumber }}</b>: {{ payment.billingInfo.purchaseOrder.purchaseOrderNumber }}<br>
-                                    {% if payment.billingInfo.purchaseOrder.customFields.length > 0 %}
-                                        {% for field in payment.billingInfo.purchaseOrder.customFields %}
-                                            <b>{{ field.label }}</b>: {{ field.value }}<br>
-                                        {% endfor %}
-                                    {% endif %}
-                                    <b>{{ labels.purchaseOrderPaymentTerms }}</b>: {{ payment.billingInfo.purchaseOrder.paymentTerm.description }}
-                                {% endif %}
-                                {% if  payment.billingInfo.paymentType|lower == "paypalexpress2"  %}
-                                    <b>{{ labels.paymentMethod }}</b>: {{ labels.paypalExpress }}
-                                {% endif %}
-                                {%if payment.billingInfo.paymentType|lower == "paywithamazon" %}
-                                    <b>{{ labels.paymentMethod }}</b>: {{ labels.payWithAmazon }}
-                                {%endif%}
-                                {% if payment.paymentType|lower == "token" %}
-                                    {%if payment.billingInfo.token.type|lower == "paywithamazon" %}
-                                    <b>{{ labels.paymentMethod }}</b>: {{ labels.payWithAmazon }}
-                                    {%endif%}
-                                    {%if payment.billingInfo.token.type|lower == "applepay" %}
-                                    <b>{{ labels.paymentMethod }}</b>: {{ labels.applePay }}
-                                    {%endif%}
-                                {% endif %}
-                            {% endif %}
-                            {% endfor %}
-                        </td>
-                    </tr>
-
-                    {% endifnotequal %}
-                </tbody>
-            </table>
-
-            {% include "modules/common/email-order-summary" %}
-
-            {% if model.shopperNotes.comments %}
-                <h5>{{ labels.comments }}</h5>
-                <br><p>{{ model.shopperNotes.comments }}</p>
+      <table>
+        <tr>
+          <td style="background-color: {{ background-color }}; padding: 10px 15px 10px 15px; margin: 5px; width: 25%;">
+            <span style="color: #FFFFFF;">SHIPPING ADDRESS</span>
+          </td>
+          <td style="width: 5%;"></td>
+          <td style="background-color: {{ background-color }}; padding: 10px 15px 10px 15px; margin: 5px; width: 25%;">
+            <span style="color: #FFFFFF;">BILLING ADDRESS</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-top: 10px; padding-left: 15px;" valign="top">
+            {{ model.fulfillmentInfo.fulfillmentContact.firstName }} {{ model.fulfillmentInfo.fulfillmentContact.lastNameOrSurname }}<br>
+            {% if model.fulfillmentInfo.fulfillmentContact.companyOrOrganization %}
+              {{ model.fulfillmentInfo.fulfillmentContact.companyOrOrganization }}<br>
             {% endif %}
-
-            {% if model.shopperNotes.giftMessage %}
-                <h5>{{ labels.giftMessage }}</h5>
-                <br><p>{{ model.shopperNotes.giftMessage }}</p>
+            {{ model.fulfillmentInfo.fulfillmentContact.address.address1 }}<br>
+            {% if model.fulfillmentInfo.fulfillmentContact.address.address2 %}
+              {{ model.fulfillmentInfo.fulfillmentContact.address.address2 }}<br>
             {% endif %}
+            {{ model.fulfillmentInfo.fulfillmentContact.address.cityOrTown }}{% if  model.fulfillmentInfo.fulfillmentContact.address.cityOrTown && model.fulfillmentInfo.fulfillmentContact.address.stateOrProvince %}, {% endif %} {{ model.fulfillmentInfo.fulfillmentContact.address.stateOrProvince }} {{ model.fulfillmentInfo.fulfillmentContact.address.postalOrZipCode }}
+          </td>
+          <td></td>
+          <td style="padding-top: 10px; padding-left: 15px;" valign="top">
+            {% include "modules/common/email-address-summary" with model=model.billingInfo.billingContact %}
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td style="padding-top: 15px; padding-left: 15px;">
+            {% if model.billingInformation.firstName or model.billingInformation.lastNameOrSurname %}
+              <strong>{{ labels.billingInformation }}</strong>:
+              <br><br>{% include "modules/common/email-address-summary" with model=model.billingInfo.billingContact %}
+              <br><br>
+            {% endif %}
+            {% for payment in model.payments %}
+              {% if payment.status != "Voided" and payment.status != "Declined" %}
+                {% if payment.billingInfo.paymentType == "CreditCard" %}
+                  <strong>{{ labels.paymentMethod }}</strong>: {{ payment.billingInfo.card.paymentOrCardType }} {{ payment.billingInfo.card.cardNumberPartOrMask }}<br>
+                {% endif %}
+                {% if payment.billingInfo.paymentType == "GiftCard" %}
+                  <strong>{{ labels.paymentMethod }}</strong>: {{ payment.billingInfo.card.paymentOrCardType }} {{ payment.billingInfo.card.cardNumberPartOrMask }}<br>
+                {% endif %}
+                {% if payment.billingInfo.paymentType == "StoreCredit" %}
+                  <strong>{{ labels.paymentMethod }}</strong>: {{ labels.storeCreditCode }} {{ payment.billingInfo.storeCreditCode }}<br>
+                {% endif %}
+                {% if payment.billingInfo.paymentType == "PurchaseOrder" %}
+                  <strong>{{ labels.paymentMethod }}</strong>: {{ labels.purchaseOrder }}<br>
+                  <strong>{{ labels.purchaseOrderNumber }}</strong>: {{ payment.billingInfo.purchaseOrder.purchaseOrderNumber }}<br>
+                    {% if payment.billingInfo.purchaseOrder.customFields.length > 0 %}
+                      {% for field in payment.billingInfo.purchaseOrder.customFields %}
+                        <strong>{{ field.label }}</strong>: {{ field.value }}<br>
+                      {% endfor %}
+                    {% endif %}
+                  <strong>{{ labels.purchaseOrderPaymentTerms }}</strong>: {{ payment.billingInfo.purchaseOrder.paymentTerm.description }}
+                {% endif %}
+                {% if  payment.billingInfo.paymentType|lower == "paypalexpress2"  %}
+                  <strong>{{ labels.paymentMethod }}</strong>: {{ labels.paypalExpress }}
+                {% endif %}
+                {%if payment.billingInfo.paymentType|lower == "paywithamazon" %}
+                  <strong>{{ labels.paymentMethod }}</strong>: {{ labels.payWithAmazon }}
+                {%endif%}
+                {% if payment.paymentType|lower == "token" %}
+                  {%if payment.billingInfo.token.type|lower == "paywithamazon" %}
+                    <strong>{{ labels.paymentMethod }}</strong>: {{ labels.payWithAmazon }}
+                  {%endif%}
+                  {%if payment.billingInfo.token.type|lower == "applepay" %}
+                    <strong>{{ labels.paymentMethod }}</strong>: {{ labels.applePay }}
+                  {%endif%}
+                  {%if payment.billingInfo.token.type|lower == "googlepay" %}
+                    <strong>{{ labels.paymentMethod }}</strong>: {{ labels.googlePay }}
+                  {%endif%}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </td>
+        </tr>
+      </table>
+      <br>
 
-            {{ labels.emailClosing|string_format(siteContext.generalSettings.websiteName)|safe }}
-        {% endif %} 
+      <h3>{{ labels.productSummary }}</h3>
+      <table cellpadding="1" style="width: 100%">
+        <tr>
+          <td colspan="5" style="background-color: {{ background-color }}; padding: 10px 15px 10px 15px; margin: 5px; text-align: left; width: 25%;">
+            <span style="color: #FFFFFF;">PRODUCT</span>
+          </td>
+        </tr>
+        {% for item in model.items %}
+        <tr style="height: 75px;" >
+          {% with item.product.imageUrl|replace('https:','')|replace('http:','') as imgUrl %}
+          <td width="100"><img style="display: block; max-height: 75px; max-width: 75px; height: 75px; padding-top: 10px; width: 75px;" src="https:{{imgUrl}}?max=75" height="75" width="75"/></td>
+          {% endwith %}
+          <td style="padding-top: 10px; width: 30%;" valign="top">
+            {% if item.product.variationProductCode %}
+              <a target="_blank" href="https://{{ domainName }}/p/{{ item.product.productCode }}?t={{ activeSiteParam }}&vpc={{ item.product.variationProductCode }}"><strong>{{item.product.name}}</strong></a><br>
+            {% else %}
+              <a target="_blank" href="https://{{ domainName }}/p/{{ item.product.productCode }}?t={{ activeSiteParam }}"><strong>{{item.product.name}}</strong></a><br>
+            {% endif %}
+            <span><strong>Code:</strong> {% if item.product.variationProductCode %}{{item.product.variationProductCode}}{% else %}{{item.product.productCode}}{% endif %}</span>
+          </td>
+         <td style="padding-top: 10px;" valign="top">
+            <span>
+              <strong>{{ labels.status }}: </strong>
+              {% if item and item.product and item.product.stock and item.product.stock.stockAvailable and (item.product.stock.stockAvailable > 0) %}
+                {{ labels.emailStatusInStock }}
+              {% endif %}
+              {% if item and item.product and item.product.stock and (item.product.stock.stockAvailable == 0) and item.product.stock.isOnBackOrder %}
+                {{ labels.emailStatusPreOrder }}<br>
+                {% with item.product.properties|findwhere("attributeFQN", "tenant~backorder-date") as backOrderDate %}
+                {% with item.product.variationProductCode|default(item.product.productcode) as code %}
+                  {% with backOrderDate.values|first as backOrderDateValue%}
+                    {% with backOrderDateValue.stringValue|split(code) as backOrderSplit%}
+                      {% with backOrderSplit.1|split("backorder-date") as dateSplit %}
+                        {% with dateSplit.1|split(":") as colonSplit %} 
+                          {% with colonSplit.1|split("}") as removeBracket %}
+                            {% with removeBracket.0|replace('"') as date %}
+                                {% if date%}
+                                  {{ labels.emailStatusShipAfter|string_format(date) }}
+                                {% else %}
+                                  {{ labels.emailStatusShipAfter|string_format(labels.emailNoBackOrderDate) }}
+                                {% endif %}
+                              {% endwith %}
+                            {% endwith %}
+                        {% endwith %}
+                      {% endwith %}
+                    {% endwith %} 
+                  {% endwith %}
+                {% endwith %}
+                {% endwith %}
+              {% endif %}
+              {% if (not item) or (not item.product) or (not item.product.stock) %}
+                {{ labels.emailStatusOutOfStock }}
+              {% endif %}
+            </span> 
+          </td>
+          <td style="padding-top: 10px;" valign="top">
+            <span><strong>Qty:</strong> {{ item.quantity }}</span>
+          </td>
+          <td style="padding-top: 10px;" valign="top">
+            <span>$ {{ item.discountedTotal|floatformat(2) }}</span>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+
+      {% with model.items|findwhere('product.productType', 'Gift Wrap') as giftWrap %}
+      <table cellpadding="1" style="padding-top: 15px; width: 100%;">
+        <tr>
+          <td colspan="5" style="background-color: {{ background-color }}; padding: 10px 15px 10px 15px; margin: 5px; text-align: left; width: 25%;">
+            <span style="color: #FFFFFF;">{{ labels.costSummary }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 50%"></td>
+          <td style="width: 25%; padding-top: 10px">{{ labels.subtotal }}:</td>
+          <td style="width: 25%; padding-top: 10px; text-align: right; padding-right: 40px;">
+            {% if giftWrap.total %}
+              $ {{ model.discountedSubTotal|subtract(giftWrap.subtotal)|floatformat(2) }}
+            {% else %}
+              $ {{ model.discountedSubTotal|floatformat(2) }}
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 50%"></td>
+          <td style="width: 25%">{{ labels.shippingHandling }}:</td>
+          <td style="width: 25%; text-align: right; padding-right: 40px;">$ {{ model.shippingTotal|add(model.handlingTotal)|floatformat(2) }}</td>
+        </tr>
+        {% if activeSiteParam != "atticsalt" %}
+          <tr>
+            <td style="width: 50%"></td>
+            <td style="width: 25%">{{ labels.giftWrapping }}:</td>
+            <td style="width: 25%; text-align: right; padding-right: 40px;">
+              {% if giftWrap.subtotal %}
+                $ {{ giftWrap.subtotal|floatformat(2) }}
+              {% else %}
+                $ 0.00
+              {% endif %}
+            </td>
+          </tr>
+        {% endif %}
+        {% if customStateTaxApplies %}
+        <tr>
+          <td style="width: 50%"></td>
+          <td style="width: 25%">{{ labels.tax }}:</td>
+          {% with customStateTax|first as customStateTaxValue %}
+          {% with model.taxTotal|subtract(customStateTaxValue) as taxMinusStateTax %}
+          {% with taxMinusStateTax|floatformat(2) as taxMinusStateTaxFormatted %}
+          <td style="width: 25%; text-align: right; padding-right: 40px;">$ {{ taxMinusStateTaxFormatted }} </td>
+          {% endwith %}
+          {% endwith %}
+          {% endwith %}
+        </tr>
+        <tr>
+          <td style="width: 50%"></td>
+          <td style="width: 25%">{{ labels.regulatoryStateTax }}:</td>
+          <td style="width: 25%; text-align: right; padding-right: 40px;">$ {{ customStateTax|first|floatformat(2) }}</td>
+        </tr>
+        {% else %}
+        <tr>
+          <td style="width: 50%"></td>
+          <td style="width: 25%">{{ labels.tax }}:</td>
+          <td style="width: 25%; text-align: right; padding-right: 40px;">$ {{ model.taxTotal|floatformat(2) }} </td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td style="width: 50%"></td>
+          <td style="width: 25%">{{ labels.total }}:</td>
+          <td style="width: 25%; text-align: right; padding-right: 40px;">$ {{ model.total|floatformat(2) }}</td>
+        </tr>
+        {% if model.discountTotal > 0 %}
+        <tr>
+          <td style="width: 50%"></td>
+          <td style="width: 25%; color: #FF0000;"><strong>{{ labels.emailYouSaved }}:</strong></td>
+          <td style="width: 25%; text-align: right; padding-right: 40px; color: #FF0000"><strong>$ {{ model.discountTotal|floatformat(2) }}</strong></td>
+        </tr>
+        {% endif %}
+      </table>
+      {% endwith %}
+
+      {% if model.shopperNotes.comments %}
+        <h5>{{ labels.comments }}</h5><br>
+        <p>{{ model.shopperNotes.comments }}</p>
+      {% endif %}
+
+      {% if model.shopperNotes.giftMessage %}
+        <h5>{{ labels.giftMessage }}</h5><br>
+        <p>{{ model.shopperNotes.giftMessage }}</p>
+      {% endif %}
+
+      {% comment %}
+      {% if model.discountTotal != "0.00" and model.discountTotal != "0.0" %}
+      <div style="color: red; margin-top: 25px; margin-bottom: 5px; text-align: center;">Congratulations! You saved $ {{ model.discountTotal|floatformat(2) }}</div>
+      {% endif %}
+      <br>
+      {% endcomment %}
+
+      <hr/>
+      {% if activeSiteParam != "atticsalt" and activeSiteParam != "niquead" %}
+        <p>{{ labels.emailAdditionalInfo1|string_format(activeSiteParam)|safe }}</p>
+      {% endif %}
+      {% if activeSiteParam != "niquead" %}
+      <p>{{ labels.emailAdditionalInfo2|string_format(siteName, activeSiteParam)|safe }}</p>
+      {% endif %}
+      <br>
+
+      <table width="100%" cellpadding="1" width="100%">
+        <tr style="text-align: center;">
+          <td style="padding-bottom: 30px; padding-top: 10px">
+            {% block email-fw-container %}
+              <div class="container-fluid fw-container hello">
+                <div class="row">
+                  {% dropzone "email-container-fluid" scope="page" %}
+                </div>
+              </div>
+            {% endblock email-fw-container %}
+          </td>
+        </tr>
+      </table>
+      {% if activeSiteParam == "niquead" %}
+        <div style="display: block; text-align: center; width: 100%; background-color: #0A2240; padding-top: 10px; padding-bottom: 10px;">
+      {% else %}
+        <div style="display: block; text-align: center; width: 100%; background-color: grey; padding-top: 10px; padding-bottom: 10px;">
+      {% endif %}
+          {% if facebookUrl != "" %}<a href="{{ facebookUrl }}" target="_blank"><img src="{{ facebookIconUrl }}" alt="{{ facebookAlt }}" width="25" height="25" style="margin-right: 20px;" /></a>{% endif %}
+          {% if instagramUrl != "" %}<a href="{{ instagramUrl }}" target="_blank"><img src="{{ instagramIconUrl }}" alt="{{ instagramAlt }}" width="25" height="25" style="margin-right: 20px;" /></a>{% endif %}
+          {% if pinterestUrl != "" %}<a href="{{ pinterestUrl }}" target="_blank"><img src="{{ pinterestIconUrl }}" alt="{{ pinterestAlt }}" width="25" height="25" style="margin-right: 20px;" /></a>{% endif %}
+          {% if twitterUrl != "" %}<a href="{{ twitterUrl }}" target="_blank"><img src="{{ twitterIconUrl }}" alt="{{ twitterAlt }}" width="25" height="25" /></a>{% endif %}
+      </div>
+      {% if activeSiteParam == "niquead" %}
+        {% if domainName and domainName == nqdProdEnv %}
+          <p style="text-align: center"><a href="https://{{nqdProdEnv}}/contact-us">{{ labels.emailCustomerService }}</a></p>
+        {% else %}
+          <p style="text-align: center"><a href="https://{{nqdUatEnv}}/contact-us">{{ labels.emailCustomerService }}</a></p>
+        {% endif %}
+      {% else %}
+        <p style="text-align: center"><a href="https://{{domainName}}/customer-service">{{ labels.emailCustomerService }}</a></p>
+      {% endif %}
+      <div style="text-align: center; font-size: small">
+          <hr/>
+          <br>
+          <br>
+          {% if activeSiteParam == "atticsalt" %}
+            {{ labels.emailClosingText|string_format("Fuego")|safe }}
+          {% else %}
+            {% if activeSiteParam == "calendars" %}
+              {{ labels.emailClosingText|string_format(siteName)|safe }}
+            {% else %}
+              {{ labels.emailClosingText|string_format("Calendar Holdings")|safe }}
+            {% endif %}
+          {% endif %}
+      </div>
+    </div>
+  </div>
 {% endblock body-content %}

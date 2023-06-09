@@ -1,0 +1,107 @@
+﻿.mz-facetingform {
+    h4 {
+        border-bottom: 1px solid #e1e1e1;
+        margin: @gutter/2 0;
+        font-size: @fontSize;
+        text-transform: uppercase;
+        padding-bottom: @gutter - 5;
+    }
+    .mz-facetingform-facet {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li {
+            margin: 8px 0;
+            input[type=checkbox] {
+                display: none;
+            }
+            &.color-options {
+                float: left;
+                width: 52px;
+                height: 52px;
+                margin: 3px 10px 7px 0;
+                position: relative;
+                &:after, &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                }
+                &:after {
+                    border: 1px solid #e1e1e1;
+                    width: 52px;
+                    height: 52px;
+                    left: -2px;
+                    top: -2px;
+                }
+                &:before {
+                    border: 2px solid #fff;
+                    width:52px;
+                    height:52px;
+                    left: -1px;
+                    top: -1px;
+                }
+
+              &.active {
+                  display: block;
+                    &:after {
+                        border: 2px solid #333;
+                    }
+                }
+                label {
+                    display: none;
+                }
+                input[type=checkbox] {
+                    opacity: 0;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    width: 50px;
+                    height: 50px;
+                    float: left;
+                    display: block;
+                    z-index: 2;
+                    position: absolute;
+                }
+            }
+            &.show-more-li {
+                float: left;
+                width: 100%;
+                .clearfix();
+            }
+        }
+        a {
+            text-decoration: none;
+            &.show-more {
+                text-transform: uppercase;
+            }
+        }
+    }
+    .mz-facetingform-valuelabel {
+        display: block;
+        font-size: 14px;
+        text-transform: capitalize;
+    }
+    .mz-facetingform-facet-hierarchy {
+        .mz-facetingform-facet-hierarchy {
+            li {
+                margin: 0 0 4px 0.5em;
+                line-height: 1em;
+                &::before {
+                    display: inline-block;
+                    content: "\221F";
+                    font-size: 20px;
+                }
+            }
+        }
+        &.stars {
+            span.fa-star {
+                color: #e1e1e1;
+                font-size: 20px;
+                margin-right: @gutter/2;
+                &.active {
+                    color: #000;
+                }
+            }
+        }
+    }
+}

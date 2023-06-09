@@ -1,0 +1,104 @@
+﻿.mz-productimages {
+    .mz-productimages-main {
+        display: block;
+        .mz-productimages-mainimage {
+            max-width: 100%;
+        }
+    }
+    .mz-productimages-thumbs {
+        display: block;
+         width: 100%;
+    }
+    .mz-productimages-thumb {
+        display: inline-block;
+        margin: @gutter/2 @gutter/2 0 0;
+        border: 1px solid #999;
+        &:hover {
+            border-color: #ccc;
+        }
+    }
+}
+
+@owlactive: #f5a623;
+
+.mz-productimages {
+    width: 100%;
+	float: left;
+	position: relative;
+    .prod-previous {
+        top: 45%;
+        z-index: 2;
+        left: 6%;
+        cursor: pointer;
+        position: absolute;
+    }
+    .prod-next {
+        top: 45%;
+        z-index: 2;
+        right: 6%;
+        cursor: pointer;
+        position: absolute;
+    }
+    .mz-productimages-main {
+        width: auto;
+        height: auto;
+        max-width: 620px;
+        margin-left: auto;
+        margin-top: 20px;
+        max-height: 746px;
+        text-align: center;
+        margin-right: auto;
+        @media (min-width: 320px) and (max-width: 767px) {
+            max-height: 290px;
+        }
+        .mz-productimages-mainimage {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            vertical-align: middle;
+            max-height: 540px;
+            @media (min-width: 320px) and (max-width: 767px) {
+                max-height: 290px;
+            }
+        }
+    }
+    .owl-carousel .owl-item img {
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+        max-width: 100%;
+        vertical-align: middle; 
+        max-height: 540px;
+        @media (max-width: 767px) {
+            max-height: 290px;
+        }
+    }
+    .owl-theme .owl-dots .owl-dot {
+        display: inline-block;
+    }
+    .owl-theme .owl-dots .owl-dot span {
+        margin: 10px;
+        width: 15.6px;
+        height: 15.6px; 
+        background: @white;
+        @media (min-width: 768px) and (max-width: 1024px) {
+            margin: 5px;
+            width: 12px;
+            height: 12px;
+        }
+        @media (min-width: 320px) and (max-width: 767px) {
+            margin: 5px;
+            height: 10px;
+            width: 10.2px;
+        }
+    }
+    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+        background: @owlactive;
+    }
+    .owl-theme .owl-controls {
+        width: 100%;
+        position: absolute;
+        bottom: 1%;
+        margin-bottom: 0.4rem;
+    }
+}

@@ -1,0 +1,134 @@
+﻿@fontFamily:            {{ themeSettings.primaryFont }}, sans-serif;
+@fontSize:              {{ themeSettings.fontSize }};
+@fontSizeSmall:         @fontSize - 2px;
+@fontSizeLarger:        @fontSize + 2px;
+@fontSizeLarge:         @fontSize + 6px;
+@storeBrandingFontSize: 36px;
+
+@textColor:             {{ themeSettings.textColor }};
+@linkColor:             #4F4F4F;
+@linkHoverColor:        #666;
+@linkVisitedColor:      #3F3F3F;
+@errorText:             #b94a48;
+@errorBackground:       #f2dede;
+@warningText:           @textColor;
+@warningBackground:     #ffefcf;
+@successText:           @textColor;
+@successBackground:     #eef2ee;
+
+@availableText:         #237e0e;
+@unavailableText:       #ae1231;
+
+@bodyBackgroundColor:   {{ themeSettings.bodyBackgroundColor }};
+@highlightColor:        #ffffe0;
+
+@errorBorder:           darken(spin(@errorBackground, -10), 3%);
+@successBorder:         darken(spin(@successBackground, -10), 3%);
+@warningBorder:         darken(spin(@warningBackground, -10), 3%);
+
+@errorIcon:				"../resources/images/error-exclamation.png";
+@successIcon:				"../resources/images/success-exclamation.png";
+@columnWidth-2col:		435px;
+@gutter:				{{themeSettings.gutterWidth}};
+@inputBorder:			#a7a7a7;
+@imagePlaceholderLoader:url(../resources/images/bx_loader.gif);
+
+@defaultTileHeight:            250px;
+@defaultTileWidth:             250px;
+@productTileHeight:            360px;
+@productTileWidth:             @defaultTileWidth;
+@addressTileHeight:            240px;
+@addressTileWidth:             @defaultTileWidth;
+@productImagesContainerWidth:  {{ themeSettings.productImagesContainerWidth }}px;
+@orderDetailWidth:      200px;
+@itemListingThumbSize:  {{ themeSettings.itemListingThumbSize }}px;
+@productListingThumbSize: {{ themeSettings.listProductThumbSize }}px;
+
+/* Colors */
+@primaryColor: #002C50;
+@secondaryColor: #0EB1C9;
+@navBorder: #48708a;
+@colorWhite: #FFFFFF;
+@colorGray: #333333;
+@colorMediumGray: #666666;
+@colorLighterGray: #9E9E9E;
+@colorLightGray: #E1E1E1;
+@colorOrange: #FFB540;
+@colorGreen: #7AB332;
+@defaultGutter: @gutter;
+@mobileRowHeight: 50px;
+@colorDarkGray: #393939;
+@facetColorBox: 50px;
+@bgGray: #f8f8f8;
+@masala: #4a4a4a;
+@black: #000000;
+@orange: #f5a623;           //
+@white: #ffffff;
+@yellow: #f8e71c;
+@red: #D50000;
+@mystic-orangered: #fa451c;
+@table-bg-accent: #f9f9f9;
+@btnGrayDarkHover: #e3e3e3;
+@secondaryBtnColor:#FFCE06;
+@grayContrastAA: #767676;
+@viewCartLink: #6c6c6c;
+@disabledButton: var(--disabled-button-color);
+
+@colorMediumGray: @colorLightGray;
+@primaryGreyBtnBgClr: @colorLightGray;
+@rgbInputborderClr: @colorLightGray;
+@rgbaInputAcctPage: rgba(209,211,212,1);
+@placeholderInputClr: @colorLightGray;
+@focusInputborderClr: @colorDarkGray;
+@minionProHeadingClr: @colorDarkGray;
+@crossedoutPriceClr: @colorLightGray;
+
+// THEME SPECIFIC FONTS -----
+
+@montserrat: 'Montserrat', sans-serif;
+@roboto: 'Roboto', sans-serif;
+
+.montserrat {
+    font-family: @montserrat;
+    font-weight: 400;
+}
+.montserrat-black {
+    font-family: @montserrat;
+    font-weight: 900;
+}
+
+.roboto-thin, .roboto-thin-italic {
+    font-family: @roboto;
+    font-weight: 100;
+}
+.roboto-light {
+    font-family: @roboto;
+    font-weight: 300;
+}
+.roboto-normal {
+    font-family: @roboto;
+    font-weight: 400;
+}
+.roboto-medium {
+    font-family: @roboto;
+    font-weight: 500;
+}
+.roboto-bold, .roboto-black {
+    font-family: @roboto;
+    font-weight: 700;
+}
+
+//** Background color for `<body>`.
+@body-bg:               @bgGray;
+//** Global text color on `<body>`.
+@text-color:            @masala;
+
+//** Global textual link color.
+@link-color:            @masala;
+
+@gray-base:              @black;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee

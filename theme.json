@@ -1,23 +1,31 @@
 {
   "about": {
-    "author": "Mozu",
+    "author": "ankur garha",
     "defaultLanguage": "en-US",
     "extends": null,
     "isDesktop": true,
-    "isMobile": false,
-    "isTablet": false,
-    "name": "Mozu.CoreTheme",
-    "allowProduction": true
+    "isMobile": true,
+    "isTablet": true,
+    "name": "MyFirstTheme",
+    "allowProduction": true,
+    "baseTheme": "https://github.com/mozu/core-theme.git",
+    "baseThemeVersion": {
+      "commit": "8bf2cc5e8af8d863516815ae660df0f5dfa7196e",
+      "version": "9.4.1"
+    },
+    "baseThemeChannel": "stable"
   },
   "editors": [
+    {
+      "id": "rti-rec-editor",
+      "path": "rti-rec-editor.js"
+    },
     {
       "id": "layout",
       "path": "layout.js"
     },
     {
-      "documentTypes": [
-        "web_page@mozu"
-      ],
+      "documentTypes": ["web_page@mozu"],
       "id": "web_page@mozu",
       "path": "web_page.js",
       "priority": 0.2
@@ -37,9 +45,7 @@
     {
       "id": "email@mozu",
       "path": "email.js",
-      "documentLists": [
-        "emailTemplateContent@mozu"
-      ],
+      "documentLists": ["emailTemplateContent@mozu"],
       "priority": 0.2
     },
     {
@@ -53,23 +59,19 @@
     {
       "id": "pageTemplateContent@mozu",
       "path": "pageTemplateContent.js",
-      "documentTypes": [
-        "pageTemplateContent@mozu"
-      ],
+      "documentTypes": ["pageTemplateContent@mozu"],
       "priority": 0.2
     },
     {
       "id": "productContent@mozu",
       "path": "productContent.js",
-      "documentTypes": [
-        "productContent@mozu"
-      ],
+      "documentTypes": ["productContent@mozu"],
       "priority": 0.2
     },
     {
       "id": "categoryContent@mozu",
       "path": "categoryContent.js",
-      "documentTypes": [ "categoryContent@mozu" ],
+      "documentTypes": ["categoryContent@mozu"],
       "priority": 0.2
     },
     {
@@ -81,32 +83,19 @@
       "id": "borderFreeOrderTrackingEditor",
       "path": "borderFreeOrderTrackingEditor.js",
       "priority": 0.2
+    },
+    {
+      "id": "reseller-ratings",
+      "path": "resellerratings.js",
+      "priority": 0.2
     }
   ],
   "emailTemplates": [
     {
-      "id": "order.shipped",
+      "id": "shipment.fulfilled",
       "properties": {},
       "template": "email/order-shipped",
       "title": "Your Order Has Shipped"
-    },
-    {
-      "id": "order.cancelled",
-      "properties": {},
-      "template": "email/order-cancel",
-      "title": "Order Canceled"
-    },
-    {
-      "id": "order.cancelled.POSE",
-      "properties": {},
-      "template": "email/order-cancel",
-      "title": "Order Canceled POSE"
-    },
-    {
-      "id": "shipment.itemscanceled",
-      "properties": {},
-      "template": "email/item-cancel",
-      "title": "Item Canceled"
     },
     {
       "id": "checkout.changed",
@@ -121,30 +110,6 @@
       "properties": {},
       "template": "email/order-confirmation",
       "title": "Order Confirmation"
-    },
-    {
-      "id": "shipment.pickupready",
-      "properties": {},
-      "template": "email/order-pickup-ready",
-      "title": "Order Pickup Ready"
-    },
-    {
-      "id": "shipment.pickupreminder",
-      "properties": {},
-      "template": "email/order-pickup-reminder",
-      "title": "Order Pickup Reminder"
-    },
-    {
-      "id": "shipment.partialpickupready",
-      "properties": {},
-      "template": "email/partial-pickup-ready",
-      "title": "Partial Pickup Ready"
-    },
-    {
-      "id": "shipment.transfercreatedbyfulfiller",
-      "properties": {},
-      "template": "email/transfer-shipment-created-fulfiller",
-      "title": "Transfer Created By Fulfiller"
     },
     {
       "id": "refund.created",
@@ -183,24 +148,6 @@
       "title": "Return Has Been Updated"
     },
     {
-      "id": "shipment.transfercreated",
-      "properties": {},
-      "template": "email/transfer-shipment-created",
-      "title": "Transfer Shipment Created"
-    },
-    {
-      "id": "shipment.transfershipped",
-      "properties": {},
-      "template": "email/transfer-shipment-shipped",
-      "title": "Transfer Shipment Shipped"
-    },
-    {
-      "id": "shipment.fulfilled",
-      "properties": {},
-      "template": "email/shipment-confirmation",
-      "title": "Your Shipment Has Shipped"
-    },
-    {
       "id": "user.created",
       "properties": {},
       "template": "email/new-user",
@@ -213,36 +160,6 @@
       "title": "Password Reset"
     },
     {
-      "id": "b2baccount.created",
-      "properties": {},
-      "template": "email/b2b-account-created",
-      "title": "B2B Account Created"
-    },
-    {
-      "id": "b2baccount.accountinactive",
-      "properties": {},
-      "template": "email/b2b-account-inactive",
-      "title": "B2B Account Inactive"
-    },
-    {
-      "id": "b2baccount.accountdenied",
-      "properties": {},
-      "template": "email/b2b-account-denied",
-      "title": "B2B Account Denied"
-    },
-    {
-      "id": "shipment.backordered",
-      "properties": {},
-      "template": "email/backorder",
-      "title": "Backorder"
-    },
-    {
-      "id": "shipment.backorderdatechanged",
-      "properties": {},
-      "template": "email/backorder-update",
-      "title": "Backorder Update"
-    },
-    {
       "id": "product.instock",
       "properties": {},
       "template": "email/product-instock",
@@ -253,162 +170,6 @@
       "properties": {},
       "template": "email/giftcard-created",
       "title": "Gift Card Created"
-    },
-    {
-      "id": "gatewaygiftcard.created",
-      "properties": {},
-      "template": "email/gateway-giftcard-created",
-      "title": "Gateway Gift Card Created"
-    },
-    {
-      "id": "shipment.assigned",
-      "properties": {},
-      "template": "email/shipment-assignment",
-      "title": "Shipment Assignment"
-    },
-    {
-      "id": "shipment.intransitconfirmation",
-      "properties": {},
-      "template": "email/curbside-confirmation",
-      "title": "Customer In Transit Confirmation"
-    },
-    {
-      "id": "shipment.curbsideready",
-      "properties": {},
-      "template": "email/curbside-pickup-ready",
-      "title": "Curbside Order Pickup Ready"
-    },
-    {
-      "id": "shipment.partialcurbsideready",
-      "properties": {},
-      "template": "email/curbside-partial-pickup-ready",
-      "title": "Curbside Partial Pickup Ready"
-    },
-    {
-      "id": "shipment.customeratcurbside",
-      "properties": {},
-      "template": "email/curbside-customer",
-      "title": "Customer At Curbside"
-    },
-    {
-      "id": "shipment.customerintransit",
-      "properties": {},
-      "template": "email/curbside-intransit",
-      "title": "Customer In Transit"
-    },
-    {
-      "id": "quote.summary",
-      "properties": {},
-      "template": "email/quote-summary",
-      "title": "Quote Summary"
-    },
-    {
-      "id": "quote.inreview",
-      "properties": {},
-      "template": "email/quote-in-review",
-      "title": "Quote In Review"
-    },
-    {
-      "id": "quote.readyforcheckout",
-      "properties": {},
-      "template": "email/quote-ready-for-checkout",
-      "title": "Quote Ready for Checkout"
-    },
-    {
-      "id": "quote.expired",
-      "properties": {},
-      "template": "email/quote-expired",
-      "title": "Quote Expired"
-    },
-    {
-      "id": "order.cancelfailed",
-      "properties": {},
-      "template": "email/order-cancel-failed",
-      "title": "Order Cancel Failed"
-    },
-    {
-      "id": "subscription.skipped",
-      "properties": {},
-      "template": "email/subscription-skipped",
-      "title": "Subscription Skipped"
-    },
-    {
-      "id": "subscription.paused",
-      "properties": {},
-      "template": "email/subscription-paused",
-      "title": "Subscription Paused"
-    },
-    {
-      "id": "subscription.cancelled",
-      "properties": {},
-      "template": "email/subscription-cancelled",
-      "title": "Subscription Cancelled"
-    },
-    {
-      "id": "subscription.activated",
-      "properties": {},
-      "template": "email/subscription-activated",
-      "title": "Subscription Activated"
-    },
-    {
-      "id": "subscription.errored",
-      "properties": {},
-      "template": "email/subscription-errored",
-      "title": "Subscription Errored"
-    },
-    {
-      "id": "subscription.paymentupdated",
-      "properties": {},
-      "template": "email/subscription-payment-updated",
-      "title": "Subscription Payment Updated"
-    },
-    {
-      "id": "subscription.itemadded",
-      "properties": {},
-      "template": "email/subscription-item-added",
-      "title": "Item added to Subscription"
-    },
-    {
-      "id": "subscription.fulfillmentinfoupdated",
-      "properties": {},
-      "template": "email/subscription-fulfillment-info-updated",
-      "title": "Subscription Shipping Info Updated"
-    },
-    {
-      "id": "subscription.itemremoved",
-      "properties": {},
-      "template": "email/subscription-item-removed",
-      "title": "Item Removed from subscription"
-    },
-    {
-      "id": "subscription.itemquantityupdated",
-      "properties": {},
-      "template": "email/subscription-item-quantity-updated",
-      "title": "Item quantity updated on subscription"
-    },
-    {
-      "id": "subscription.frequencychanged",
-      "properties": {},
-      "template": "email/subscription-frequency-changed",
-      "title": "Subscription Frequency Updated"
-    },
-    {
-      "id": "subscription.nextorderdatechanged",
-      "properties": {},
-      "template": "email/subscription-next-order-date-updated",
-      "title": "Subscription Next Order Date Updated"
-    },
-    {
-      "id": "subscription.orderreminder",
-      "properties": {},
-      "template": "email/subscription-order-reminder",
-      "title": "Your upcoming subscription order"
-    },
-    {
-      "id": "subscription.reactivationreminder",
-      "properties": {},
-      "template": "email/subscription-reactivation-reminder",
-      "title": "Subscription reactivation reminder"
     }
   ],
   "backOfficeTemplates": [
@@ -423,221 +184,6 @@
       "title": "Packing Slip",
       "template": "back-office/packing-slip",
       "customEditor": "back-office@mozu"
-    },
-    {
-      "id": "transfer-packing-slip",
-      "title": "Transfer Packing Slip",
-      "template": "back-office/transfer-packing-slip",
-      "customEditor": "back-office@mozu"
-    },
-    {
-      "id": "pick-list",
-      "title": "Pick List",
-      "template": "back-office/pick-list",
-      "customEditor": "back-office@mozu"
-    },
-    {
-      "id": "order-pick-sheet",
-      "title": "Order Pick Sheet",
-      "template": "back-office/order-pick-sheet",
-      "customEditor": "back-office@mozu"
-    },
-    {
-      "id": "pick-wave-print",
-      "title": "Pick Wave Print",
-      "template": "back-office/pick-wave-print",
-      "customEditor": "back-office@mozu"
-    },
-    {
-      "id": "mobile-notification",
-      "title": "Mobile Notification",
-      "template": "back-office/mobile-notification",
-      "customEditor": "back-office@mozu"
-    },
-    {
-      "id": "return-receipt",
-      "title": "Return Receipt",
-      "template": "back-office/return-receipt",
-      "customEditor": "back-office@mozu"
-    },
-    {
-      "id": "curbside-arrive",
-      "title": "Curbside Arrive",
-      "template": "back-office/curbside-arrive",
-      "customEditor": "back-office@mozu"
-    },
-    {
-      "id": "curbside-seeyousoon",
-      "title": "Curbside SeeYouSoon",
-      "template": "back-office/curbside-see-you-soon",
-      "customEditor": "back-office@mozu"
-    },
-    {
-      "entityType": "customer-at-curbside",
-      "id": "customer-at-curbside",
-      "template": "back-office/customer-at-curbside",
-      "title": "Customer At Curbside",
-      "userCreatable": false
-    },
-    {
-      "entityType": "customer-at-curbside",
-      "id": "customer-at-curbside-qrcode",
-      "template": "back-office/customer-at-curbside",
-      "title": "Customer At Curbside QRCode",
-      "userCreatable": false
-    },
-    {
-      "entityType": "curbsideShipmentReady",
-      "id": "curbside-shipment-ready",
-      "template": "back-office/curbside-shipment-ready",
-      "title": "Curbside Shipment Ready",
-      "userCreatable": false
-    },
-    {
-      "entityType": "curbside-customer-survey",
-      "id": "curbside-customer-survey",
-      "template": "back-office/curbside-customer-survey",
-      "title": "Curbside Customer Survey",
-      "userCreatable": false
-    },
-    {
-      "entityType": "shipmentPickupReady",
-      "id": "shipment-pickup-ready",
-      "template": "back-office/shipment-pickup-ready",
-      "title": "Shipment Pickup Ready",
-      "userCreatable": false
-    },
-    {
-      "entityType": "customerOnWayconfirmationn",
-      "id": "customer-on-way-confirmation",
-      "template": "back-office/customer-on-way-confirmation",
-      "title": "Customer On Way Confirmation",
-      "userCreatable": false
-    },
-    {
-      "entityType": "customerAtStoreConfirmation",
-      "id": "customer-at-store-confirmation",
-      "template": "back-office/customer-at-store-confirmation",
-      "title": "Customer At Store Confirmation",
-      "userCreatable": false
-    },
-    {
-      "entityType": "curbside-partial-pickup-ready",
-      "id": "curbside-partial-pickup-ready",
-      "template": "back-office/curbside-partial-pickup-ready",
-      "title": "Curbside Partial Pickup Ready",
-      "userCreatable": false
-    },
-    {
-      "entityType": "quote.summary",
-      "id": "quote.summary",
-      "template": "back-office/quote-summary",
-      "title": "Quote Summary",
-      "userCreatable": false
-    },
-    {
-      "id": "shipment.deliverydateupdated",
-      "properties": {},
-      "template": "email/expected-delivery-date-update.hypr",
-      "title": "Expected Delivery Date Updated"
-    },
-    {
-      "id": "shipment.readyfordelivery",
-      "properties": {},
-      "template": "email/items-ready-for-delivery.hypr",
-      "title": "Items Ready For Delivery"
-    }
-  ],
-  "mobileNotificationTemplates": [
-    {
-      "id": "shipment.itemscanceled",
-      "properties": {},
-      "template": "mobile-notification/shipment-cancel",
-      "title": "Item Canceled"
-    },
-    {
-      "id": "shipment.assigned",
-      "properties": {},
-      "template": "mobile-notification/shipment-assignment",
-      "title": "Shipment Assignment"
-    },
-    {
-      "id": "shipment.fulfilled",
-      "properties": {},
-      "template": "mobile-notification/shipment-fulfilled",
-      "title": "Your Order Has Shipped"
-    },
-    {
-      "id": "shipment.intransitconfirmation",
-      "properties": {},
-      "template": "mobile-notification/curbside-confirmation",
-      "title": "Customer In Transit Confirmation"
-    },
-    {
-      "id": "shipment.customeratcurbside",
-      "properties": {},
-      "template": "mobile-notification/curbside-customer",
-      "title": "Customer At Curbside"
-    },
-    {
-      "id": "shipment.customerintransit",
-      "properties": {},
-      "template": "mobile-notification/curbside-intransit",
-      "title": "Customer In Transit"
-    },
-    {
-      "id": "order.changed",
-      "properties": {},
-      "template": "mobile-notification/order-confirmation",
-      "title": "Order Confirmation"
-    },
-    {
-      "id": "shipment.itemscanceled.store",
-      "properties": {},
-      "template": "mobile-notification/shipment-cancel-store",
-      "title": "Item Canceled By Fulfiller"
-    },
-    {
-      "id": "shipment.partialcurbsideready",
-      "properties": {},
-      "template": "mobile-notification/partial-curbside-ready",
-      "title": "Partial Curbside Ready"
-    },
-    {
-      "id": "shipment.curbsideready",
-      "properties": {},
-      "template": "mobile-notification/order-curbside-ready",
-      "title": "Curbside Ready"
-    },
-    {
-      "id": "order.optoutack",
-      "properties": {},
-      "template": "mobile-notification/opt-out-acknowledgement",
-      "title": "Opt Out Acknowledgement"
-    },
-    {
-      "id": "shipment.pickupreminder",
-      "properties": {},
-      "template": "mobile-notification/pickup-reminder",
-      "title": "Pickup Reminder"
-    },
-    {
-      "id": "shipment.pickupready",
-      "properties": {},
-      "template": "mobile-notification/ready-for-pickup",
-      "title": "Pickup Ready"
-    },
-    {
-      "id": "shipment.partialpickupready",
-      "properties": {},
-      "template": "mobile-notification/partial-ready-for-pickup",
-      "title": "Partial Pickup Ready"
-    },
-    {
-      "id": "shipment.customeratstore",
-      "properties": {},
-      "template": "mobile-notification/curbside-customer-at-store",
-      "title": "Customer At Store"
     }
   ],
   "pageTypes": [
@@ -708,6 +254,14 @@
     {
       "documentType": "web_page",
       "entityType": "webpage",
+      "id": "home-full-width",
+      "template": "home-full-width",
+      "title": "Home Page Full",
+      "userCreatable": true
+    },
+    {
+      "documentType": "web_page",
+      "entityType": "webpage",
       "id": "home",
       "template": "home",
       "title": "Home Page",
@@ -716,9 +270,50 @@
     {
       "documentType": "web_page",
       "entityType": "webpage",
+      "id": "home-lang",
+      "template": "home-lang",
+      "title": "Lang Home Page",
+      "userCreatable": true
+    },
+    {
+      "documentType": "web_page",
+      "entityType": "webpage",
       "id": "location",
       "template": "location",
       "title": "Store Locator",
+      "userCreatable": true
+    },
+    {
+      "documentType": "web_page",
+      "entityType": "webpage",
+      "id": "catalog-request",
+      "template": "catalog-request",
+      "title": "Catalog Request",
+      "userCreatable": true
+    },
+    {
+      "documentType": "web_page",
+      "entityType": "webpage",
+      "id": "store-detail",
+      "template": "store-detail",
+      "title": "Store Locator Detail",
+      "userCreatable": true
+    },
+    {
+      "id": "print-order",
+      "title": "Print Order",
+      "entityType": "webpage",
+      "documentType": "web_page",
+      "template": "pages/print-order",
+      "customEditor": "back-office@mozu",
+      "userCreatable": true
+    },
+    {
+      "id": "print-return",
+      "title": "Print Return",
+      "entityType": "webpage",
+      "documentType": "web_page",
+      "template": "pages/print-return",
       "userCreatable": true
     },
     {
@@ -741,14 +336,6 @@
       "id": "product",
       "template": "product",
       "title": "Product",
-      "userCreatable": false,
-      "customEditor": "productContent@mozu"
-    },
-    {
-      "entityType": "product-collection",
-      "id": "product-collection",
-      "template": "product-collection",
-      "title": "Product Collection",
       "userCreatable": false,
       "customEditor": "productContent@mozu"
     },
@@ -826,30 +413,9 @@
     },
     {
       "entityType": "customer",
-      "id": "seller_account",
-      "template": "seller-account",
-      "title": "Seller Account",
-      "userCreatable": false
-    },
-    {
-      "entityType": "customer",
       "id": "b2b_account",
       "template": "b2b-account",
       "title": "B2B Account",
-      "userCreatable": false
-    },
-    {
-      "entityType": "customer",
-      "id": "view_b2baccount",
-      "template": "view-b2baccount",
-      "title": "View B2B Account",
-      "userCreatable": false
-    },
-    {
-      "entityType": "customer",
-      "id": "b2b_account_request",
-      "template": "b2b-account-request",
-      "title": "B2B Account Request",
       "userCreatable": false
     },
     {
@@ -893,28 +459,90 @@
       "template": "order-status",
       "title": "Order Status",
       "userCreatable": false
+    },
+    {
+      "documentType": "web_page",
+      "entityType": "webpage",
+      "id": "site-map",
+      "template": "site-map",
+      "title": "Site Map",
+      "userCreatable": true
+    },
+    {
+      "documentType": "web_page",
+      "entityType": "webpage",
+      "id": "email-signup",
+      "template": "email-signup",
+      "title": "Email Signup",
+      "userCreatable": true
+    },
+    {
+      "documentType": "web_page",
+      "entityType": "webpage",
+      "id": "customer-service",
+      "template": "customer-service",
+      "title": "Customer Service",
+      "userCreatable": true
     }
   ],
   "settings": {
-    "enableRecaptcha": false,
-    "recaptchaSiteKey": null,
+    "themeSelector": "calendars",
+    "calendarsRootCategoryCode": "cat00001",
+    "langRootCategoryCode": "cat10001",
+    "atticRootCategoryCode": "cat20001",
+    "outletRootCategoryCode": "cat30001",
+    "loginWithAmazonEnabled": true,
+    "loginWithAmazonClientId": null,
+    "loginWithAmazonSandbox": true,
+    "productStockLimitQtyProp": "tenant~stock-limit-quantity",
+    "productAttrBadge": "tenant~badge",
+    "showBadges": true,
+    "productAttrBackOrderDate": "tenant~backorder-date",
+    "productAttrPreOrderDate": "tenant~preorder-date",
+    "productBackPreOrderDateFmt": "mm/dd/yyyy",
+    "enableUPSAddressValidator": true,
     "__recaptchaSecrete": null,
-    "recaptchaType": "Invisible",
-    "recaptchaTheme": "light",
-    "recaptchaSize": "normal",
-    "recaptchaBadgePosition": "bottomright",
+    "addonProductsAtticSalt": "tenant~addon-products-attic-salt",
+    "allowCustomerInitiatedReturns": true,
     "allowFilterByLocationInventory": false,
-    "backofficeDateTimeFormat": "F j, Y",
-    "extendedPropertiesEnabled": false,
-    "extendedPropertyParameters": "",
-    "isCvvSuppressed": false,
-    "zipCodeEnabled": true,
-    "phoneNumberEnabled": true,
-    "billingEmailEnabled": true,
+    "alternativeImg": "",
+    "backofficeDateTimeFormat": "m/d/Y H:i:s O",
     "bannerImage": "/resources/images/banner.jpg",
     "bannerImageEnabled": false,
     "bannerImageRepeat": "repeat-x",
+    "billingEmailEnabled": true,
     "bodyBackgroundColor": "#FFFFFF",
+    "brandParentCategoryCode": "",
+    "brontoSiteId": "a5ae007bb383602bdfe08a8cce7255d7",
+    "brontoWebformId": "9v2pks7iuf79njd788fmdqg1qspfz",
+    "brontoSharedSecret": "calendars",
+    "atticSaltBrontoSiteId": "d86ef30196c3c0faecec32da4976afc9",
+    "atticSaltBrontoWebformId": "h10t0pg10v8l631wnuq8rrhjd2wp3",
+    "atticSaltBrontoSharedSecret": "atticsalt",
+    "cartEnableCheckoutWithThirdpartyPayment": false,
+    "categoryEntityName": "categoryattributes@cal",
+    "activeSiteEntityName": "useractivesite@cal",
+    "checkoutCommentsLength": 200,
+    "checkoutGiftMessageLength": 60,
+    "certonaRecPages": [],
+    "cityNameLength": 40,
+    "colorsCalMain": "#3f6db8",
+    "colorsATSMain": "#245062",
+    "colorsLangMain": "#cfdbb9",
+    "colorsLangFooterEmailColor": "#fff",
+    "colorsLangFooterEmailBackground": "#fff",
+    "colorsLangFooterEmailButton": "#535859",
+    "colorsLangSitenavBackground": "#cfdbb9",
+    "colorsLangHoverCartIconBackground": "#cfdbb9",
+    "freePromoThreshhold": 50,
+    "freePromoSpecialProductThreshold": 25,
+    "freePromoThresholdMessageDefaultCalendars": "Free Standard Shipping with ${0}+ {1} purchase or ALL Orders over ${2}!",
+    "freePromoThresholdMessageDefaultAttic": "Start shopping!<br>Free shipping when you purchase ${0}.",
+    "freePromoThresholdMessageLeftCalendars": "Buy more ${0} on {1} and receive Free Standard Shipping!",
+    "freePromoThresholdMessageLeftAttic": "Purchase ${0} more and get free Promotion.",
+    "freePromoThresholdMessageEarnedCalendars": "Congratulations! You qualify for FREE SHIPPING! ",
+    "freePromoThresholdMessageEarnedAttic": "You have earned free Promotion.",
+    "specialProductProductType": "Calendars",
     "cmsTextStyles": [
       {
         "className": "mz-style-1",
@@ -930,53 +558,1368 @@
         "tagName": "p"
       }
     ],
-    "defaultPageSize": 15,
+    "colorSwatchesChangeAlternate": false,
+    "colorSwatchesChangeMain": true,
+    "columnBreaker": "~",
+    "companyLogo": "/resources/images/logo-sm.png",
+    "couponCodeLength": 20,
+    "creditCardNumberLength": 16,
+    "customCountries": [
+      {
+        "key": "Albania",
+        "value": "AL"
+      },
+      {
+        "key": "Algeria",
+        "value": "DZ"
+      },
+      {
+        "key": "Andorra",
+        "value": "AD"
+      },
+      {
+        "key": "Angola",
+        "value": "AO"
+      },
+      {
+        "key": "Anguilla",
+        "value": "AI"
+      },
+      {
+        "key": "Antigua and Barbuda",
+        "value": "AG"
+      },
+      {
+        "key": "Argentina",
+        "value": "AR"
+      },
+      {
+        "key": "Armenia",
+        "value": "AM"
+      },
+      {
+        "key": "Aruba",
+        "value": "AW"
+      },
+      {
+        "key": "Australia",
+        "value": "AU"
+      },
+      {
+        "key": "Austria",
+        "value": "AT"
+      },
+      {
+        "key": "Azerbaijan",
+        "value": "AZ"
+      },
+      {
+        "key": "Bahamas",
+        "value": "BS"
+      },
+      {
+        "key": "Bahrain",
+        "value": "BH"
+      },
+      {
+        "key": "Bangladesh",
+        "value": "BD"
+      },
+      {
+        "key": "Barbados",
+        "value": "BB"
+      },
+      {
+        "key": "Belgium",
+        "value": "BE"
+      },
+      {
+        "key": "Belize",
+        "value": "BZ"
+      },
+      {
+        "key": "Benin",
+        "value": "BJ"
+      },
+      {
+        "key": "Bermuda",
+        "value": "BM"
+      },
+      {
+        "key": "Bhutan",
+        "value": "BT"
+      },
+      {
+        "key": "Bolivia",
+        "value": "BO"
+      },
+      {
+        "key": "Bosnia and Herzegovina",
+        "value": "BA"
+      },
+      {
+        "key": "Botswana",
+        "value": "BW"
+      },
+      {
+        "key": "Brazil",
+        "value": "BR"
+      },
+      {
+        "key": "Bulgaria",
+        "value": "BG"
+      },
+      {
+        "key": "Burundi",
+        "value": "BI"
+      },
+      {
+        "key": "Cambodia",
+        "value": "KH"
+      },
+      {
+        "key": "Cameroon",
+        "value": "CM"
+      },
+      {
+        "key": "Canada",
+        "value": "CA"
+      },
+      {
+        "key": "Cayman Islands",
+        "value": "KY"
+      },
+      {
+        "key": "Central African Republic",
+        "value": "CF"
+      },
+      {
+        "key": "Chad",
+        "value": "TD"
+      },
+      {
+        "key": "Chile",
+        "value": "CL"
+      },
+      {
+        "key": "China",
+        "value": "CN"
+      },
+      {
+        "key": "Colombia",
+        "value": "CO"
+      },
+      {
+        "key": "Congo",
+        "value": "CG"
+      },
+      {
+        "key": "Congo, The Democratic Republic of the",
+        "value": "CD"
+      },
+      {
+        "key": "Costa Rica",
+        "value": "CR"
+      },
+      {
+        "key": "Cote D'Ivoire",
+        "value": "CI"
+      },
+      {
+        "key": "Croatia",
+        "value": "HR"
+      },
+      {
+        "key": "Cyprus",
+        "value": "CY"
+      },
+      {
+        "key": "Czech Republic",
+        "value": "CZ"
+      },
+      {
+        "key": "Denmark",
+        "value": "DK"
+      },
+      {
+        "key": "Djibouti",
+        "value": "DJ"
+      },
+      {
+        "key": "Dominica",
+        "value": "DM"
+      },
+      {
+        "key": "Dominican Republic",
+        "value": "DO"
+      },
+      {
+        "key": "Ecuador",
+        "value": "EC"
+      },
+      {
+        "key": "Egypt",
+        "value": "EG"
+      },
+      {
+        "key": "El Salvador",
+        "value": "SV"
+      },
+      {
+        "key": "Equatorial Guinea",
+        "value": "GQ"
+      },
+      {
+        "key": "Eritrea",
+        "value": "ER"
+      },
+      {
+        "key": "Estonia",
+        "value": "EE"
+      },
+      {
+        "key": "Ethiopia",
+        "value": "ET"
+      },
+      {
+        "key": "Finland",
+        "value": "FI"
+      },
+      {
+        "key": "France",
+        "value": "FR"
+      },
+      {
+        "key": "French Guiana",
+        "value": "GF"
+      },
+      {
+        "key": "Gabon",
+        "value": "GA"
+      },
+      {
+        "key": "Gambia",
+        "value": "GM"
+      },
+      {
+        "key": "Georgia",
+        "value": "GE"
+      },
+      {
+        "key": "Germany",
+        "value": "DE"
+      },
+      {
+        "key": "Ghana",
+        "value": "GH"
+      },
+      {
+        "key": "Gibraltar",
+        "value": "GI"
+      },
+      {
+        "key": "Greece",
+        "value": "GR"
+      },
+      {
+        "key": "Grenada",
+        "value": "GD"
+      },
+      {
+        "key": "Guatemala",
+        "value": "GT"
+      },
+      {
+        "key": "Guinea",
+        "value": "GN"
+      },
+      {
+        "key": "Guinea-Bissau",
+        "value": "GW"
+      },
+      {
+        "key": "Guyana",
+        "value": "GY"
+      },
+      {
+        "key": "Haiti",
+        "value": "HT"
+      },
+      {
+        "key": "Honduras",
+        "value": "HN"
+      },
+      {
+        "key": "Hong Kong",
+        "value": "HK"
+      },
+      {
+        "key": "Hungary",
+        "value": "HU"
+      },
+      {
+        "key": "Iceland",
+        "value": "IS"
+      },
+      {
+        "key": "India",
+        "value": "IN"
+      },
+      {
+        "key": "Indonesia",
+        "value": "ID"
+      },
+      {
+        "key": "Iraq",
+        "value": "IQ"
+      },
+      {
+        "key": "Ireland",
+        "value": "IE"
+      },
+      {
+        "key": "Israel",
+        "value": "IL"
+      },
+      {
+        "key": "Italy",
+        "value": "IT"
+      },
+      {
+        "key": "Jamaica",
+        "value": "JM"
+      },
+      {
+        "key": "Japan",
+        "value": "JP"
+      },
+      {
+        "key": "Jordan",
+        "value": "JO"
+      },
+      {
+        "key": "Kazakhstan",
+        "value": "KZ"
+      },
+      {
+        "key": "Kenya",
+        "value": "KE"
+      },
+      {
+        "key": "Korea, Republic of",
+        "value": "KR"
+      },
+      {
+        "key": "Kuwait",
+        "value": "KW"
+      },
+      {
+        "key": "Kyrgyzstan",
+        "value": "KG"
+      },
+      {
+        "key": "Lao People'S Democratic Republic",
+        "value": "LA"
+      },
+      {
+        "key": "Latvia",
+        "value": "LV"
+      },
+      {
+        "key": "Lebanon",
+        "value": "LB"
+      },
+      {
+        "key": "Lesotho",
+        "value": "LS"
+      },
+      {
+        "key": "Liberia",
+        "value": "LR"
+      },
+      {
+        "key": "Liechtenstein",
+        "value": "LI"
+      },
+      {
+        "key": "Lithuania",
+        "value": "LT"
+      },
+      {
+        "key": "Luxembourg",
+        "value": "LU"
+      },
+      {
+        "key": "Macao",
+        "value": "MO"
+      },
+      {
+        "key": "Macedonia, The Former Yugoslav Republic of",
+        "value": "MK"
+      },
+      {
+        "key": "Madagascar",
+        "value": "MG"
+      },
+      {
+        "key": "Malawi",
+        "value": "MW"
+      },
+      {
+        "key": "Malaysia",
+        "value": "MY"
+      },
+      {
+        "key": "Mali",
+        "value": "ML"
+      },
+      {
+        "key": "Malta",
+        "value": "MT"
+      },
+      {
+        "key": "Mauritania",
+        "value": "MR"
+      },
+      {
+        "key": "Mauritius",
+        "value": "MU"
+      },
+      {
+        "key": "Mexico",
+        "value": "MX"
+      },
+      {
+        "key": "Moldova, Republic of",
+        "value": "MD"
+      },
+      {
+        "key": "Monaco",
+        "value": "MC"
+      },
+      {
+        "key": "Mongolia",
+        "value": "MN"
+      },
+      {
+        "key": "Montenegro",
+        "value": "ME"
+      },
+      {
+        "key": "Montserrat",
+        "value": "MS"
+      },
+      {
+        "key": "Morocco",
+        "value": "MA"
+      },
+      {
+        "key": "Mozambique",
+        "value": "MZ"
+      },
+      {
+        "key": "Namibia",
+        "value": "NA"
+      },
+      {
+        "key": "Nepal",
+        "value": "NP"
+      },
+      {
+        "key": "Netherlands",
+        "value": "NL"
+      },
+      {
+        "key": "Netherlands Antilles",
+        "value": "AN"
+      },
+      {
+        "key": "New Zealand",
+        "value": "NZ"
+      },
+      {
+        "key": "Nicaragua",
+        "value": "NI"
+      },
+      {
+        "key": "Niger",
+        "value": "NE"
+      },
+      {
+        "key": "Nigeria",
+        "value": "NG"
+      },
+      {
+        "key": "Norway",
+        "value": "NO"
+      },
+      {
+        "key": "Oman",
+        "value": "OM"
+      },
+      {
+        "key": "Pakistan",
+        "value": "PK"
+      },
+      {
+        "key": "Panama",
+        "value": "PA"
+      },
+      {
+        "key": "Papua New Guinea",
+        "value": "PG"
+      },
+      {
+        "key": "Paraguay",
+        "value": "PY"
+      },
+      {
+        "key": "Peru",
+        "value": "PE"
+      },
+      {
+        "key": "Philippines",
+        "value": "PH"
+      },
+      {
+        "key": "Poland",
+        "value": "PL"
+      },
+      {
+        "key": "Portugal",
+        "value": "PT"
+      },
+      {
+        "key": "Qatar",
+        "value": "QA"
+      },
+      {
+        "key": "Romania",
+        "value": "RO"
+      },
+      {
+        "key": "RWANDA",
+        "value": "RW"
+      },
+      {
+        "key": "Saint Kitts and Nevis",
+        "value": "KN"
+      },
+      {
+        "key": "Saint Lucia",
+        "value": "LC"
+      },
+      {
+        "key": "Samoa",
+        "value": "WS"
+      },
+      {
+        "key": "Saudi Arabia",
+        "value": "SA"
+      },
+      {
+        "key": "Senegal",
+        "value": "SN"
+      },
+      {
+        "key": "Serbia",
+        "value": "RS"
+      },
+      {
+        "key": "Sierra Leone",
+        "value": "SL"
+      },
+      {
+        "key": "Singapore",
+        "value": "SG"
+      },
+      {
+        "key": "Slovakia",
+        "value": "SK"
+      },
+      {
+        "key": "Slovenia",
+        "value": "SI"
+      },
+      {
+        "key": "South Africa",
+        "value": "ZA"
+      },
+      {
+        "key": "Spain",
+        "value": "ES"
+      },
+      {
+        "key": "Sri Lanka",
+        "value": "LK"
+      },
+      {
+        "key": "Suriname",
+        "value": "SR"
+      },
+      {
+        "key": "Swaziland",
+        "value": "SZ"
+      },
+      {
+        "key": "Sweden",
+        "value": "SE"
+      },
+      {
+        "key": "Switzerland",
+        "value": "CH"
+      },
+      {
+        "key": "Taiwan, Province of China",
+        "value": "TW"
+      },
+      {
+        "key": "Tajikistan",
+        "value": "TJ"
+      },
+      {
+        "key": "Tanzania, United Republic of",
+        "value": "TZ"
+      },
+      {
+        "key": "Thailand",
+        "value": "TH"
+      },
+      {
+        "key": "Timor-Leste",
+        "value": "TL"
+      },
+      {
+        "key": "Togo",
+        "value": "TG"
+      },
+      {
+        "key": "Trinidad and Tobago",
+        "value": "TT"
+      },
+      {
+        "key": "Turkey",
+        "value": "TR"
+      },
+      {
+        "key": "Turkmenistan",
+        "value": "TM"
+      },
+      {
+        "key": "Turks and Caicos Islands",
+        "value": "TC"
+      },
+      {
+        "key": "Uganda",
+        "value": "UG"
+      },
+      {
+        "key": "United Arab Emirates",
+        "value": "AE"
+      },
+      {
+        "key": "United Kingdom",
+        "value": "GB"
+      },
+      {
+        "key": "United States",
+        "value": "US"
+      },
+      {
+        "key": "Uruguay",
+        "value": "UY"
+      },
+      {
+        "key": "Uzbekistan",
+        "value": "UZ"
+      },
+      {
+        "key": "Venezuela",
+        "value": "VE"
+      },
+      {
+        "key": "Viet Nam",
+        "value": "VN"
+      },
+      {
+        "key": "Virgin Islands, British",
+        "value": "VG"
+      },
+      {
+        "key": "Zambia",
+        "value": "ZM"
+      },
+      {
+        "key": "Zimbabwe",
+        "value": "ZW"
+      }
+    ],
+    "customCountriesAtticSalt": [
+      {
+        "key": "United States",
+        "value": "US"
+      }
+    ],
+    "customStates": [
+      {
+        "key": "AL",
+        "value": "Alabama"
+      },
+      {
+        "key": "AK",
+        "value": "Alaska"
+      },
+      {
+        "key": "AZ",
+        "value": "Arizona"
+      },
+      {
+        "key": "AR",
+        "value": "Arkansas"
+      },
+      {
+        "key": "AA",
+        "value": "Armed Forces Americas"
+      },
+      {
+        "key": "AE",
+        "value": "Armed Forces Europe"
+      },
+      {
+        "key": "AP",
+        "value": "Armed Forces Pacific"
+      },
+      {
+        "key": "CA",
+        "value": "California"
+      },
+      {
+        "key": "CO",
+        "value": "Colorado"
+      },
+      {
+        "key": "CT",
+        "value": "Connecticut"
+      },
+      {
+        "key": "DE",
+        "value": "Delaware"
+      },
+      {
+        "key": "DC",
+        "value": "District Of Columbia"
+      },
+      {
+        "key": "FL",
+        "value": "Florida"
+      },
+      {
+        "key": "GA",
+        "value": "Georgia"
+      },
+      {
+        "key": "GU",
+        "value": "Guam"
+      },
+      {
+        "key": "HI",
+        "value": "Hawaii"
+      },
+      {
+        "key": "ID",
+        "value": "Idaho"
+      },
+      {
+        "key": "IL",
+        "value": "Illinois"
+      },
+      {
+        "key": "IN",
+        "value": "Indiana"
+      },
+      {
+        "key": "IA",
+        "value": "Iowa"
+      },
+      {
+        "key": "KS",
+        "value": "Kansas"
+      },
+      {
+        "key": "KY",
+        "value": "Kentucky"
+      },
+      {
+        "key": "LA",
+        "value": "Louisiana"
+      },
+      {
+        "key": "ME",
+        "value": "Maine"
+      },
+      {
+        "key": "MH",
+        "value": "Marshall Islands"
+      },
+      {
+        "key": "MD",
+        "value": "Maryland"
+      },
+      {
+        "key": "MA",
+        "value": "Massachusetts"
+      },
+      {
+        "key": "MI",
+        "value": "Michigan"
+      },
+      {
+        "key": "MN",
+        "value": "Minnesota"
+      },
+      {
+        "key": "MS",
+        "value": "Mississippi"
+      },
+      {
+        "key": "MO",
+        "value": "Missouri"
+      },
+      {
+        "key": "MT",
+        "value": "Montana"
+      },
+      {
+        "key": "NE",
+        "value": "Nebraska"
+      },
+      {
+        "key": "NV",
+        "value": "Nevada"
+      },
+      {
+        "key": "NH",
+        "value": "New Hampshire"
+      },
+      {
+        "key": "NJ",
+        "value": "New Jersey"
+      },
+      {
+        "key": "NM",
+        "value": "New Mexico"
+      },
+      {
+        "key": "NY",
+        "value": "New York"
+      },
+      {
+        "key": "NC",
+        "value": "North Carolina"
+      },
+      {
+        "key": "ND",
+        "value": "North Dakota"
+      },
+      {
+        "key": "MP",
+        "value": "Northern Mariana Islands"
+      },
+      {
+        "key": "OH",
+        "value": "Ohio"
+      },
+      {
+        "key": "OK",
+        "value": "Oklahoma"
+      },
+      {
+        "key": "OR",
+        "value": "Oregon"
+      },
+      {
+        "key": "PA",
+        "value": "Pennsylvania"
+      },
+      {
+        "key": "PR",
+        "value": "Puerto Rico"
+      },
+      {
+        "key": "RI",
+        "value": "Rhode Island"
+      },
+      {
+        "key": "SC",
+        "value": "South Carolina"
+      },
+      {
+        "key": "SD",
+        "value": "South Dakota"
+      },
+      {
+        "key": "TN",
+        "value": "Tennessee"
+      },
+      {
+        "key": "TX",
+        "value": "Texas"
+      },
+      {
+        "key": "UT",
+        "value": "Utah"
+      },
+      {
+        "key": "VT",
+        "value": "Vermont"
+      },
+      {
+        "key": "VI",
+        "value": "Virgin Islands"
+      },
+      {
+        "key": "VA",
+        "value": "Virginia"
+      },
+      {
+        "key": "WA",
+        "value": "Washington"
+      },
+      {
+        "key": "WV",
+        "value": "West Virginia"
+      },
+      {
+        "key": "WI",
+        "value": "Wisconsin"
+      },
+      {
+        "key": "WY",
+        "value": "Wyoming"
+      }
+    ],
+    "customAuStates": [
+      {
+        "value": "New South Wales",
+        "key": "NSW"
+      },
+      {
+        "value": "Victoria",
+        "key": "VIC"
+      },
+      {
+        "value": "Queensland",
+        "key": "QLD"
+      },
+      {
+        "value": "Tasmania",
+        "key": "TAS"
+      },
+      {
+        "value": "South Australia",
+        "key": "SA"
+      },
+      {
+        "value": "Western Australia",
+        "key": "WA"
+      },
+      {
+        "value": "Northern Territory",
+        "key": "NT"
+      },
+      {
+        "value": "Australian Capital Territory",
+        "key": "ACT"
+      }
+    ],
+    "customCaStates": [
+      {
+        "value": "Alberta",
+        "key": "AB"
+      },
+      {
+        "value": "British Columbia",
+        "key": "BC"
+      },
+      {
+        "value": "Manitoba",
+        "key": "MB"
+      },
+      {
+        "value": "New Brunswick",
+        "key": "NB"
+      },
+      {
+        "value": "Newfoundland and Labrador",
+        "key": "NL"
+      },
+      {
+        "value": "Northwest Territories",
+        "key": "NT"
+      },
+      {
+        "value": "Nova Scotia",
+        "key": "NS"
+      },
+      {
+        "value": "Nunavut",
+        "key": "NU"
+      },
+      {
+        "value": "Ontario",
+        "key": "ON"
+      },
+      {
+        "value": "Prince Edward Island",
+        "key": "PE"
+      },
+      {
+        "value": "Quebec",
+        "key": "QC"
+      },
+      {
+        "value": "Saskatchewan",
+        "key": "SK"
+      },
+      {
+        "value": "Yukon Territory",
+        "key": "YT"
+      }
+    ],
+    "customMxStates": [
+      {
+        "value": "Distrito Federal",
+        "key": "MX-DIF"
+      },
+      {
+        "value": "Aguascalientes",
+        "key": "MX-AGU"
+      },
+      {
+        "value": "Baja California",
+        "key": "MX-BCN"
+      },
+      {
+        "value": "Baja California Sur",
+        "key": "MX-BCS"
+      },
+      {
+        "value": "Campeche",
+        "key": "MX-CAM"
+      },
+      {
+        "value": "Chiapas",
+        "key": "MX-CHP"
+      },
+      {
+        "value": "Chihuahua",
+        "key": "MX-CHH"
+      },
+      {
+        "value": "Coahuila",
+        "key": "MX-COA"
+      },
+      {
+        "value": "Colima",
+        "key": "MX-COL"
+      },
+      {
+        "value": "Durango",
+        "key": "MX-DUR"
+      },
+      {
+        "value": "Guanajuato",
+        "key": "MX-GUA"
+      },
+      {
+        "value": "Guerrero",
+        "key": "MX-GRO"
+      },
+      {
+        "value": "Hidalgo",
+        "key": "MX-HID"
+      },
+      {
+        "value": "Jalisco",
+        "key": "MX-JAL"
+      },
+      {
+        "value": "Michoacán",
+        "key": "MX-MIC"
+      },
+      {
+        "value": "Morelos",
+        "key": "MX-MOR"
+      },
+      {
+        "value": "México",
+        "key": "MX-MEX"
+      },
+      {
+        "value": "Nayarit",
+        "key": "MX-NAY"
+      },
+      {
+        "value": "Nuevo León",
+        "key": "MX-NLE"
+      },
+      {
+        "value": "Oaxaca",
+        "key": "MX-OAX"
+      },
+      {
+        "value": "Puebla",
+        "key": "MX-PUE"
+      },
+      {
+        "value": "Querétaro",
+        "key": "MX-QUE"
+      },
+      {
+        "value": "Quintana Roo",
+        "key": "MX-ROO"
+      },
+      {
+        "value": "San Luis Potosí",
+        "key": "MX-SLP"
+      },
+      {
+        "value": "Sinaloa",
+        "key": "MX-SIN"
+      },
+      {
+        "value": "Sonora",
+        "key": "MX-SON"
+      },
+      {
+        "value": "Tabasco",
+        "key": "MX-TAB"
+      },
+      {
+        "value": "Tamaulipas",
+        "key": "MX-TAM"
+      },
+      {
+        "value": "Tlaxcala",
+        "key": "MX-TLA"
+      },
+      {
+        "value": "Veracruz",
+        "key": "MX-VER"
+      },
+      {
+        "value": "Yucatán",
+        "key": "MX-YUC"
+      },
+      {
+        "value": "Zacatecas",
+        "key": "MX-ZAC"
+      }
+    ],
+    "defaultPageSize": 36,
+    "defaultPageSizeOrderHistory": 5,
     "defaultSort": "createDate asc",
+    "defaultProductOrderQuantityMaxLimit": 15,
+    "digitalDownloaderUrl": "https://cdn-origin-tp4.mozu.com/27977-44902/cms/files/digital_downloader.html",
     "disableEditOfSavedCreditCard": true,
+    "emailLength": 80,
+    "giftWrapProductType": "Gift Wrap",
+    "giftWrapProductCode": "gift-wrap",
+    "giftWrapProductAttribute": "tenant~gift-wrap",
+    "googleTagManagerKey": "GTM-5SZMRG5",
+    "googleTagManagerEnabled": true,
+    "gtm-brand": "Calendars",
     "enablePartialCaching": true,
-    "loadGoogleFonts": [ "Source Sans Pro" ],
-    "primaryFont": "Source Sans Pro",
+    "enableProductCarousel": true,
+    "enableQuickView": true,
+    "resellerratingsEnabled": true,
+    "enableRecaptcha": false,
+    "extendedPropertiesEnabled": false,
+    "extendedPropertyParameters": "",
+    "facebookShareLink": "https://www.facebook.com/MozuCommerce",
+    "facetMoreColorCount": 3,
+    "familyProductAttribute": "tenant~family-members",
+    "familyProductImageMaxWidth": 160,
+    "familyProductType": "Family Products",
+    "filterConfiguration": "[{\"name\": \"Color\",\"enable\": true,\"key\": \"tenant~COLOR\",\"showCount\": true,\"definition\": {\"showMoreCount\": 0,\"type\": \"swatch\"}},{\"name\": \"Size\",\"enable\": true,\"key\": \"tenant~SIZE\",\"showCount\": true,\"definition\": {\"showMoreCount\": 0,\"type\": \"Text\"}},{\"name\": \"Styles\",\"enable\": true,\"key\": \"tenant~STYLES\",\"showCount\": true,\"definition\": {\"showMoreCount\": 0,\"type\": \"Text\"}},{\"name\": \"ProductType\",\"enable\": false,\"key\": \"tenant~PRODUCTTYPE\",\"showCount\": true,\"definition\": {\"showMoreCount\": 3,\"type\": \"text\"}},{\"name\": \"Materials\",\"enable\": true,\"key\": \"tenant~MATERIALS\",\"showCount\": true,\"definition\": {\"showMoreCount\": 0,\"type\": \"Text\"}},{\"name\": \"Ratings\",\"enable\": true,\"key\": \"tenant~RATINGS\",\"showCount\": true,\"definition\": {\"showMoreCount\": 0,\"type\": \"Stars\"},\"values\": [5,4,3,2,1]},{\"name\": \"Price\",\"enable\": true,\"key\": \"price\",\"showCount\": true,\"definition\": {\"showMoreCount\": 0,\"type\": \"PriceBreak\"},\"values\": [{\"lo\": 0,\"hi\": 29.99,\"Format\": \"$HI and under\"},{\"lo\": 30,\"hi\": 49.99,\"Format\": \"$LO - $HI\"},{\"lo\": 50,\"hi\": 99.99,\"Format\": \"$LO - $HI\"},{\"lo\": 100,\"hi\": 199.99,\"Format\": \"$LO - $HI\"},{\"lo\": 200,\"hi\": 999999.99,\"Format\": \"$LO +\"}]}]",
+    "firstNameLength": 40,
     "fontSize": "14px",
+    "footerEnableMini": false,
+    "footerCopyrightingBackground": "url('https://cdn-sb.mozu.com/27756-m1/cms/files/08b81933-0cab-49c3-825b-fe6825a311bc') center bottom no-repeat",
+    "fullNameLength": 80,
+    "giftCardLength": 20,
+    "giftCardsInfo": "Gift Card",
+    "globalCartEmptyBasketFooter": "",
+    "globalCartEmptyBasketKickerLink": "",
+    "globalCartEnableSaveCart": "true",
+    "globalCartHidePopover": "",
+    "globalCartItemImageMaxWidth": 105,
+    "globalCartMaxItemCount": 3,
+    "globalCartRelatedProducts": "true",
+    "globalCartRelatedProductsSize": 5,
+    "globalCartShowSubtotal": false,
+    "globalPageHeaderLogoSM": null,
+    "globalPageHeaderLogoXS": null,
+    "globalProductMarkupDescription": "FREE Shipping on Qualifying orders! Shop our huge selection at Calendars.com.",
+    "googleMapAPIKey": "",
+    "googleMapLatitude": 41.652491,
+    "googleMapLongitude": -70.288112,
+    "googleMapMaxNearbyDistance": 10000000,
+    "googleMapPinIcon": "",
+    "googleMapZoom": 8,
+    "googlePayProdEnvironment": false,
+    "googlePayButtonText": "long",
+    "googlePayButtonColor": "white",
+    "googlePayMerchantName": "Example Merchant",
+    "googlePayMerchantId": "01234567890123456789",
+    "googlePayProcessor": "cybersource",
+    "googlePayProcessorMerchantId": "calendarsdotcom",
     "gutterWidth": "25px",
+    "headerLinksFirstLinkHrefCalendars": "/customer-service",
+    "headerLinksFirstLinkHrefLang": "/customer-service",
+    "homePageCategoryWidgetAltText": "home_cat_widget_img",
+    "includeCategoryHierarchy": false,
     "internal-themeAddons": [],
+    "isCvvSuppressed": false,
+    "isCalendarsHeaderTopBannerCloseButtonHidden": false,
+    "isLangHeaderTopBannerCloseButtonHidden": false,
+    "isAtticSaltHeaderTopBannerCloseButtonHidden": false,
+    "isCalendarsHeaderBottomBannerCloseButtonHidden": false,
+    "isLangHeaderBottomBannerCloseButtonHidden": false,
+    "isAtticSaltHeaderBottomBannerCloseButtonHidden": false,
     "itemListingThumbSize": 80,
+    "lastNameLength": 40,
+    "lazyLoadingBlur": true,
     "listProductCode": true,
     "listProductShortDesc": true,
+    "listProductThumbSize": 265,
     "listVolumePricing": false,
-    "listProductThumbSize": 160,
+    "loadCertonaRecScript": false,
+    "loadGoogleFonts": ["Source Sans Pro"],
     "locationInventoryFilterText": "Shop My Store",
+    "lowInventoryThreshold": 10,
+    "maxDimensionForPOBox": 27,
     "maxFilterLocations": 50,
-    "maxProductImageThumbnailSize": 50,
+    "maxProductImageThumbnailSize": 100,
     "maxProductSummaryWords": 40,
+    "maxRecentlyViewedItems": 5,
     "maxTopLevelNavItems": 8,
     "maxTopLevelNavLabelLength": 20,
-    "monetateEnabled": false,
-    "monetateAsync": false,
-    "monetateAccountNumber": "",
-    "monetateDomain": "",
-    "monetateInstance": "p",
-    "pageSizeOptions": [ 15, 25, 50, 100 ],
+    "accountForGuestCheckoutAlreadyExists": "The email address provided is already associated with an account on file. Please <a href='/user/login'>click Login</a> log in to your account or select <a href='/user/forgotpassword'>Forgot Password</a> if you need to reset your password.",
+    "middleNameInitialsLength": 1,
+    "minimumQuantityForInStockQuantityMessage": 5,
+    "monetateEnabled": true,
+    "monetateDomain": "calendars.com",
+    "narvarRetailerForAtticSalt": "atticsalt",
+    "narvarRetailerForCalendars": "calendars",
+    "narvarRetailerForLang": "langcalendars",
+    "accessibeScriptEnabled": true,
+    "oneSizeAttributeName": "tenant~ONESIZE",
+    "oneSizeProductType": "Single Variant",
+    "hiConversionEnable": true,
+    "hiConversionSrc": "//h30-deploy.hiconversion.com/origin/tag/YlLrtU7E",
+    "optionAllValue": "ALL",
+    "orderNumberLength": 80,
+    "orderVerificationCodeLength": 80,
+    "pageSizeOptions": [36, 72, 144],
+    "passwordMaxLength": 80,
+    "passwordMinLength": 8,
+    "passwordRegex": "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+]).{8,20}$",
+    "paymentSecurityCodeLength": 4,
+    "paymentsMethodInfo": "Payment Methods",
+    "pdpAltImageMaxWidth": "90",
+    "pdpAltImageName": "{0}_{1}_v{2}.jpg",
+    "pdpBannerIncludeEnabled": true,
+    "pdpBannerUrlCalendars": "cal-product-promo.html",
+    "pdpBannerUrlLang": "lang-product-promo.html",
+    "pdpMainImageMaxWidth": "320",
+    "pdpMainImageNameAlt": "{0}_{1}_v{2}.jpg",
+    "pdpMainImageNameSwatch": "{0}_{1}_v{2}.jpg",
+    "pdpPublisherLinks": "",
+    "pdpSwatchImageMaxWidth": "30",
+    "pdpSwatchImageName": "{1}.gif",
+    "pdpEnlargeImageMobileEnable": false,
+    "phoneNumberEnabled": true,
+    "phoneNumberLength": 10,
     "preselectCountryCode": "US",
+    "primaryFont": "Source Sans Pro",
+    "productAttrBannerIncludeFile": "tenant~promo-file-name",
+    "productAttrInfotab1Content": "tenant~infotab-specifications",
+    "productAttrInfotab2Content": "tenant~infotab-reviews",
+    "productAttrInfotab3Content": "tenant~infotab-videos",
+    "productAttrInfotabDeskTitle": "Product Details",
+    "productAttrInfotab1Title": "Specifications",
+    "productAttrInfotab2Title": "Reviews",
+    "productAttrInfotab3Title": "Videos",
+    "productCarouselImageWidth": 84,
+    "productCarouselSize": 4,
+    "productImageDirectoryMaxWidth": 265,
+    "productImagePdpMaxWidth": 350,
     "productImagesContainerWidth": 350,
+    "productInfinitySize": 24,
+    "productInfoTabs": "",
+    "productQuantityLength": 5,
+    "productThumbImageMaxWidth": 84,
+    "productZoomImageMaxWidth": 700,
+    "recaptchaBadgePosition": "bottomright",
+    "recaptchaSiteKey": null,
+    "recaptchaSize": "normal",
+    "recaptchaTheme": "light",
+    "recaptchaType": "Invisible",
+    "recommendationParameter": "rrec",
     "requireCheckoutAgreeToTerms": true,
-    "suggestPriorSearchTerms": true,
+    "resonanceScriptUrl": "",
+    "resellerRatingsID": "",
+    "returnsInfo": "Return Item",
+    "reviewShippingAddressHasChanged": "Review your shipping address, it has changed!",
     "searchExpandOnFocus": true,
-    "showAddressTypeDropdown": true,
-    "showBreadcrumbs": true,
+    "searchStorePlaceHolder": "Enter City, State or ZIP",
+    "showAddressTypeDropdown": false,
+    "showBreadcrumbs": false,
     "showCartItemDimensions": true,
     "showCartItemImage": true,
     "showCartItemOptions": true,
     "showCartItemWeight": true,
     "showCategoryFacets": true,
-    "showChildCategoriesInFaceting": true,
+    "showCouponCodeBasket": true,
     "showCheckoutCommentsField": true,
+    "showChildCategoriesInFaceting": true,
     "showMSRP": true,
     "showProductDetailMeasurements": true,
     "showProductDetailMfgPartNumber": true,
-    "showProductDetailProperties": true,
+    "showProductDetailProperties": false,
     "showProductDetailShortDesc": true,
     "showProductDetailUPC": true,
+    "stateNameLength": 40,
+    "storesPageSize": 5,
+    "structuredDataAddressLocality": "Austin",
+    "structuredDataAddressRegion": "TX",
+    "structuredDataAlternateName": "Calendars",
+    "structuredDataCeo": "Paul Hoffman",
+    "structuredDataCeoEnable": true,
+    "structuredDataFoundingDate": "October 1999",
+    "structuredDataLegalName": "Calendars.com L.L.C.",
+    "structuredDataLogoRelativeUrl": "/resources/images/_theme-defs/calendars/calendars-logo.svg",
+    "structuredDataPostalCode": "78744",
+    "structuredDataSocialNetworks": "\"https://facebook.com/calendarscom/\",\n\"https://instagram.com/calendarscom/\",\n\"https://pinterest.com/calendarscom/\",\n\"https://twitter.com/calendars/\"",
+    "structuredDataStreetAddress": "6411 Burleson Rd",
+    "structuredDataTelephone": "+1-800-366-3645",
+    "structuredDataTwitterSite": "calendars",
+    "suggestPriorSearchTerms": true,
+    "disabledSuggestionCategories": "",
+    "langEnabledSearchBrands": "Lang, Turner Licensing, Lang Companies, TINC, TINC., SKYZ by LANG, Wells Street by LANG",
+    "categorySearchInLangEnable": false,
+    "allProductsCategoryId": "",
+    "allLangProductsCategoryId": "",
+    "allAtticProductsCategoryId": "",
     "textColor": "#444444",
+    "trackingUrlNarvar": "https://{2}.narvar.com/{2}/tracking/{0}?tracking_numbers={1}",
+    "trackingUrlUSPS": "https://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=TRACKING_NUMBER_REPLACEMENT",
+    "trackingUrlUPS": "https://wwwapps.ups.com/WebTracking/processInputRequest?HTMLVersion=5.0&loc=en_US&Requester=UPSHome&AgreeToTermsAndConditions=yes&track.x=17&track.y=5&tracknum=TRACKING_NUMBER_REPLACEMENT",
+    "trackingUrlUPSMI": "https://wwwapps.ups.com/WebTracking/processInputRequest?HTMLVersion=5.0&loc=en_US&Requester=UPSHome&AgreeToTermsAndConditions=yes&track.x=17&track.y=5&tracknum=TRACKING_NUMBER_REPLACEMENT",
+    "trackingUrlDHL": "https://webtrack.dhlglobalmail.com/?trackingnumber=TRACKING_NUMBER_REPLACEMENT&id=12000",
+    "trackingUrlFILLOGIC": "https://fillogic.revelry-prod.revelry.net/tracking/XLX031000N03NAHPW",
+    "giftWrapTooltipContent": "<p>Gift wrap - $[PRICE] per item<br>You can gift wrap most items. If you buy multiple quantities of the same item, you'll be charged just $[PRICE] to have them all wrapped together.</p>\n                        <figure class=\"cal-gift-wrap-modal-image\">\n                            <img src=\"/resources/images/_theme-defs/calendars/product-wrap.png\" alt=\"Product wrap\">\n                            <span>Substitutions may occur.</span>\n                        </figure>\n                        <p>Please note: not all items are eligible for gift wrap. Gift wrap styles and colors are limited and change frequently. Styles may include gift boxes or bags, depending on the item size.</p>",
     "usStates": [
       {
         "abbreviation": "AL",
@@ -1151,10 +2094,6 @@
         "name": "Oregon"
       },
       {
-        "abbreviation": "PW",
-        "name": "Palau"
-      },
-      {
         "abbreviation": "PA",
         "name": "Pennsylvania"
       },
@@ -1217,8 +2156,13 @@
     ],
     "useDebugScripts": false,
     "useSearchAutocomplete": true,
-    "allowCustomerInitiatedReturns": true,
-    "visaCheckoutSdkUrl": "https://sandbox-assets.secure.checkout.visa.com/checkout-widget/resources/js/integration/v1/sdk.js"
+    "viewAllPageSize": 24,
+    "viewAllPageSizeOrderHistory": 10,
+    "visaCheckoutSdkUrl": "https://sandbox-assets.secure.checkout.visa.com/checkout-widget/resources/js/integration/v1/sdk.js",
+    "zipCodeEnabled": true,
+    "zipcodeLength": 10,
+    "enableGiftCardOnCheckout": true,
+    "certonaContainerNamesToNotShowTitle": ""
   },
   "layoutWidgets": [
     {
@@ -1232,7 +2176,7 @@
       },
       "customEditor": "layout",
       "icon": "/resources/admin/widgets/1-col_icon.png",
-      "validPageTypes": [ "*" ],
+      "validPageTypes": ["*"],
       "columns": [
         {
           "width": "100%"
@@ -1241,6 +2185,7 @@
     },
     {
       "id": "mz-2-col",
+      "customEditor": "layout",
       "category": "*",
       "displayName": "2 Column 50/50",
       "displayTemplate": "base",
@@ -1249,9 +2194,8 @@
         "mz-col1": 50,
         "mz-col2": 50
       },
-      "customEditor": "layout",
       "icon": "/resources/admin/widgets/2-col_icon.png",
-      "validPageTypes": [ "*" ],
+      "validPageTypes": ["*"],
       "columns": [
         {
           "width": "50%"
@@ -1274,7 +2218,7 @@
       },
       "customEditor": "layout",
       "icon": "/resources/admin/widgets/3-col_icon.png",
-      "validPageTypes": [ "*" ],
+      "validPageTypes": ["*"],
       "columns": [
         {
           "width": "33.3%"
@@ -1301,7 +2245,7 @@
       },
       "customEditor": "layout",
       "icon": "/resources/admin/widgets/4-col_icon.png",
-      "validPageTypes": [ "*" ],
+      "validPageTypes": ["*"],
       "columns": [
         {
           "width": "25%"
@@ -1316,55 +2260,1795 @@
           "width": "25%"
         }
       ]
+    },
+    {
+      "id": "mz-5-col",
+      "category": "*",
+      "displayName": "5 Column 20/20/20/20/20",
+      "displayTemplate": "base",
+      "defaultConfig": {
+        "title": "Dropzone",
+        "mz-col1": 20,
+        "mz-col2": 20,
+        "mz-col3": 20,
+        "mz-col4": 20,
+        "mz-col5": 20
+      },
+      "customEditor": "layout",
+      "icon": "/resources/admin/widgets/4-col_icon.png",
+      "validPageTypes": ["*"],
+      "columns": [
+        {
+          "width": "20%"
+        },
+        {
+          "width": "20%"
+        },
+        {
+          "width": "20%"
+        },
+        {
+          "width": "20%"
+        },
+        {
+          "width": "20%"
+        }
+      ]
     }
   ],
   "widgets": [
     {
-      "defaultConfig": {
-        "template": "modules/product/product-list"
-      },
-      "displayName": "Featured Products",
-      "displayTemplate": "catalog/featuredproducts",
+      "displayName": "Advanced Banner",
+      "id": "advanced-banner",
+      "displayTemplate": "misc/advanced-banner/advanced-banner",
+      "icon": "/resources/admin/widgets/09_slideshow.png",
       "editViewFields": [
         {
+          "name": "customId",
+          "fieldLabel": "Banner custom ID (has to start with a letter)",
+          "xtype": "mz-input-text",
           "anchor": "100%",
-          "fieldLabel": "Products",
-          "name": "productCodes",
-          "xtype": "mz-input-productmulti"
+          "emptyText": "cool-banner"
+        },
+        {
+          "name": "bannerTitle",
+          "fieldLabel": "Banner Title (SEO)",
+          "xtype": "mz-input-text",
+          "anchor": "100%",
+          "emptyText": "A cool banner"
+        },
+        {
+          "name": "bannerTitleShow",
+          "fieldLabel": "Show the Title",
+          "xtype": "mz-input-checkbox"
+        },
+        {
+          "title": "Desktop Style",
+          "xtype": "panel",
+          "style": "display: inline-block; margin-right: 30px;",
+          "width": 350,
+          "items": [
+            {
+              "name": "bannerHeightDesktop",
+              "fieldLabel": "Banner Height",
+              "xtype": "mz-input-text",
+              "width": 350,
+              "emptyText": "auto"
+            },
+            {
+              "name": "bannerMarginTopDesktop",
+              "fieldLabel": "Margin Top",
+              "xtype": "mz-input-text",
+              "style": "display: inline-table; margin-right: 15px",
+              "width": 65,
+              "emptyText": "0px"
+            },
+            {
+              "name": "bannerMarginRightDesktop",
+              "fieldLabel": "Margin Right",
+              "xtype": "mz-input-text",
+              "style": "display: inline-table; margin-right: 15px",
+              "width": 70,
+              "emptyText": "auto"
+            },
+            {
+              "name": "bannerMarginBottomDesktop",
+              "fieldLabel": "Margin Bottom",
+              "xtype": "mz-input-text",
+              "style": "display: inline-table; margin-right: 15px",
+              "width": 80,
+              "emptyText": "20px"
+            },
+            {
+              "name": "bannerMarginLeftDesktop",
+              "fieldLabel": "Margin Left",
+              "xtype": "mz-input-text",
+              "style": "display: inline-table",
+              "width": 65,
+              "emptyText": "auto"
+            }
+          ]
+        },
+        {
+          "title": "Mobile Style",
+          "xtype": "panel",
+          "style": "display: inline-block;",
+          "width": 350,
+          "items": [
+            {
+              "name": "bannerHeightMobile",
+              "fieldLabel": "Banner Height",
+              "xtype": "mz-input-text",
+              "width": 350,
+              "emptyText": "auto"
+            },
+            {
+              "name": "bannerMarginTopMobile",
+              "fieldLabel": "Margin Top",
+              "xtype": "mz-input-text",
+              "style": "display: inline-table; margin-right: 15px",
+              "width": 65,
+              "emptyText": "0px"
+            },
+            {
+              "name": "bannerMarginRightMobile",
+              "fieldLabel": "Margin Right",
+              "xtype": "mz-input-text",
+              "style": "display: inline-table; margin-right: 15px",
+              "width": 70,
+              "emptyText": "auto"
+            },
+            {
+              "name": "bannerMarginBottomMobile",
+              "fieldLabel": "Margin Bottom",
+              "xtype": "mz-input-text",
+              "style": "display: inline-table; margin-right: 15px",
+              "width": 80,
+              "emptyText": "20px"
+            },
+            {
+              "name": "bannerMarginLeftMobile",
+              "fieldLabel": "Margin Left",
+              "xtype": "mz-input-text",
+              "style": "display: inline-table",
+              "width": 65,
+              "emptyText": "auto"
+            }
+          ]
         },
         {
           "anchor": "100%",
-          "fieldLabel": "Template",
-          "name": "template",
-          "store": [
-            [ "modules/product/product-list-tiled", "tiled" ],
-            [ "modules/product/product-list", "list" ],
-            [ "modules/product/product-list-carousel", "carousel" ]
-          ],
-          "xtype": "mz-input-dropdown"
+          "title": "Main Banner",
+          "name": "firstSlide",
+          "xtype": "panel",
+          "collapsible": true,
+          "style": "margin-top: 20px; border: 1px solid #d1d1d1; background: #fafafa",
+          "items": [
+            {
+              "name": "firstSlideUrl",
+              "fieldLabel": "Link Url",
+              "xtype": "mz-input-text",
+              "style": "display: inline-table; margin-left: 15px;",
+              "width": 510
+            },
+            {
+              "name": "firstSlideUrlTarget",
+              "fieldLabel": "Link Target",
+              "xtype": "mz-input-dropdown",
+              "store": ["_blank", "_parent", "_self", "_top"],
+              "style": "display: inline-table; margin-left: 15px;",
+              "width": 195,
+              "emptyText": "_self"
+            },
+            {
+              "title": "Background",
+              "name": "firstSlideDesktopBackground",
+              "xtype": "panel",
+              "collapsible": true,
+              "style": "margin: 10px 15px;",
+              "items": [
+                {
+                  "title": "Image",
+                  "name": " firstSlideDesktopBackgroundImage",
+                  "xtype": "panel",
+                  "style": "display: inline-block; margin: 10px 15px; float: left",
+                  "width": 320,
+                  "items": [
+                    {
+                      "name": "firstSlideDesktopImage",
+                      "fieldLabel": "Desktop Image",
+                      "xtype": "mz-input-image-nostyle"
+                    },
+                    {
+                      "name": "addFirstSlideMobileImage",
+                      "fieldLabel": "Add Mobile Image",
+                      "showIf": "firstSlideDesktopImage",
+                      "xtype": "mz-input-checkbox"
+                    },
+                    {
+                      "name": "firstSlideMobileImage",
+                      "fieldLabel": "Mobile Image",
+                      "showIf": "addFirstSlideMobileImage",
+                      "xtype": "mz-input-image-nostyle"
+                    }
+                  ]
+                },
+                {
+                  "title": "Styles",
+                  "name": " firstSlideDesktopBackgroundStyle",
+                  "xtype": "panel",
+                  "style": "display: inline-block; margin: 10px 15px; float: right",
+                  "width": 320,
+                  "items": [
+                    {
+                      "name": "firstSlideDesktopImageBrightness",
+                      "fieldLabel": "Brightness",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 100,
+                      "emptyText": "100%"
+                    },
+                    {
+                      "name": "firstSlideDesktopImageObjectFit",
+                      "fieldLabel": "Fit Object",
+                      "xtype": "mz-input-dropdown",
+                      "store": ["contain", "cover"],
+                      "style": "display: inline-table;",
+                      "width": 200,
+                      "emptyText": "cover"
+                    },
+                    {
+                      "name": "firstSlideDesktopImageWidth",
+                      "fieldLabel": "Width",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 80,
+                      "emptyText": "100%"
+                    },
+                    {
+                      "name": "firstSlideDesktopImagePositionX",
+                      "fieldLabel": "Horisontal Position",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 100,
+                      "emptyText": "center"
+                    },
+                    {
+                      "name": "firstSlideDesktopImagePositionY",
+                      "fieldLabel": "Vertical Position",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table",
+                      "width": 100,
+                      "emptyText": "center"
+                    },
+                    {
+                      "name": "addFirstSlideMobileStyles",
+                      "fieldLabel": "Add Mobile Styles",
+                      "xtype": "mz-input-checkbox",
+                      "style": "margin-top: 15px; border-top: 1px dashed #ddd",
+                      "width": 320
+                    },
+                    {
+                      "name": "firstSlideMobileImageBrightness",
+                      "fieldLabel": "Brightness",
+                      "xtype": "mz-input-text",
+                      "enableIf": "addFirstSlideMobileStyles",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 100,
+                      "emptyText": "100%"
+                    },
+                    {
+                      "name": "firstSlideMobileImageObjectFit",
+                      "fieldLabel": "Fit Object",
+                      "xtype": "mz-input-dropdown",
+                      "store": ["contain", "cover"],
+                      "enableIf": "addFirstSlideMobileStyles",
+                      "style": "display: inline-table",
+                      "width": 200,
+                      "emptyText": "cover"
+                    },
+                    {
+                      "name": "firstSlideMobileImagePositionX",
+                      "fieldLabel": "Horisontal Position",
+                      "xtype": "mz-input-text",
+                      "enableIf": "addFirstSlideMobileStyles",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 100,
+                      "emptyText": "center"
+                    },
+                    {
+                      "name": "firstSlideMobileImagePositionY",
+                      "fieldLabel": "Vertical Position",
+                      "xtype": "mz-input-text",
+                      "enableIf": "addFirstSlideMobileStyles",
+                      "style": "display: inline-table",
+                      "width": 100,
+                      "emptyText": "center"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Content",
+              "name": "firstSlideDesktopContentPanel",
+              "xtype": "panel",
+              "collapsible": true,
+              "style": "margin: 10px 15px;",
+              "items": [
+                {
+                  "title": "Copy",
+                  "name": "firstSlideDesktopCopyPanel",
+                  "xtype": "panel",
+                  "style": "display: inline-block; margin: 10px 15px; float: left",
+                  "width": 360,
+                  "items": [
+                    {
+                      "name": "firstSlideDesktopContent",
+                      "fieldLabel": "HTML Desktop",
+                      "xtype": "taco-htmleditor"
+                    },
+                    {
+                      "name": "addFirstSlideMobileContent",
+                      "fieldLabel": "Add Mobile Content",
+                      "showIf": "firstSlideDesktopContent",
+                      "xtype": "mz-input-checkbox"
+                    },
+                    {
+                      "name": "firstSlideMobileContent",
+                      "fieldLabel": "HTML Mobile",
+                      "showIf": "addFirstSlideMobileContent",
+                      "xtype": "taco-htmleditor"
+                    }
+                  ]
+                },
+                {
+                  "title": "Styles",
+                  "name": "firstSlideDesktopContent",
+                  "xtype": "panel",
+                  "style": "display: inline-block; margin: 10px 15px; float: right",
+                  "width": 280,
+                  "items": [
+                    {
+                      "name": "firstSlideDesktopCopyWidth",
+                      "fieldLabel": "Width",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table",
+                      "width": 240,
+                      "emptyText": "auto"
+                    },
+                    {
+                      "name": "firstSlideDesktopCopyPositionTop",
+                      "fieldLabel": "Top",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 50,
+                      "emptyText": "20%"
+                    },
+                    {
+                      "name": "firstSlideDesktopCopyPositionRight",
+                      "fieldLabel": "Right",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 50,
+                      "emptyText": "auto"
+                    },
+                    {
+                      "name": "firstSlideDesktopCopyPositionLeft",
+                      "fieldLabel": "Left",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 50,
+                      "emptyText": "10%"
+                    },
+                    {
+                      "name": "firstSlideDesktopCopyPositionBottom",
+                      "fieldLabel": "Bottom",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table",
+                      "width": 50,
+                      "emptyText": "auto"
+                    },
+                    {
+                      "name": "addFirstSlideDesktopCopyBackground",
+                      "fieldLabel": "Add a Background",
+                      "xtype": "mz-input-checkbox"
+                    },
+                    {
+                      "name": "firstSlideDesktopCopyBackgroundColor",
+                      "fieldLabel": "Color",
+                      "showIf": "addFirstSlideDesktopCopyBackground",
+                      "xtype": "mz-input-color"
+                    },
+                    {
+                      "name": "firstSlideDesktopCopyBackgroundClip",
+                      "fieldLabel": "Clip Path",
+                      "showIf": "addFirstSlideDesktopCopyBackground",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table",
+                      "emptyText": "polygon(0 0, 50% 0, 45% 100%, 0 100%)"
+                    },
+                    {
+                      "name": "addFirstSlideMobileCopyStyles",
+                      "fieldLabel": "Add Mobile Styles",
+                      "xtype": "mz-input-checkbox",
+                      "style": "margin-top: 15px; border-top: 1px dashed #ddd",
+                      "width": 280
+                    },
+                    {
+                      "name": "firstSlideMobileCopyWidth",
+                      "fieldLabel": "Width",
+                      "xtype": "mz-input-text",
+                      "enableIf": "addFirstSlideMobileCopyStyles",
+                      "style": "display: inline-table",
+                      "width": 240,
+                      "emptyText": "auto"
+                    },
+                    {
+                      "name": "firstSlideMobileCopyPositionTop",
+                      "fieldLabel": "Top",
+                      "xtype": "mz-input-text",
+                      "enableIf": "addFirstSlideMobileCopyStyles",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 50,
+                      "emptyText": "20%"
+                    },
+                    {
+                      "name": "firstSlideMobileCopyPositionRight",
+                      "fieldLabel": "Right",
+                      "xtype": "mz-input-text",
+                      "enableIf": "addFirstSlideMobileCopyStyles",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 50,
+                      "emptyText": "auto"
+                    },
+                    {
+                      "name": "firstSlideMobileCopyPositionLeft",
+                      "fieldLabel": "Left",
+                      "xtype": "mz-input-text",
+                      "enableIf": "addFirstSlideMobileCopyStyles",
+                      "style": "display: inline-table; margin-right: 15px",
+                      "width": 50,
+                      "emptyText": "10%"
+                    },
+                    {
+                      "name": "firstSlideMobileCopyPositionBottom",
+                      "fieldLabel": "Bottom",
+                      "xtype": "mz-input-text",
+                      "enableIf": "addFirstSlideMobileCopyStyles",
+                      "style": "display: inline-table",
+                      "width": 50,
+                      "emptyText": "auto"
+                    },
+                    {
+                      "name": "addFirstSlideMobileCopyBackground",
+                      "fieldLabel": "Add a Background",
+                      "xtype": "mz-input-checkbox",
+                      "enableIf": "addFirstSlideMobileCopyStyles"
+                    },
+                    {
+                      "name": "firstSlideMobileCopyBackgroundColor",
+                      "fieldLabel": "Color",
+                      "showIf": "addFirstSlideMobileCopyBackground",
+                      "xtype": "mz-input-color"
+                    },
+                    {
+                      "name": "firstSlideMobileCopyBackgroundClip",
+                      "fieldLabel": "Clip Path",
+                      "showIf": "addFirstSlideMobileCopyBackground",
+                      "xtype": "mz-input-text",
+                      "style": "display: inline-table",
+                      "emptyText": "polygon(0 0, 50% 0, 45% 100%, 0 100%)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "anchor": "100%",
+          "title": "Carousel",
+          "name": "carouselSettings",
+          "xtype": "panel",
+          "collapsible": true,
+          "collapsed": true,
+          "style": "margin-top: 30px",
+          "items": [
+            {
+              "title": "Config",
+              "xtype": "panel",
+              "style": "margin: 10px 15px",
+              "items": [
+                {
+                  "name": "showCarouselArrows",
+                  "fieldLabel": "Show Navigation Arrows",
+                  "xtype": "mz-input-checkbox",
+                  "style": "display: inline-table; margin-left: 15px"
+                },
+                {
+                  "name": "showCarouselDots",
+                  "fieldLabel": "Show Navigation Dots",
+                  "xtype": "mz-input-checkbox",
+                  "style": "display: inline-table; margin-left: 25px"
+                },
+                {
+                  "name": "allowAutoPlay",
+                  "fieldLabel": "Allow Autoplay",
+                  "xtype": "mz-input-checkbox",
+                  "style": "display: inline-table; margin-left: 25px"
+                },
+                {
+                  "name": "addMobileCarouselConfig",
+                  "fieldLabel": "Add mobile config",
+                  "xtype": "mz-input-checkbox",
+                  "style": "margin-top: 15px; margin-left: 15px; border-top: 1px dashed #ddd",
+                  "width": 700
+                },
+                {
+                  "name": "showCarouselArrowsMobile",
+                  "fieldLabel": "Show Navigation Arrows",
+                  "xtype": "mz-input-checkbox",
+                  "enableIf": "addMobileCarouselConfig",
+                  "style": "display: inline-table; margin-left: 15px"
+                },
+                {
+                  "name": "showCarouselDotsMobile",
+                  "fieldLabel": "Show Navigation Dots",
+                  "xtype": "mz-input-checkbox",
+                  "enableIf": "addMobileCarouselConfig",
+                  "style": "display: inline-table; margin-left: 25px"
+                },
+                {
+                  "name": "allowAutoPlayMobile",
+                  "fieldLabel": "Allow Autoplay",
+                  "xtype": "mz-input-checkbox",
+                  "enableIf": "addMobileCarouselConfig",
+                  "style": "display: inline-table; margin-left: 25px"
+                }
+              ]
+            },
+            {
+              "anchor": "100%",
+              "title": "Second Banner",
+              "name": "secondSlide",
+              "xtype": "panel",
+              "collapsible": true,
+              "collapsed": true,
+              "style": "margin-top: 20px; border: 1px solid #d1d1d1; background: #fafafa",
+              "items": [
+                {
+                  "name": "secondSlideUrl",
+                  "fieldLabel": "Link Url",
+                  "xtype": "mz-input-text",
+                  "style": "margin-left: 15px;",
+                  "width": 510
+                },
+                {
+                  "name": "secondSlideUrlTarget",
+                  "fieldLabel": "Link Target",
+                  "xtype": "mz-input-dropdown",
+                  "store": ["_blank", "_parent", "_self", "_top"],
+                  "style": "display: inline-table; margin-left: 15px;",
+                  "width": 195,
+                  "emptyText": "_self"
+                },
+                {
+                  "title": "Background",
+                  "name": "secondSlideDesktopBackground",
+                  "xtype": "panel",
+                  "collapsible": true,
+                  "style": "margin: 10px 15px;",
+                  "items": [
+                    {
+                      "title": "Image",
+                      "name": "secondSlideDesktopBackgroundImage",
+                      "xtype": "panel",
+                      "style": "display: inline-block; margin: 10px 15px; float: left",
+                      "width": 320,
+                      "items": [
+                        {
+                          "name": "secondSlideDesktopImage",
+                          "fieldLabel": "Desktop Image",
+                          "xtype": "mz-input-image-nostyle"
+                        },
+                        {
+                          "name": "addSecondSlideMobileImage",
+                          "fieldLabel": "Add Mobile Image",
+                          "showIf": "secondSlideDesktopImage",
+                          "xtype": "mz-input-checkbox"
+                        },
+                        {
+                          "name": "secondSlideMobileImage",
+                          "fieldLabel": "Mobile Image",
+                          "showIf": "addSecondSlideMobileImage",
+                          "xtype": "mz-input-image-nostyle"
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Styles",
+                      "name": " secondSlideDesktopBackgroundStyle",
+                      "xtype": "panel",
+                      "style": "display: inline-block; margin: 10px 15px; float: right",
+                      "width": 320,
+                      "items": [
+                        {
+                          "name": "secondSlideDesktopImageBrightness",
+                          "fieldLabel": "Brightness",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 100,
+                          "emptyText": "100%"
+                        },
+                        {
+                          "name": "secondSlideDesktopImageObjectFit",
+                          "fieldLabel": "Fit Object",
+                          "xtype": "mz-input-dropdown",
+                          "store": ["contain", "cover"],
+                          "style": "display: inline-table;",
+                          "width": 200,
+                          "emptyText": "cover"
+                        },
+                        {
+                          "name": "secondSlideDesktopImagePositionX",
+                          "fieldLabel": "Horisontal Position",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 100,
+                          "emptyText": "center"
+                        },
+                        {
+                          "name": "secondSlideDesktopImagePositionY",
+                          "fieldLabel": "Vertical Position",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table",
+                          "width": 100,
+                          "emptyText": "center"
+                        },
+                        {
+                          "name": "addSecondSlideMobileStyles",
+                          "fieldLabel": "Add Mobile Styles",
+                          "xtype": "mz-input-checkbox",
+                          "style": "margin-top: 15px; border-top: 1px dashed #ddd",
+                          "width": 320
+                        },
+                        {
+                          "name": "secondSlideMobileImageBrightness",
+                          "fieldLabel": "Brightness",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addSecondSlideMobileStyles",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 100,
+                          "emptyText": "100%"
+                        },
+                        {
+                          "name": "secondSlideMobileImageObjectFit",
+                          "fieldLabel": "Fit Object",
+                          "xtype": "mz-input-dropdown",
+                          "store": ["contain", "cover"],
+                          "enableIf": "addSecondSlideMobileStyles",
+                          "style": "display: inline-table",
+                          "width": 200,
+                          "emptyText": "cover"
+                        },
+                        {
+                          "name": "secondSlideMobileImagePositionX",
+                          "fieldLabel": "Horisontal Position",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addSecondSlideMobileStyles",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 100,
+                          "emptyText": "center"
+                        },
+                        {
+                          "name": "secondSlideMobileImagePositionY",
+                          "fieldLabel": "Vertical Position",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addSecondSlideMobileStyles",
+                          "style": "display: inline-table",
+                          "width": 100,
+                          "emptyText": "center"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Content",
+                  "name": "secondSlideDesktopContentPanel",
+                  "xtype": "panel",
+                  "collapsible": true,
+                  "style": "margin: 10px 15px;",
+                  "items": [
+                    {
+                      "title": "Copy",
+                      "name": "secondSlideDesktopCopyPanel",
+                      "xtype": "panel",
+                      "style": "display: inline-block; margin: 10px 15px; float: left",
+                      "width": 360,
+                      "items": [
+                        {
+                          "name": "secondSlideDesktopContent",
+                          "fieldLabel": "HTML Desktop",
+                          "xtype": "taco-htmleditor"
+                        },
+                        {
+                          "name": "addSecondSlideMobileContent",
+                          "fieldLabel": "Add Mobile Content",
+                          "showIf": "secondSlideDesktopContent",
+                          "xtype": "mz-input-checkbox"
+                        },
+                        {
+                          "name": "secondSlideMobileContent",
+                          "fieldLabel": "HTML Mobile",
+                          "showIf": "addSecondSlideMobileContent",
+                          "xtype": "taco-htmleditor"
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Styles",
+                      "name": "secondSlideDesktopContent",
+                      "xtype": "panel",
+                      "style": "display: inline-block; margin: 10px 15px; float: right",
+                      "width": 280,
+                      "items": [
+                        {
+                          "name": "secondSlideDesktopCopyWidth",
+                          "fieldLabel": "Width",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table",
+                          "width": 240,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "secondSlideDesktopCopyPositionTop",
+                          "fieldLabel": "Top",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "20%"
+                        },
+                        {
+                          "name": "secondSlideDesktopCopyPositionRight",
+                          "fieldLabel": "Right",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "secondSlideDesktopCopyPositionLeft",
+                          "fieldLabel": "Left",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "10%"
+                        },
+                        {
+                          "name": "secondSlideDesktopCopyPositionBottom",
+                          "fieldLabel": "Bottom",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table",
+                          "width": 50,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "addSecondSlideDesktopCopyBackground",
+                          "fieldLabel": "Add a Background",
+                          "xtype": "mz-input-checkbox"
+                        },
+                        {
+                          "name": "secondSlideDesktopCopyBackgroundColor",
+                          "fieldLabel": "Color",
+                          "showIf": "addSecondSlideDesktopCopyBackground",
+                          "xtype": "mz-input-color"
+                        },
+                        {
+                          "name": "secondSlideDesktopCopyBackgroundClip",
+                          "fieldLabel": "Clip Path",
+                          "showIf": "addSecondSlideDesktopCopyBackground",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table",
+                          "emptyText": "polygon(0 0, 50% 0, 45% 100%, 0 100%)"
+                        },
+                        {
+                          "name": "addSecondSlideMobileCopyStyles",
+                          "fieldLabel": "Add Mobile Styles",
+                          "xtype": "mz-input-checkbox",
+                          "style": "margin-top: 15px; border-top: 1px dashed #ddd",
+                          "width": 280
+                        },
+                        {
+                          "name": "secondSlideMobileCopyWidth",
+                          "fieldLabel": "Width",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addSecondSlideMobileCopyStyles",
+                          "style": "display: inline-table",
+                          "width": 240,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "secondSlideMobileCopyPositionTop",
+                          "fieldLabel": "Top",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addSecondSlideMobileCopyStyles",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "20%"
+                        },
+                        {
+                          "name": "secondSlideMobileCopyPositionRight",
+                          "fieldLabel": "Right",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addSecondSlideMobileCopyStyles",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "secondSlideMobileCopyPositionLeft",
+                          "fieldLabel": "Left",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addSecondSlideMobileCopyStyles",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "10%"
+                        },
+                        {
+                          "name": "secondSlideMobileCopyPositionBottom",
+                          "fieldLabel": "Bottom",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addSecondSlideMobileCopyStyles",
+                          "style": "display: inline-table",
+                          "width": 50,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "addSecondSlideMobileCopyBackground",
+                          "fieldLabel": "Add a Background",
+                          "xtype": "mz-input-checkbox",
+                          "enableIf": "addSecondSlideMobileCopyStyles"
+                        },
+                        {
+                          "name": "secondSlideMobileCopyBackgroundColor",
+                          "fieldLabel": "Color",
+                          "showIf": "addSecondSlideMobileCopyBackground",
+                          "xtype": "mz-input-color"
+                        },
+                        {
+                          "name": "secondSlideMobileCopyBackgroundClip",
+                          "fieldLabel": "Clip Path",
+                          "showIf": "addSecondSlideMobileCopyBackground",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table",
+                          "emptyText": "polygon(0 0, 50% 0, 45% 100%, 0 100%)"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "anchor": "100%",
+              "title": "Third Banner",
+              "name": "thirdSlide",
+              "xtype": "panel",
+              "collapsible": true,
+              "collapsed": true,
+              "style": "margin-top: 20px; border: 1px solid #d1d1d1; background: #fafafa",
+              "items": [
+                {
+                  "name": "thirdSlideUrl",
+                  "fieldLabel": "Link Url",
+                  "xtype": "mz-input-text",
+                  "style": "margin-left: 15px;",
+                  "width": 510
+                },
+                {
+                  "name": "thirdSlideUrlTarget",
+                  "fieldLabel": "Link Target",
+                  "xtype": "mz-input-dropdown",
+                  "store": ["_blank", "_parent", "_self", "_top"],
+                  "style": "display: inline-table; margin-left: 15px;",
+                  "width": 195,
+                  "emptyText": "_self"
+                },
+                {
+                  "title": "Background",
+                  "name": "thirdSlideDesktopBackground",
+                  "xtype": "panel",
+                  "collapsible": true,
+                  "style": "margin: 10px 15px;",
+                  "items": [
+                    {
+                      "title": "Image",
+                      "name": "thirdSlideDesktopBackgroundImage",
+                      "xtype": "panel",
+                      "style": "display: inline-block; margin: 10px 15px; float: left",
+                      "width": 320,
+                      "items": [
+                        {
+                          "name": "thirdSlideDesktopImage",
+                          "fieldLabel": "Desktop Image",
+                          "xtype": "mz-input-image-nostyle"
+                        },
+                        {
+                          "name": "addThirdSlideMobileImage",
+                          "fieldLabel": "Add Mobile Image",
+                          "showIf": "thirdSlideDesktopImage",
+                          "xtype": "mz-input-checkbox"
+                        },
+                        {
+                          "name": "thirdSlideMobileImage",
+                          "fieldLabel": "Mobile Image",
+                          "showIf": "addThirdSlideMobileImage",
+                          "xtype": "mz-input-image-nostyle"
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Styles",
+                      "name": "thirdSlideDesktopBackgroundStyle",
+                      "xtype": "panel",
+                      "style": "display: inline-block; margin: 10px 15px; float: right",
+                      "width": 320,
+                      "items": [
+                        {
+                          "name": "thirdSlideDesktopImageBrightness",
+                          "fieldLabel": "Brightness",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 100,
+                          "emptyText": "100%"
+                        },
+                        {
+                          "name": "thirdSlideDesktopImageObjectFit",
+                          "fieldLabel": "Fit Object",
+                          "xtype": "mz-input-dropdown",
+                          "store": ["contain", "cover"],
+                          "style": "display: inline-table;",
+                          "width": 200,
+                          "emptyText": "cover"
+                        },
+                        {
+                          "name": "thirdSlideDesktopImagePositionX",
+                          "fieldLabel": "Horisontal Position",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 100,
+                          "emptyText": "center"
+                        },
+                        {
+                          "name": "thirdSlideDesktopImagePositionY",
+                          "fieldLabel": "Vertical Position",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table",
+                          "width": 100,
+                          "emptyText": "center"
+                        },
+                        {
+                          "name": "addThirdSlideMobileStyles",
+                          "fieldLabel": "Add Mobile Styles",
+                          "xtype": "mz-input-checkbox",
+                          "style": "margin-top: 15px; border-top: 1px dashed #ddd",
+                          "width": 320
+                        },
+                        {
+                          "name": "thirdSlideMobileImageBrightness",
+                          "fieldLabel": "Brightness",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addThirdSlideMobileStyles",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 100,
+                          "emptyText": "100%"
+                        },
+                        {
+                          "name": "thirdSlideMobileImageObjectFit",
+                          "fieldLabel": "Fit Object",
+                          "xtype": "mz-input-dropdown",
+                          "store": ["contain", "cover"],
+                          "enableIf": "addThirdSlideMobileStyles",
+                          "style": "display: inline-table",
+                          "width": 200,
+                          "emptyText": "cover"
+                        },
+                        {
+                          "name": "thirdSlideMobileImagePositionX",
+                          "fieldLabel": "Horisontal Position",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addThirdSlideMobileStyles",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 100,
+                          "emptyText": "center"
+                        },
+                        {
+                          "name": "thirdSlideMobileImagePositionY",
+                          "fieldLabel": "Vertical Position",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addThirdSlideMobileStyles",
+                          "style": "display: inline-table",
+                          "width": 100,
+                          "emptyText": "center"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Content",
+                  "name": "thirdSlideDesktopContentPanel",
+                  "xtype": "panel",
+                  "collapsible": true,
+                  "style": "margin: 10px 15px;",
+                  "items": [
+                    {
+                      "title": "Copy",
+                      "name": "thirdSlideDesktopCopyPanel",
+                      "xtype": "panel",
+                      "style": "display: inline-block; margin: 10px 15px; float: left",
+                      "width": 360,
+                      "items": [
+                        {
+                          "name": "thirdSlideDesktopContent",
+                          "fieldLabel": "HTML Desktop",
+                          "xtype": "taco-htmleditor"
+                        },
+                        {
+                          "name": "addThirdSlideMobileContent",
+                          "fieldLabel": "Add Mobile Content",
+                          "showIf": "thirdSlideDesktopContent",
+                          "xtype": "mz-input-checkbox"
+                        },
+                        {
+                          "name": "thirdSlideMobileContent",
+                          "fieldLabel": "HTML Mobile",
+                          "showIf": "addThirdSlideMobileContent",
+                          "xtype": "taco-htmleditor"
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Styles",
+                      "name": "thirdSlideDesktopContent",
+                      "xtype": "panel",
+                      "style": "display: inline-block; margin: 10px 15px; float: right",
+                      "width": 280,
+                      "items": [
+                        {
+                          "name": "thirdSlideDesktopCopyWidth",
+                          "fieldLabel": "Width",
+                          "xtype": "mz-input-text",
+                          "width": 240,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "thirdSlideDesktopCopyPositionTop",
+                          "fieldLabel": "Top",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "20%"
+                        },
+                        {
+                          "name": "thirdSlideDesktopCopyPositionRight",
+                          "fieldLabel": "Right",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "thirdSlideDesktopCopyPositionLeft",
+                          "fieldLabel": "Left",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "10%"
+                        },
+                        {
+                          "name": "thirdSlideDesktopCopyPositionBottom",
+                          "fieldLabel": "Bottom",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table",
+                          "width": 50,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "addThirdSlideDesktopCopyBackground",
+                          "fieldLabel": "Add a Background",
+                          "xtype": "mz-input-checkbox"
+                        },
+                        {
+                          "name": "thirdSlideDesktopCopyBackgroundColor",
+                          "fieldLabel": "Color",
+                          "showIf": "addThirdSlideDesktopCopyBackground",
+                          "xtype": "mz-input-color"
+                        },
+                        {
+                          "name": "thirdSlideDesktopCopyBackgroundClip",
+                          "fieldLabel": "Clip Path",
+                          "showIf": "addThirdSlideDesktopCopyBackground",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table",
+                          "emptyText": "polygon(0 0, 50% 0, 45% 100%, 0 100%)"
+                        },
+                        {
+                          "name": "addThirdSlideMobileCopyStyles",
+                          "fieldLabel": "Add Mobile Styles",
+                          "xtype": "mz-input-checkbox",
+                          "style": "margin-top: 15px; border-top: 1px dashed #ddd",
+                          "width": 280
+                        },
+                        {
+                          "name": "thirdSlideMobileCopyWidth",
+                          "fieldLabel": "Width",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addThirdSlideMobileCopyStyles",
+                          "width": 240,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "thirdSlideMobileCopyPositionTop",
+                          "fieldLabel": "Top",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addThirdSlideMobileCopyStyles",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "20%"
+                        },
+                        {
+                          "name": "thirdSlideMobileCopyPositionRight",
+                          "fieldLabel": "Right",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addThirdSlideMobileCopyStyles",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "thirdSlideMobileCopyPositionLeft",
+                          "fieldLabel": "Left",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addThirdSlideMobileCopyStyles",
+                          "style": "display: inline-table; margin-right: 15px",
+                          "width": 50,
+                          "emptyText": "10%"
+                        },
+                        {
+                          "name": "thirdSlideMobileCopyPositionBottom",
+                          "fieldLabel": "Bottom",
+                          "xtype": "mz-input-text",
+                          "enableIf": "addThirdSlideMobileCopyStyles",
+                          "style": "display: inline-table",
+                          "width": 50,
+                          "emptyText": "auto"
+                        },
+                        {
+                          "name": "addThirdSlideMobileCopyBackground",
+                          "fieldLabel": "Add a Background",
+                          "xtype": "mz-input-checkbox",
+                          "enableIf": "addThirdSlideMobileCopyStyles"
+                        },
+                        {
+                          "name": "thirdSlideMobileCopyBackgroundColor",
+                          "fieldLabel": "Color",
+                          "showIf": "addThirdSlideMobileCopyBackground",
+                          "xtype": "mz-input-color"
+                        },
+                        {
+                          "name": "thirdSlideMobileCopyBackgroundClip",
+                          "fieldLabel": "Clip Path",
+                          "showIf": "addThirdSlideMobileCopyBackground",
+                          "xtype": "mz-input-text",
+                          "style": "display: inline-table",
+                          "emptyText": "polygon(0 0, 50% 0, 45% 100%, 0 100%)"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
-      ],
-      "icon": "/resources/admin/widgets/01_photo_text.png",
-      "id": "featured_product",
-      "validPageTypes": [ "*" ]
+      ]
+    },
+    {
+      "displayName": "Certona Observation",
+      "displayTemplate": "certona/certona-observation",
+      "icon": "/resources/admin/widgets/certona-logo.png",
+      "id": "certona-observation",
+      "validPageTypes": ["*"]
+    },
+    {
+      "displayName": "Certona Recommended Products",
+      "displayTemplate": "certona/certona-recs",
+      "icon": "/resources/admin/widgets/certona-logo.png",
+      "id": "certona-recs",
+      "validPageTypes": ["*"],
+      "editViewFields": [
+        {
+          "fieldLabel": "Calendars Container name",
+          "name": "calendarscontainername",
+          "anchor": "100%",
+          "xtype": "mz-input-text"
+        },
+        {
+          "fieldLabel": "Lang Container name",
+          "name": "langcontainername",
+          "anchor": "100%",
+          "xtype": "mz-input-text"
+        },
+        {
+          "fieldLabel": "Widget Display Title (leave blank to default to name configured in Certona)",
+          "name": "widgetTitle",
+          "anchor": "100%",
+          "xtype": "mz-input-text"
+        },
+        {
+          "fieldLabel": "Carousel direction",
+          "name": "carouselDirection",
+          "anchor": "100%",
+          "xtype": "mz-input-dropdown",
+          "store": [
+            ["horisontal", "Horisontal"],
+            ["vertical", "Vertical"]
+          ]
+        }
+      ]
+    },
+    {
+      "displayName": "Certona You Also Like",
+      "displayTemplate": "certona/certona-you-also-like",
+      "icon": "/resources/admin/widgets/certona-logo.png",
+      "id": "certona-you-also-like",
+      "validPageTypes": ["*"],
+      "editViewFields": [
+        {
+          "fieldLabel": "Calendars Container name",
+          "name": "calendarscontainername",
+          "anchor": "100%",
+          "xtype": "mz-input-text"
+        },
+        {
+          "fieldLabel": "Widget Display Title (leave blank to default to name configured in Certona)",
+          "name": "widgetTitle",
+          "anchor": "100%",
+          "xtype": "mz-input-text"
+        },
+        {
+          "fieldLabel": "Carousel direction",
+          "name": "carouselDirection",
+          "anchor": "100%",
+          "xtype": "mz-input-dropdown",
+          "store": [
+            ["horisontal", "Horisontal"],
+            ["vertical", "Vertical"]
+          ]
+        }
+      ]
     },
     {
       "defaultConfig": {
-        "heightResizable": false
+        "catalog": "[]"
       },
-      "displayName": "Video",
-      "displayTemplate": "cms/video",
+      "displayName": "Email Form",
+      "displayTemplate": "sendEmail/sendemail",
       "editViewFields": [
         {
-          "anchor": "100%",
-          "fieldLabel": "Video URL",
-          "name": "url",
+          "name": "subject",
+          "fieldLabel": "Email Subject",
+          "xtype": "mz-input-text"
+        },
+        {
+          "name": "email_from",
+          "fieldLabel": "Email From",
+          "xtype": "mz-input-text"
+        },
+        {
+          "name": "email_cc",
+          "fieldLabel": "Email CC (use comma to separate few)",
+          "xtype": "mz-input-text"
+        },
+        {
+          "name": "hidden_form",
+          "fieldLabel": "Hide form from public part",
+          "xtype": "mz-input-checkbox"
+        },
+        {
+          "name": "form_html",
+          "fieldLabel": "Form HTML",
+          "xtype": "mz-input-code",
+          "width": "100%"
+        },
+        {
+          "name": "form_email_template",
+          "fieldLabel": "Form Email Template",
+          "xtype": "mz-input-code",
+          "width": "100%"
+        },
+        {
+          "name": "customClass",
+          "fieldLabel": "Custom Form Class",
+          "xtype": "mz-input-text"
+        },
+        {
+          "name": "customId",
+          "fieldLabel": "Custom Form ID",
+          "xtype": "mz-input-text"
+        },
+        {
+          "name": "form_success_message",
+          "fieldLabel": "Form Success Message",
+          "xtype": "mz-input-code",
+          "width": "100%"
+        },
+        {
+          "name": "form_error_message",
+          "fieldLabel": "Form Error Message",
+          "xtype": "mz-input-code",
+          "width": "100%"
+        },
+        {
+          "name": "customButtonValue",
+          "fieldLabel": "Custom Button Label",
           "xtype": "mz-input-text"
         }
       ],
-      "icon": "/resources/admin/widgets/08_video.png",
-      "id": "video",
-      "validPageTypes": [ "*" ]
+      "icon": "/resources/admin/widgets/03_heading_p.png",
+      "id": "sendemail",
+      "validPageTypes": ["*"]
+    },
+    {
+      "id": "Image-video-slide_widget",
+      "displayName": "Image-Video-Slider",
+      "displayTemplate": "cms/image-video-slider",
+      "editViewFields": [
+        {
+          "xtype": "fieldcontainer",
+          "anchor": "100%",
+          "fieldlabel": "Select / Upload",
+          "items": [
+            {
+              "name": "images",
+              "fieldLabel": "Select / Upload Images (Image first for first slide & last for last Slide)",
+              "xtype": "taco.imagefield"
+            }
+          ]
+        },
+        {
+          "xtype": "textfield",
+          "name": "sliderHeight",
+          "style": "width: 52%",
+          "fieldLabel": "Slider Height"
+        },
+        {
+          "name": "sliderImageHeight",
+          "fieldLabel": "Slider Image Height",
+          "xtype": "textfield",
+          "style": "width: 52%"
+        },
+        {
+          "name": "sliderDuration",
+          "style": "width: 52%",
+          "fieldLabel": "Slider Duration (In Seconds)",
+          "xtype": "textfield"
+        },
+        {
+          "name": "slide1panel",
+          "xtype": "panel",
+          "style": "background:#ccb;margin:10px; padding:20px",
+          "title": "First Slider",
+          "items": [
+            {
+              "style": "width: 52%",
+              "fieldLabel": "first slider option",
+              "name": "firstslider",
+              "xtype": "mz-input-dropdown",
+              "store": [
+                ["1", "Image Slide"],
+                ["2", "Video Slide"]
+              ]
+            },
+            {
+              "name": "viderourlfirst",
+              "style": "width: 52%",
+              "fieldLabel": "Link for first video",
+              "xtype": "textfield"
+            },
+            {
+              "name": "videroStartTimefirst",
+              "style": "width: 52%",
+              "fieldLabel": "Start duration for first video",
+              "xtype": "textfield"
+            },
+            {
+              "name": "videroEndTimefirst",
+              "style": "width: 52%",
+              "fieldLabel": "End duration for first video",
+              "xtype": "textfield"
+            },
+            {
+              "name": "labelfirst",
+              "style": "width: 52%",
+              "fieldLabel": "Title for first image",
+              "xtype": "textfield"
+            },
+            {
+              "name": "firstSliderImageSizePositionForDesktop",
+              "style": "width: 52%",
+              "fieldLabel": "Slider Image Size and Position For Desktop",
+              "xtype": "textfield"
+            },
+            {
+              "name": "firstSliderImageSizePositionForTablet",
+              "style": "width: 52%",
+              "fieldLabel": "Slider Image Size and Position For Tablet",
+              "xtype": "textfield"
+            },
+            {
+              "name": "firstSliderImageSizePositionForMobile",
+              "style": "width: 52%",
+              "fieldLabel": "Slider Image Size and Position For Mobile",
+              "xtype": "textfield"
+            },
+            {
+              "xtype": "displayfield",
+              "style": "margin-top: 2rem",
+              "value": "<p>Select a Category or enter an URL for Slide 1:</br><span style='font-size:smaller;'>Note: if both configured, the category will take precedent.</span></p>"
+            },
+            {
+              "fieldLabel": "Select link to category on Button click",
+              "name": "firstcategoryUrl",
+              "xtype": "mz-input-category",
+              "displayField": "name",
+              "anchor": "60%",
+              "valueField": "id",
+              "queryMode": "local",
+              "allowMultiple": false,
+              "store": {
+                "type": "Taco.store.Categories"
+              }
+            },
+            {
+              "xtype": "displayfield",
+              "value": "<b>OR</b>"
+            },
+            {
+              "name": "linkfirst",
+              "style": "width: 52%",
+              "fieldLabel": "Enter link to category on Button click",
+              "xtype": "textfield"
+            }
+          ]
+        },
+        {
+          "name": "slide2panel",
+          "xtype": "panel",
+          "style": "background:#ccc;margin:10px; padding:10px",
+          "title": "Second Slider",
+          "items": [
+            {
+              "style": "width: 52%",
+              "fieldLabel": "second slider option",
+              "name": "secondslider",
+              "xtype": "mz-input-dropdown",
+              "store": [
+                ["1", "Image Slide"],
+                ["2", "Video Slide"]
+              ]
+            },
+            {
+              "name": "viderourlsecond",
+              "style": "width: 52%",
+              "fieldLabel": "Link for second video",
+              "xtype": "textfield"
+            },
+            {
+              "name": "videroStartTimesecond",
+              "style": "width: 52%",
+              "fieldLabel": "Start duration for second video",
+              "xtype": "textfield"
+            },
+            {
+              "name": "videroEndTimesecond",
+              "style": "width: 52%",
+              "fieldLabel": "End duration for second video",
+              "xtype": "textfield"
+            },
+            {
+              "name": "labelsecond",
+              "style": "width: 52%",
+              "fieldLabel": "Title for second Image",
+              "xtype": "textfield"
+            },
+            {
+              "name": "secondSliderImageSizePositionForDesktop",
+              "style": "width: 52%",
+              "fieldLabel": "Slider Image Size and Position For Desktop",
+              "xtype": "textfield"
+            },
+            {
+              "name": "secondSliderImageSizePositionForTablet",
+              "style": "width: 52%",
+              "fieldLabel": "Slider Image Size and Position For Tablet",
+              "xtype": "textfield"
+            },
+            {
+              "name": "secondSliderImageSizePositionForMobile",
+              "style": "width: 52%",
+              "fieldLabel": "Slider Image Size and Position For Mobile",
+              "xtype": "textfield"
+            },
+            {
+              "xtype": "displayfield",
+              "style": "margin-top: 2rem",
+              "value": "<p>Select a Category or enter an URL for Slide 2:</br><span style='font-size:smaller;'>Note: if both configured, the category will take precedent.</span></p>"
+            },
+            {
+              "fieldLabel": "Select link to category on Button click",
+              "name": "secondcategoryUrl",
+              "xtype": "mz-input-category",
+              "displayField": "name",
+              "anchor": "60%",
+              "valueField": "id",
+              "queryMode": "local",
+              "allowMultiple": false,
+              "store": {
+                "type": "Taco.store.Categories"
+              }
+            },
+            {
+              "xtype": "displayfield",
+              "value": "<b>OR</b>"
+            },
+            {
+              "name": "linksecond",
+              "style": "width: 52%",
+              "fieldLabel": "Select link to category on Button click",
+              "xtype": "textfield"
+            }
+          ]
+        },
+        {
+          "name": "slide3panel",
+          "xtype": "panel",
+          "style": "background:#ccb;margin:10px; padding:10px",
+          "title": "Third Slider",
+          "items": [
+            {
+              "fieldLabel": "Third slider option",
+              "name": "thirdslider",
+              "xtype": "mz-input-dropdown",
+              "style": "width: 52%",
+              "store": [
+                ["1", "Image Slide"],
+                ["2", "Video Slide"]
+              ]
+            },
+            {
+              "name": "viderourlthird",
+              "style": "width: 52%",
+              "fieldLabel": "Link for third video",
+              "xtype": "textfield"
+            },
+            {
+              "name": "videroStartTimethird",
+              "style": "width: 52%",
+              "fieldLabel": "Start duration for third video",
+              "xtype": "textfield"
+            },
+            {
+              "name": "videroEndTimethird",
+              "style": "width: 52%",
+              "fieldLabel": "End duration for third video",
+              "xtype": "textfield"
+            },
+            {
+              "name": "labelthird",
+              "style": "width: 52%",
+              "fieldLabel": "Title for third Image",
+              "xtype": "textfield"
+            },
+            {
+              "name": "thirdSliderImageSizePositionForDesktop",
+              "style": "width: 52%",
+              "fieldLabel": "Slider Image Size and Position For Desktop",
+              "xtype": "textfield"
+            },
+            {
+              "name": "thirdSliderImageSizePositionForTablet",
+              "style": "width: 52%",
+              "fieldLabel": "Slider Image Size and Position For Tablet",
+              "xtype": "textfield"
+            },
+            {
+              "name": "thirdSliderImageSizePositionForMobile",
+              "style": "width: 52%",
+              "fieldLabel": "Slider Image Size and Position For Mobile",
+              "xtype": "textfield"
+            },
+            {
+              "xtype": "displayfield",
+              "style": "margin-top: 2rem",
+              "value": "<p>Select a Category or enter an URL for Slide 3:</br><span style='font-size:smaller;'>Note: if both configured, the category will take precedent.</span></p>"
+            },
+            {
+              "fieldLabel": "Select link to category on Button click",
+              "name": "thirdcategoryUrl",
+              "xtype": "mz-input-category",
+              "displayField": "name",
+              "anchor": "60%",
+              "valueField": "id",
+              "queryMode": "local",
+              "allowMultiple": false,
+              "store": {
+                "type": "Taco.store.Categories"
+              }
+            },
+            {
+              "xtype": "displayfield",
+              "value": "<b>OR</b>"
+            },
+            {
+              "name": "linkthird",
+              "style": "width: 52%",
+              "fieldLabel": "Select link to category on Button click",
+              "xtype": "textfield"
+            }
+          ]
+        }
+      ],
+      "icon": "/resources/admin/widgets/image_video_slider.png",
+      "validPageTypes": ["*"]
+    },
+    {
+      "displayName": "Home Page Hero Slider",
+      "displayTemplate": "homepage/home-hero-slider",
+      "icon": "/resources/admin/widgets/00_photo.png",
+      "id": "homepage-hero-slider",
+      "validPageTypes": ["*"],
+      "defaultConfig": {
+        "heightResizable": false
+      },
+      "editViewFields": [
+        {
+          "xtype": "fieldcontainer",
+          "anchor": "100%",
+          "fieldlabel": "Select / Upload",
+          "items": [
+            {
+              "name": "hero-slides",
+              "fieldLabel": "Select / Upload Images",
+              "xtype": "taco.imagefield"
+            },
+            {
+              "name": "hero-links",
+              "fieldLabel": "Image slide urls",
+              "xtype": "mz-input-textarea"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shopByCategory",
+      "displayName": "Shop by category",
+      "displayTemplate": "homepage/shop-by-category",
+      "editViewFields": [
+        {
+          "fieldLabel": "Section heading",
+          "name": "sectionHeading",
+          "xtype": "mz-input-text"
+        },
+        {
+          "fieldLabel": "Select featured categories",
+          "name": "categories",
+          "xtype": "mz-input-categorymulti"
+        },
+        {
+          "fieldLabel": "Display category name",
+          "name": "showName",
+          "xtype": "mz-input-checkbox"
+        },
+        {
+          "fieldLabel": "Unique id",
+          "name": "uniqueId",
+          "xtype": "mz-input-text"
+        },
+        {
+          "fieldLabel": "Additional styles",
+          "name": "additionalStyles",
+          "xtype": "mz-input-code"
+        }
+      ],
+      "icon": "/resources/admin/widgets/4-col_icon.png",
+      "validPageTypes": ["*"]
+    },
+    {
+      "displayName": "Home Page Whats Trending Now",
+      "displayTemplate": "homepage/home-trend-now",
+      "icon": "/resources/admin/widgets/trending.png",
+      "id": "Whats-Trending-Now_widget",
+      "validPageTypes": ["*"],
+      "defaultConfig": {
+        "heightResizable": false
+      },
+      "editViewFields": [
+        {
+          "xtype": "fieldcontainer",
+          "anchor": "100%",
+          "fieldlabel": "Select / Upload",
+          "items": [
+            {
+              "name": "trendingimages1",
+              "fieldLabel": "Select / Upload Images",
+              "xtype": "taco.imagefield"
+            }
+          ]
+        },
+        {
+          "name": "trendName1",
+          "fieldLabel": "Title for the trending image",
+          "xtype": "textfield"
+        },
+        {
+          "name": "trendDesc1",
+          "fieldLabel": "Description for the trending image",
+          "xtype": "textfield",
+          "width": "100%"
+        },
+        {
+          "name": "linkTrend1",
+          "fieldLabel": "Embedded link for Trending Now",
+          "xtype": "textfield"
+        }
+      ]
+    },
+    {
+      "defaultConfig": {
+        "style": "1"
+      },
+      "displayName": "Add This",
+      "displayTemplate": "social/addthis",
+      "editViewFields": [
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "style",
+          "fieldLabel": "AddThis Button Style",
+          "store": [
+            ["1", "small"],
+            ["2", "medium"],
+            ["3", "large"],
+            ["4", "compact"]
+          ]
+        },
+        {
+          "xtype": "box",
+          "html": "Register with <a target=\"_blank\" href=\"https://www.addthis.com\">AddThis</a> for a free in-depth analytics reports and better understand your site's social traffic."
+        },
+        {
+          "fieldLabel": "AddThis<br/> profile ID",
+          "name": "profileId",
+          "xtype": "mz-input-text",
+          "allowBlank": true
+        }
+      ],
+      "icon": "/resources/admin/widgets/13_social.png",
+      "id": "addthis",
+      "validPageTypes": ["*"],
+      "category": "social"
+    },
+    {
+      "displayName": "International Order Tracking",
+      "displayTemplate": "misc/border-free-order-tracking",
+      "icon": "/resources/admin/widgets/borderFree.png",
+      "id": "borderfreeordertracking",
+      "validPageTypes": ["*"],
+      "customEditor": "borderFreeOrderTrackingEditor"
     },
     {
       "defaultConfig": {
@@ -1373,6 +4057,9 @@
       },
       "displayName": "Navigation Subsection",
       "displayTemplate": "misc/category-navigation",
+      "icon": "/resources/admin/widgets/22_category_navigation.png",
+      "id": "catNav",
+      "validPageTypes": ["*"],
       "editViewFields": [
         {
           "anchor": "100%",
@@ -1385,9 +4072,9 @@
           "fieldLabel": "Template",
           "name": "template",
           "store": [
-            [ "primary", "primary" ],
-            [ "secondary", "secondary" ],
-            [ "tertiary", "tertiary" ]
+            ["primary", "primary"],
+            ["secondary", "secondary"],
+            ["tertiary", "tertiary"]
           ],
           "xtype": "mz-input-dropdown"
         },
@@ -1403,10 +4090,176 @@
           "name": "hideEmptyChildNodes",
           "xtype": "mz-input-checkbox"
         }
+      ]
+    },
+    {
+      "defaultConfig": {
+        "heightResizable": false
+      },
+      "displayName": "Home Page Sub Category",
+      "displayTemplate": "homepage/home-sub-categories",
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Categories",
+          "name": "categories",
+          "xtype": "boxselect",
+          "displayField": "name",
+          "valueField": "id",
+          "queryMode": "local",
+          "store": {
+            "type": "Taco.store.Categories"
+          }
+        },
+        {
+          "fieldLabel": "Strip Color 1",
+          "name": "stripColor1",
+          "xtype": "mz-input-color"
+        },
+        {
+          "fieldLabel": "Strip Color 2",
+          "name": "stripColor2",
+          "xtype": "mz-input-color"
+        },
+        {
+          "xtype": "mz-input-color",
+          "name": "stripColor3",
+          "fieldLabel": "Strip Color 3"
+        },
+        {
+          "xtype": "mz-input-color",
+          "name": "stripColor4",
+          "fieldLabel": "Strip Color 4"
+        },
+        {
+          "xtype": "mz-input-color",
+          "name": "stripColor5",
+          "fieldLabel": "Strip Color 5"
+        },
+        {
+          "xtype": "mz-input-color",
+          "name": "stripColor6",
+          "fieldLabel": "Strip Color 6"
+        },
+        {
+          "xtype": "mz-input-color",
+          "name": "stripColor7",
+          "fieldLabel": "Strip Color 7"
+        },
+        {
+          "xtype": "mz-input-color",
+          "name": "stripColor8",
+          "fieldLabel": "Strip Color 8"
+        }
       ],
-      "icon": "/resources/admin/widgets/22_category_navigation.png",
+      "icon": "/resources/admin/widgets/subcategory.png",
       "id": "catNav",
-      "validPageTypes": [ "*" ]
+      "validPageTypes": ["*"]
+    },
+    {
+      "id": "category-carousel-widget",
+      "displayName": "Category Carousel",
+      "displayTemplate": "misc/category-carousel",
+      "icon": "/resources/admin/widgets/city-carousel-icon.png",
+      "validPageTypes": ["*"],
+      "defaultConfig": {
+        "isInfinite": true,
+        "totalCount": "10"
+      },
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Title",
+          "name": "title",
+          "xtype": "mz-input-text"
+        },
+        {
+          "anchor": "100%",
+          "fieldLabel": "Select Category",
+          "name": "category",
+          "xtype": "mz-input-category"
+        },
+        {
+          "fieldLabel": "Include Child Categories",
+          "name": "isChildCategory",
+          "xtype": "mz-input-checkbox"
+        },
+        {
+          "fieldLabel": "Enable Continuous Loop",
+          "name": "isInfinite",
+          "xtype": "mz-input-checkbox"
+        },
+        {
+          "fieldLabel": "Enable Autoplay",
+          "name": "isAutoplay",
+          "xtype": "mz-input-checkbox"
+        },
+        {
+          "anchor": "100%",
+          "fieldLabel": "Number of Products",
+          "name": "totalCount",
+          "xtype": "mz-input-number"
+        }
+      ]
+    },
+    {
+      "id": "cms-image",
+      "displayName": "Image",
+      "displayTemplate": "cms/image",
+      "icon": "/resources/admin/widgets/00_photo.png",
+      "validPageTypes": ["*"],
+      "defaultConfig": {
+        "height": 400,
+        "heightResizable": true,
+        "imageHeight": 400,
+        "imageSource": "file",
+        "linkSource": "externalUrl"
+      },
+      "customEditor": "image"
+    },
+    {
+      "id": "misc-image-with-caption",
+      "displayName": "Image with Caption",
+      "displayTemplate": "misc/image-with-caption",
+      "icon": "/resources/admin/widgets/00_photo.png",
+      "validPageTypes": ["*"],
+      "defaultConfig": {
+        "height": 400,
+        "heightResizable": true,
+        "imageHeight": 400,
+        "imageSource": "file",
+        "linkSource": "externalUrl"
+      },
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Image",
+          "name": "image-source",
+          "xtype": "mz-input-image"
+        },
+        {
+          "anchor": "100%",
+          "fieldLabel": "Image URL",
+          "name": "image-url",
+          "xtype": "mz-input-text"
+        },
+        {
+          "anchor": "100%",
+          "fieldLabel": "Caption",
+          "name": "caption",
+          "xtype": "mz-input-text"
+        }
+      ]
+    },
+    {
+      "displayName": "Content",
+      "displayTemplate": "cms/content",
+      "icon": "/resources/admin/widgets/03_heading_p.png",
+      "id": "content",
+      "validPageTypes": ["*"],
+      "defaultConfig": {
+        "body": "<h2>Insert Title</h2><p>Insert Content</p>"
+      }
     },
     {
       "defaultConfig": {
@@ -1419,19 +4272,19 @@
       "displayTemplate": "catalog/related-products",
       "editViewFields": [
         {
-          "anchor": "100%",
           "fieldLabel": "Title",
           "name": "title",
-          "xtype": "mz-input-text"
+          "xtype": "mz-input-text",
+          "anchor": "100%"
         },
         {
           "anchor": "100%",
           "fieldLabel": "Template",
           "name": "template",
           "store": [
-            [ "modules/product/product-list-carousel", "carousel" ],
-            [ "modules/product/product-list-tiled", "tiled" ],
-            [ "modules/product/product-list", "list" ]
+            ["modules/product/product-list-carousel", "carousel"],
+            ["modules/product/product-list-tiled", "tiled"],
+            ["modules/product/product-list", "list"]
           ],
           "xtype": "mz-input-dropdown"
         },
@@ -1444,17 +4297,285 @@
       ],
       "icon": "/resources/admin/widgets/23_cross_sells.png",
       "id": "crosssells",
-      "validPageTypes": [ "product", "cart" ]
+      "validPageTypes": ["product", "cart"]
+    },
+    {
+      "displayName": "Deal of the Day",
+      "displayTemplate": "catalog/deal-of-the-day",
+      "icon": "/resources/admin/widgets/28_deal_of_the_day.png",
+      "id": "deal-of-the-day",
+      "validPageTypes": ["*"],
+      "category": "catalog",
+      "editView": "taco-dealoftheday-widgeteditor"
+    },
+    {
+      "id": "featured_product",
+      "displayName": "Featured Products",
+      "displayTemplate": "catalog/featuredproducts",
+      "defaultConfig": {
+        "template": "modules/product/product-list"
+      },
+      "icon": "/resources/admin/widgets/01_photo_text.png",
+      "validPageTypes": ["*"],
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Products",
+          "name": "productCodes",
+          "xtype": "mz-input-productmulti"
+        },
+        {
+          "anchor": "100%",
+          "fieldLabel": "Template",
+          "name": "template",
+          "xtype": "mz-input-dropdown",
+          "store": [
+            ["modules/product/product-list-tiled", "tiled"],
+            ["modules/product/product-list", "list"],
+            ["modules/product/product-list-carousel", "carousel"]
+          ]
+        }
+      ]
     },
     {
       "defaultConfig": {
-        "attributeId": "tenant~product-upsell",
-        "count": "4",
-        "template": "modules/product/product-list-carousel",
-        "title": "Other Items"
+        "heightResizable": false
       },
-      "displayName": "Up Sells",
-      "displayTemplate": "catalog/related-products",
+      "displayName": "Home Page Instagram Slider Widget",
+      "displayTemplate": "homepage/home-page-instagram-slider",
+      "editViewFields": [
+        {
+          "fieldLabel": "Instagram Profile Name",
+          "name": "profilename",
+          "xtype": "textfield",
+          "width": "60%"
+        },
+        {
+          "xtype": "textfield",
+          "name": "UserId",
+          "fieldLabel": "Instagram User Id",
+          "width": "60%"
+        },
+        {
+          "xtype": "textfield",
+          "name": "accessToken",
+          "fieldLabel": "Instagram Access Token",
+          "width": "60%"
+        }
+      ],
+      "icon": "/resources/admin/widgets/instragram.png",
+      "id": "home-page-instagram-slider",
+      "validPageTypes": ["*"]
+    },
+    {
+      "defaultConfig": {
+        "heightResizable": false
+      },
+      "id": "home-page-video-widge",
+      "displayName": "Home Page Video Widget",
+      "displayTemplate": "homepage/home-page-video",
+      "editViewFields": [
+        {
+          "xtype": "textfield",
+          "fieldLabel": "Title",
+          "name": "homepagevideotitle",
+          "width": "60%"
+        },
+        {
+          "name": "homepagevideosubtitle",
+          "fieldLabel": "Sub Title",
+          "xtype": "textfield",
+          "width": "60%"
+        },
+        {
+          "name": "homepageviewvideo",
+          "fieldLabel": "Video Link",
+          "xtype": "textfield",
+          "width": "60%"
+        },
+        {
+          "name": "homepagevideoimageurl",
+          "fieldLabel": "Image",
+          "xtype": "taco.imagefield"
+        }
+      ],
+      "icon": "/resources/admin/widgets/homepage_video.png",
+      "validPageTypes": ["*"]
+    },
+    {
+      "displayName": "Horizontal Rule",
+      "displayTemplate": "cms/horizontalrule",
+      "customEditor": "horizontalrule",
+      "icon": "/resources/admin/widgets/05_horizontal_divider.png",
+      "id": "horizontal_rule",
+      "validPageTypes": ["*"],
+      "defaultConfig": {
+        "hrBorderColor": "#000",
+        "hrBorderStyle": "solid",
+        "hrBorderWidth": "1px",
+        "hrMarginBottom": "0px",
+        "hrMarginTop": "0px"
+      }
+    },
+    {
+      "defaultConfig": {
+        "body": "<h2>Insert Markup</h2>"
+      },
+      "displayName": "HTML",
+      "displayTemplate": "cms/content",
+      "editViewFields": [
+        {
+          "fieldLabel": "Enter HTML",
+          "fieldStyle": "resize:both;font-family:Monaco, Menlo, Consolas, 'Droid Sans Mono', Inconsolata, 'Courier New', monospace;height:100%",
+          "height": 400,
+          "name": "body",
+          "width": "100%",
+          "mode": "html",
+          "xtype": "mz-input-code"
+        }
+      ],
+      "icon": "/resources/admin/widgets/07_code.png",
+      "id": "html",
+      "validPageTypes": ["*"]
+    },
+    {
+      "defaultConfig": {
+        "title": "Related Items"
+      },
+      "displayName": "Instock Request",
+      "displayTemplate": "misc/instock-request",
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Title",
+          "xtype": "mz-input-text"
+        }
+      ],
+      "icon": "/resources/admin/widgets/25_instock_requests.png",
+      "id": "instockrequest",
+      "validPageTypes": ["product"]
+    },
+    {
+      "displayName": "New Arrivals",
+      "displayTemplate": "catalog/new-arrivals",
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Title",
+          "name": "title",
+          "xtype": "mz-input-text"
+        },
+        {
+          "anchor": "100%",
+          "fieldLabel": "Products",
+          "name": "productCodes",
+          "xtype": "mz-input-productmulti"
+        }
+      ],
+      "icon": "/resources/admin/widgets/new_arrival.png",
+      "id": "new_arrivals_product",
+      "validPageTypes": ["*"]
+    },
+    {
+      "displayName": "New Arrivals",
+      "displayTemplate": "catalog/new-arrivals",
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Title",
+          "name": "title",
+          "xtype": "mz-input-text"
+        },
+        {
+          "anchor": "100%",
+          "fieldLabel": "Products",
+          "name": "productCodes",
+          "xtype": "mz-input-productmulti"
+        }
+      ],
+      "icon": "/resources/admin/widgets/new_arrival.png",
+      "id": "new_arrivals_product",
+      "validPageTypes": ["*"]
+    },
+    {
+      "displayName": "Popular Products",
+      "displayTemplate": "catalog/popular-products",
+      "id": "popularProducts",
+      "defaultConfig": {
+        "title": "Popular Products"
+      },
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Slider Title",
+          "name": "title",
+          "xtype": "mz-input-category"
+        },
+        {
+          "anchor": "100%",
+          "fieldLabel": "Title",
+          "name": "configurableTitle",
+          "xtype": "mz-input-text"
+        }
+      ],
+      "icon": "/resources/admin/widgets/top_selling.png",
+      "validPageTypes": ["*"]
+    },
+    {
+      "id": "product-carousel-widget",
+      "displayName": "Product carousel",
+      "displayTemplate": "misc/product-carousel",
+      "defaultConfig": {},
+      "icon": "/resources/admin/widgets/city-carousel-icon.png",
+      "validPageTypes": ["*"],
+      "editViewFields": [
+        {
+          "fieldLabel": "Select Products",
+          "name": "products",
+          "xtype": "mz-input-productmulti"
+        }
+      ]
+    },
+    {
+      "defaultConfig": {},
+      "displayName": "Brands carousel",
+      "displayTemplate": "misc/brands-carousel",
+      "icon": "/resources/admin/widgets/city-carousel-icon.png",
+      "id": "brands-carousel",
+      "validPageTypes": ["*"],
+      "editViewFields": [
+        {
+          "xtype": "fieldcontainer",
+          "anchor": "100%",
+          "fieldlabel": "Select / Upload",
+          "items": [
+            {
+              "anchor": "100%",
+              "fieldLabel": "Title",
+              "name": "brandTitle",
+              "xtype": "mz-input-text"
+            },
+            {
+              "name": "trendingimages1",
+              "fieldLabel": "Select / Upload Images",
+              "xtype": "taco.imagefield"
+            },
+            {
+              "name": "trendinglinks1",
+              "fieldLabel": "Brands - Links (use ; to separate)",
+              "xtype": "mz-input-code"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "defaultConfig": {
+        "template": "modules/product/recent-product-list-gorsuch",
+        "title": "Recently Viewed"
+      },
+      "displayName": "Recently Viewed",
+      "displayTemplate": "catalog/recently-viewed-products",
       "editViewFields": [
         {
           "anchor": "100%",
@@ -1467,22 +4588,16 @@
           "fieldLabel": "Template",
           "name": "template",
           "store": [
-            [ "modules/product/product-list-carousel", "carousel" ],
-            [ "modules/product/product-list-tiled", "tiled" ],
-            [ "modules/product/product-list", "list" ]
+            ["modules/product/product-list-tiled", "tiled"],
+            ["modules/product/product-list", "list"],
+            ["modules/product/recent-product-list-gorsuch", "carousel"]
           ],
           "xtype": "mz-input-dropdown"
-        },
-        {
-          "anchor": "100%",
-          "fieldLabel": "Number to display",
-          "name": "count",
-          "xtype": "mz-input-number"
         }
       ],
-      "icon": "/resources/admin/widgets/27_up_sells.png",
-      "id": "upsells",
-      "validPageTypes": [ "product", "cart" ]
+      "icon": "/resources/admin/widgets/26_related_products.png",
+      "id": "recentlyViewedProducts",
+      "validPageTypes": ["product", "cart"]
     },
     {
       "defaultConfig": {
@@ -1505,9 +4620,9 @@
           "fieldLabel": "Template",
           "name": "template",
           "store": [
-            [ "modules/product/product-list-carousel", "carousel" ],
-            [ "modules/product/product-list-tiled", "tiled" ],
-            [ "modules/product/product-list", "list" ]
+            ["modules/product/product-list-carousel", "carousel"],
+            ["modules/product/product-list-tiled", "tiled"],
+            ["modules/product/product-list", "list"]
           ],
           "xtype": "mz-input-dropdown"
         },
@@ -1520,140 +4635,180 @@
       ],
       "icon": "/resources/admin/widgets/26_related_products.png",
       "id": "relatedproducts",
-      "validPageTypes": [ "product", "cart" ]
+      "validPageTypes": ["product", "cart"]
+    },
+    {
+      "id": "rti-observation-tag",
+      "displayName": "RTI Observation Tag",
+      "displayTemplate": "RTI/rti-observation.hypr",
+      "icon": "/resources/admin/widgets/rti-observation.png",
+      "validPageTypes": ["*"]
+    },
+    {
+      "id": "rti-rec-display",
+      "displayName": "RTI Recommended Products",
+      "displayTemplate": "RTI/rti-rec-template",
+      "customEditor": "rti-rec-editor",
+      "icon": "/resources/admin/widgets/rti-recommend.png",
+      "validPageTypes": ["*"]
+    },
+    {
+      "displayName": "Image Slider",
+      "displayTemplate": "misc/slider",
+      "icon": "/resources/admin/widgets/trending.png",
+      "id": "hompe_page_slider",
+      "validPageTypes": ["*"],
+      "defaultConfig": {
+        "heightResizable": false
+      },
+      "editViewFields": [
+        {
+          "name": "hps_title",
+          "fieldLabel": "Block Title",
+          "xtype": "textfield"
+        },
+        {
+          "xtype": "fieldcontainer",
+          "anchor": "100%",
+          "fieldlabel": "Select / Upload (desktop)",
+          "items": [
+            {
+              "name": "hps_images",
+              "fieldLabel": "Select / Upload Images",
+              "xtype": "taco.imagefield"
+            }
+          ]
+        },
+        {
+          "xtype": "fieldcontainer",
+          "anchor": "100%",
+          "fieldlabel": "Select / Upload (mobile)",
+          "items": [
+            {
+              "name": "hps_images_mobile",
+              "fieldLabel": "Select / Upload Images",
+              "xtype": "taco.imagefield"
+            }
+          ]
+        },
+        {
+          "name": "hps_link_url",
+          "fieldLabel": "Link URLs (use ; to separate)",
+          "xtype": "mz-input-code"
+        }
+      ]
+    },
+    {
+      "id": "social-icons",
+      "displayName": "Social Icons",
+      "displayTemplate": "social/social-icons",
+      "editViewFields": [
+        {
+          "name": "facebooklinks",
+          "fieldLabel": "Facebook Links",
+          "xtype": "textfield",
+          "allowBlank": true
+        },
+        {
+          "name": "twitterlinks",
+          "fieldLabel": "Twitter Link",
+          "xtype": "textfield",
+          "allowBlank": true
+        },
+        {
+          "name": "instagramlinks",
+          "fieldLabel": "Instagram Links",
+          "xtype": "textfield",
+          "allowBlank": true
+        },
+        {
+          "name": "youtubelinks",
+          "fieldLabel": "Youtube Link",
+          "xtype": "textfield",
+          "allowBlank": true
+        }
+      ],
+      "icon": "/resources/admin/widgets/social.png",
+      "validPageTypes": ["*"]
+    },
+    {
+      "displayName": "Bronto Conversion Tracking",
+      "displayTemplate": "bronto/bronto",
+      "icon": "/resources/admin/widgets/bronto_logo_thin.png",
+      "id": "socialcontent-widget",
+      "editViewFields": [
+        {
+          "anchor": "100%",
+          "fieldLabel": "Tag Manager Script",
+          "name": "tagManagerScript",
+          "xtype": "textareafield"
+        }
+      ],
+      "validPageTypes": ["*"]
+    },
+    {
+      "displayName": "Social Content",
+      "displayTemplate": "social/socialcontent",
+      "customEditor": "socialContentEditor",
+      "icon": "/resources/admin/widgets/widget-icon-socialcontent.png",
+      "id": "socialcontent-widget-2",
+      "validPageTypes": ["*"]
     },
     {
       "defaultConfig": {
-        "title": "Related Items"
+        "attributeId": "tenant~product-upsell",
+        "count": "4",
+        "template": "modules/product/product-list-carousel",
+        "title": "Other Items"
       },
-      "displayName": "Instock Request",
-      "displayTemplate": "misc/instock-request",
+      "displayName": "Up Sells",
+      "displayTemplate": "catalog/related-products",
       "editViewFields": [
         {
           "anchor": "100%",
           "fieldLabel": "Title",
+          "name": "title",
           "xtype": "mz-input-text"
-        }
-      ],
-      "icon": "/resources/admin/widgets/25_instock_requests.png",
-      "id": "instockrequest",
-      "validPageTypes": [ "product" ]
-    },
-    {
-      "defaultConfig": {
-        "body": "<h2>Insert Title</h2><p>Insert Content</p>"
-      },
-      "displayName": "Content",
-      "displayTemplate": "cms/content",
-      "icon": "/resources/admin/widgets/03_heading_p.png",
-      "id": "content",
-      "validPageTypes": [ "*" ]
-    },
-    {
-      "defaultConfig": {
-        "height": 400,
-        "heightResizable": true,
-        "imageHeight": 400,
-        "imageSource": "file",
-        "linkSource": "externalUrl"
-      },
-      "displayName": "Image",
-      "displayTemplate": "cms/image",
-      "customEditor": "image",
-      "icon": "/resources/admin/widgets/00_photo.png",
-      "id": "cms-image",
-      "validPageTypes": [ "*" ]
-    },
-    {
-      "defaultConfig": {
-        "hrBorderColor": "#000",
-        "hrBorderStyle": "solid",
-        "hrBorderWidth": "1px",
-        "hrMarginBottom": "0px",
-        "hrMarginTop": "0px"
-      },
-      "displayName": "Horizontal Rule",
-      "displayTemplate": "cms/horizontalrule",
-      "customEditor": "horizontalrule",
-      "icon": "/resources/admin/widgets/05_horizontal_divider.png",
-      "id": "horizontal_rule",
-      "validPageTypes": [ "*" ]
-    },
-    {
-      "defaultConfig": {
-        "body": "<h2>Insert Markup</h2>"
-      },
-      "displayName": "HTML",
-      "displayTemplate": "cms/content",
-      "editViewFields": [
+        },
         {
-          "fieldLabel": "Enter HTML",
-          "fieldStyle": "resize:both;font-family:Monaco, Menlo, Consolas, 'Droid Sans Mono', Inconsolata, 'Courier New', monospace;height:100%",
-          "height": 400,
-          "name": "body",
-          "width": "100%",
-          "mode": "html",
-          "xtype": "mz-input-code"
-        }
-      ],
-      "icon": "/resources/admin/widgets/07_code.png",
-      "id": "html",
-      "validPageTypes": [ "*" ]
-    },
-    {
-      "category": "social",
-      "defaultConfig": {
-        "style": "1"
-      },
-      "displayName": "Add This",
-      "displayTemplate": "social/addthis",
-      "editViewFields": [
-        {
-          "xtype": "mz-input-dropdown",
-          "name": "style",
-          "fieldLabel": "AddThis Button Style",
+          "anchor": "100%",
+          "fieldLabel": "Template",
+          "name": "template",
           "store": [
-            [
-              "1",
-              "small"
-            ],
-            [
-              "2",
-              "medium"
-            ],
-            [
-              "3",
-              "large"
-            ],
-            [
-              "4",
-              "compact"
-            ]
-          ]
+            ["modules/product/product-list-carousel", "carousel"],
+            ["modules/product/product-list-tiled", "tiled"],
+            ["modules/product/product-list", "list"]
+          ],
+          "xtype": "mz-input-dropdown"
         },
         {
-          "html": "Register with <a target=\"_blank\" href=\"https://www.addthis.com\">AddThis</a> for a free in-depth analytics reports and better understand your site's social traffic.",
-          "xtype": "box"
-        },
+          "anchor": "100%",
+          "fieldLabel": "Number to display",
+          "name": "count",
+          "xtype": "mz-input-number"
+        }
+      ],
+      "icon": "/resources/admin/widgets/27_up_sells.png",
+      "id": "upsells",
+      "validPageTypes": ["product", "cart"]
+    },
+    {
+      "defaultConfig": {
+        "heightResizable": false
+      },
+      "displayName": "Video",
+      "displayTemplate": "cms/video",
+      "editViewFields": [
         {
-          "allowBlank": true,
-          "fieldLabel": "AddThis<br/> profile ID",
-          "name": "profileId",
+          "anchor": "100%",
+          "fieldLabel": "Video URL",
+          "name": "url",
           "xtype": "mz-input-text"
         }
       ],
-      "icon": "/resources/admin/widgets/13_social.png",
-      "id": "addthis",
-      "validPageTypes": [ "*" ]
-    },
-    {
-      "category": "catalog",
-      "displayName": "Deal of the Day",
-      "displayTemplate": "catalog/deal-of-the-day",
-      "editView": "taco-dealoftheday-widgeteditor",
-      "icon": "/resources/admin/widgets/28_deal_of_the_day.png",
-      "id": "deal-of-the-day",
-      "validPageTypes": [ "*" ]
+      "icon": "/resources/admin/widgets/08_video.png",
+      "id": "video",
+      "validPageTypes": ["*"]
     },
     {
       "displayName": "Welcome mat",
@@ -1661,15 +4816,31 @@
       "customEditor": "welcomeMatEditor",
       "icon": "/resources/admin/widgets/borderFree.png",
       "id": "welcomemat",
-      "validPageTypes": [ "*" ]
+      "validPageTypes": ["*"]
     },
     {
-      "displayName": "International Order Tracking",
-      "displayTemplate": "misc/border-free-order-tracking",
-      "customEditor": "borderFreeOrderTrackingEditor",
-      "icon": "/resources/admin/widgets/borderFree.png",
-      "id": "borderfreeordertracking",
-      "validPageTypes": [ "*" ]
+      "category": "catalog",
+      "id": "reseller-ratings",
+      "displayName": "Reseller Ratings",
+      "displayTemplate": "resellerratings/reseller-ratings",
+      "editViewFields": [
+        {
+          "name": "widgetType",
+          "fieldLabel": "Widget Type",
+          "xtype": "combo",
+          "store": [
+            ["summary", "Summary"],
+            ["customerReviews", "Customer Reviews"],
+            ["qanda", "Q & A"]
+          ]
+        },
+        {
+          "name": "tabCode",
+          "fieldLabel": "Tab Code"
+        }
+      ],
+      "icon": "/resources/admin/widgets/reseller-rating.png",
+      "validPageTypes": ["product"]
     }
   ]
 }

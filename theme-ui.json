@@ -1,416 +1,1506 @@
 {
-    "items": [
+  "items": [
+    {
+      "xtype": "panel",
+      "title": "General",
+      "collapsed": false,
+      "items": [
         {
-            "xtype": "panel",
-            "title": "General",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "showAddressTypeDropdown",
-                    "fieldLabel": "Show Address Type dropdown in Address Forms (Residential/Commercial)"
-                },
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "enablePartialCaching",
-                    "fieldLabel": "Enable partial caching using the Hypr {% partial_cache %} tag"
-                }
-            ]
+          "xtype": "mz-input-checkbox",
+          "name": "showAddressTypeDropdown",
+          "fieldLabel": "Show Address Type dropdown in Address Forms (Residential/Commercial)"
         },
         {
-            "xtype": "panel",
-            "title": "Recaptcha",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "enableRecaptcha",
-                    "fieldLabel": "Enable Recaptcha"
-                },
-                {
-                    "xtype": "mz-input-text",
-                    "name": "recaptchaSiteKey",
-                    "fieldLabel": "Recaptcha Site Key"
-                },
-                {
-                    "xtype": "mz-input-text",
-                    "name": "__recaptchaSecrete",
-                    "fieldLabel": "Recaptcha Secret",
-                    "inputType": "password"
-                },
-                {
-                    "xtype": "mz-input-dropdown",
-                    "name": "recaptchaType",
-                    "fieldLabel": "Recaptcha Type",
-                    "allowBlank": false,
-                    "forceSelection": true,
-                    "store": [
-                        "Invisible",
-                        "I'm not a robot"
-                    ]
-                },
-                {
-                    "xtype": "mz-input-dropdown",
-                    "name": "recaptchaSize",
-                    "fieldLabel": "Recaptcha Size",
-                    "allowBlank": false,
-                    "forceSelection": true,
-                    "store": [
-                        "normal",
-                        "compact"
-                    ]
-                },
-                {
-                    "xtype": "mz-input-dropdown",
-                    "name": "recaptchaTheme",
-                    "fieldLabel": "Recaptcha Theme",
-                    "allowBlank": false,
-                    "forceSelection": true,
-                    "store": [
-                        "light",
-                        "dark"
-                    ]
-                },
-                {
-                    "xtype": "mz-input-dropdown",
-                    "name": "recaptchaBadgePosition",
-                    "fieldLabel": "Recaptcha Badge Position",
-                    "allowBlank": false,
-                    "forceSelection": true,
-                    "store": [
-                        "bottomright",
-                        "bottomleft",
-                        "inline"
-                    ]
-                }
-            ]
+          "xtype": "mz-input-checkbox",
+          "name": "enablePartialCaching",
+          "fieldLabel": "Enable partial caching using the Hypr {% partial_cache %} tag"
         },
         {
-            "xtype": "panel",
-            "title": "Filters",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "allowFilterByLocationInventory",
-                    "fieldLabel": "Allow Filter by Location Inventory"
-                },
-                                {
-                   "fieldLabel": "Max Number of Locations",
-                    "xtype": "mz-input-dropdown",
-                    "name": "maxFilterLocations",
-                    "allowBlank": false,
-                    "forceSelection": true,
-                    "store": [
-                        50,
-                        100,
-                        150,
-                        200
-                    ]
-                },
-                {
-                    "fieldLabel": "Filter Label Text (limit 30 characters)",
-                    "xtype": "mz-input-text",
-                    "name": "locationInventoryFilterText",
-                    "allowBlank": true,
-                    "allowOnlyWhitespace": true,
-                    "maxValue": 30
-                }
-            ]
+          "xtype": "mz-input-checkbox",
+          "name": "showBreadcrumbs",
+          "fieldLabel": "Enable Breadcrumb"
         },
         {
-            "xtype": "panel",
-            "title": "Extended Properties",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "extendedPropertiesEnabled",
-                    "fieldLabel": "Enable Extended Properties (Tracking Strings)"
-                },
-                {
-                    "xtype": "mz-input-textarea",
-                    "name": "extendedPropertyParameters",
-                    "fieldLabel": "Query Parameters (comma separated)"
-                }
-            ]
+          "xtype": "mz-input-text",
+          "name": "categoryEntityName",
+          "fieldLabel": "Category Entity Name"
         },
         {
-            "xtype": "panel",
-            "title": "Product Lists",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "listProductCode",
-                    "fieldLabel": "Show product code in product lists"
-                },
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "listProductShortDesc",
-                    "fieldLabel": "Show product short description in product lists"
-                },
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "listVolumePricing",
-                    "fieldLabel": "Show volume pricing bands in product lists"
-                }
-            ]
+          "xtype": "mz-input-text",
+          "name": "activeSiteEntityName",
+          "fieldLabel": "Active-site Entity Name"
         },
         {
-            "xtype": "panel",
-            "title": "Search",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "showChildCategoriesInFaceting",
-                    "fieldLabel": "Show two levels of the category hierarchy in faceting"
-                },
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "useSearchAutocomplete",
-                    "fieldLabel": "Show search suggestions"
-                },
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "suggestPriorSearchTerms",
-                    "fieldLabel": "Show search terms others used on this site in search suggestions",
-                    "enableIf": "useSearchAutocomplete"
-                }
-            ]
+          "xtype": "mz-input-image",
+          "name": "globalPageHeaderLogoSM",
+          "fieldLabel": "Logo SM"
         },
         {
-            "xtype": "panel",
-            "title": "Layout",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-dropdown",
-                    "name": "gutterWidth",
-                    "fieldLabel": "Base Margin Width",
-                    "allowBlank": false,
-                    "forceSelection": true,
-                    "store": [
-                        "15px",
-                        "20px",
-                        "25px",
-                        "30px",
-                        "35px"
-                    ]
-                }
-            ]
+          "xtype": "mz-input-image",
+          "name": "globalPageHeaderLogoXS",
+          "fieldLabel": "Logo XS"
         },
         {
-            "xtype": "panel",
-            "title": "Suppress CVV During Express Checkout",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "isCvvSuppressed",
-                    "fieldLabel": "CVV Suppressed"
-                }
-            ]
+          "xtype": "mz-input-image",
+          "name": "alternativeImg",
+          "fieldLabel": "Alternative image"
         },
         {
-            "xtype": "panel",
-            "title": "Anonymous Account Verification Options",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "zipCodeEnabled",
-                    "fieldLabel": "Billing Zip Code"
-                },
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "phoneNumberEnabled",
-                    "fieldLabel": "Billing Phone Number"
-                },
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "billingEmailEnabled",
-                    "fieldLabel": "Billing Email"
-                }
-            ]
+          "xtype": "mz-input-checkbox",
+          "name": "lazyLoadingBlur",
+          "fieldLabel": "Allow lazy loading blur effect"
         },
         {
-            "xtype": "panel",
-            "title": "Text",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-selectmulti",
-                    "name": "loadGoogleFonts",
-                    "fieldLabel": "Load Google Fonts",
-                    "allowBlank": false,
-                    "forceSelection": true,
-                    "store": [
-                        "Source Sans Pro",
-                        "Open Sans",
-                        "Raleway",
-                        "Lora",
-                        "Rokkitt"
-                    ]
-                },
-                {
-                    "xtype": "mz-input-dropdown",
-                    "name": "primaryFont",
-                    "fieldLabel": "Primary Font",
-                    "allowBlank": false,
-                    "storeFrom": "loadGoogleFonts",
-                    "forceSelection": true
-                },
-                {
-                    "xtype": "mz-input-dropdown",
-                    "name": "fontSize",
-                    "fieldLabel": "Font Size",
-                    "allowBlank": false,
-                    "editable": false,
-                    "forceSelection": true,
-                    "store": [
-                        "12px",
-                        "14px",
-                        "16px",
-                        "18px",
-                        "20px"
-                    ]
-                },
-                {
-                    "xtype": "mz-input-color",
-                    "name": "textColor",
-                    "fieldLabel": "Text Color"
-                }
-            ]
+          "xtype": "mz-input-text",
+          "name": "defaultProductOrderQuantityMaxLimit",
+          "fieldLabel": "Default Product Order Quantity Max Limit"
         },
         {
-            "xtype": "panel",
-            "title": "Paging",
-            "collapsed": false,
-            "items": [
-
-                {
-                    "fieldLabel": "Show these page size options",
-                    "xtype": "mz-input-selectmulti",
-                    "name": "pageSizeOptions",
-                    "allowBlank": false,
-                    "forceSelection": true,
-                    "store": [
-                        15,
-                        25,
-                        50,
-                        100,
-                        500
-                    ]
-                },
-                {
-                    "fieldLabel": "Default items per page",
-                    "xtype": "mz-input-dropdown",
-                    "name": "defaultPageSize",
-                    "allowBlank": false,
-                    "forceSelection": true,
-                    "storeFrom": "pageSizeOptions"
-                },
-                {
-                    "fieldLabel": "Default Sort Order",
-                    "xtype": "mz-input-text",
-                    "name": "defaultSort",
-                    "allowBlank": true      ,
-                    "allowOnlyWhitespace": true
-                }
-            ]
+          "xtype": "mz-input-text",
+          "name": "calendarsRootCategoryCode",
+          "fieldLabel": "Calendars Root Category Code"
         },
         {
-            "xtype": "panel",
-            "title": "Navigation",
-            "collapsed": false,
-            "items": [
-                {
-                    "fieldLabel": "Maximum Items In Main Nav",
-                    "xtype": "mz-input-number",
-                    "name": "maxTopLevelNavItems",
-                    "hideTrigger": false,
-                    "allowDecimal": false,
-                    "minValue": 1
-                },
-                {
-                    "fieldLabel": "Maximum Nav Item Label Length",
-                    "xtype": "mz-input-number",
-                    "name": "maxTopLevelNavLabelLength",
-                    "hideTrigger": false,
-                    "allowDecimal": false,
-                    "minValue": 4,
-                    "allowBlank": false
-                }
-            ]
+          "xtype": "mz-input-text",
+          "name": "langRootCategoryCode",
+          "fieldLabel": "Lang Root Category Code"
         },
         {
-            "xtype": "panel",
-            "title": "Border Configuration",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "enableborderFree",
-                    "fieldLabel": "Enable Border Free"
-                },
-                {
-                    "xtype": "mz-input-text",
-                    "name": "merchantId",
-                    "fieldLabel": "MerchantId"
-                },
-                {
-                    "xtype": "mz-input-text",
-                    "name": "borderFreeUsername",
-                    "fieldLabel": "Username for BorderFree"
-                },
-                {
-                    "xtype": "mz-input-text",
-                    "name": "borderFreePassword",
-                    "fieldLabel": "Password for BorderFree"
-                }
-            ]
+          "xtype": "mz-input-text",
+          "name": "pdpBannerUrlCalendars",
+          "fieldLabel": "Calendars PDP bannel file URL"
         },
         {
-            "xtype": "panel",
-            "title": "Personalization Configuration",
-            "collapsed": false,
-            "items": [
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "monetateEnabled",
-                    "fieldLabel": "Enable Kibo Personalization"
-                },
-                {
-                    "xtype": "mz-input-checkbox",
-                    "name": "monetateAsync",
-                    "fieldLabel": "Enable Async Personalization Tag"
-                },
-                {
-                    "xtype": "mz-input-text",
-                    "name": "monetateAccountNumber",
-                    "fieldLabel": "Account Number"
-                },
-                {
-                    "xtype": "mz-input-text",
-                    "name": "monetateDomain",
-                    "fieldLabel": "Domain"
-                },
-                {
-                    "fieldLabel": "Instance Type",
-                    "xtype": "mz-input-dropdown",
-                    "name": "monetateInstance",
-                    "allowBlank": true,
-                    "forceSelection": true,
-                    "store": [
-                        ["d", "Development"],
-                        ["p", "Production"],
-                        ["s", "Sales"],
-                        ["t", "Testing"]
-                    ]
-                }
-            ]
+          "xtype": "mz-input-text",
+          "name": "pdpBannerUrlLang",
+          "fieldLabel": "Lang PDP bannel file URL"
+        },
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "themeSelector",
+          "fieldLabel": "Select Site Theme",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": ["calendars", "atticsalt", "niquead", "snoozimals"]
         }
-    ]
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Recaptcha",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "enableRecaptcha",
+          "fieldLabel": "Enable Recaptcha"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "recaptchaSiteKey",
+          "fieldLabel": "Recaptcha Site Key"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "__recaptchaSecrete",
+          "fieldLabel": "Recaptcha Secret",
+          "inputType": "password"
+        },
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "recaptchaType",
+          "fieldLabel": "Recaptcha Type",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": ["Invisible", "I'm not a robot"]
+        },
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "recaptchaSize",
+          "fieldLabel": "Recaptcha Size",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": ["normal", "compact"]
+        },
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "recaptchaTheme",
+          "fieldLabel": "Recaptcha Theme",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": ["light", "dark"]
+        },
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "recaptchaBadgePosition",
+          "fieldLabel": "Recaptcha Badge Position",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": ["bottomright", "bottomleft", "inline"]
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Filters",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "allowFilterByLocationInventory",
+          "fieldLabel": "Allow Filter by Location Inventory"
+        },
+        {
+          "fieldLabel": "Max Number of Locations",
+          "xtype": "mz-input-dropdown",
+          "name": "maxFilterLocations",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": [50, 100, 150, 200]
+        },
+        {
+          "fieldLabel": "Filter Label Text (limit 30 characters)",
+          "xtype": "mz-input-text",
+          "name": "locationInventoryFilterText",
+          "allowBlank": true,
+          "allowOnlyWhitespace": true,
+          "maxValue": 30
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Extended Properties",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "extendedPropertiesEnabled",
+          "fieldLabel": "Enable Extended Properties (Tracking Strings)"
+        },
+        {
+          "xtype": "mz-input-textarea",
+          "name": "extendedPropertyParameters",
+          "fieldLabel": "Query Parameters (comma separated)"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Product Lists",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "listProductCode",
+          "fieldLabel": "Show product code in product lists"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "listProductShortDesc",
+          "fieldLabel": "Show product short description in product lists"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "listVolumePricing",
+          "fieldLabel": "Show volume pricing bands in product lists"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "productInfoTabs",
+          "fieldLabel": "Product Info Tabs"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Search",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "showChildCategoriesInFaceting",
+          "fieldLabel": "Show two levels of the category hierarchy in faceting"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "useSearchAutocomplete",
+          "fieldLabel": "Show search suggestions"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "suggestPriorSearchTerms",
+          "fieldLabel": "Show search terms others used on this site in search suggestions",
+          "enableIf": "useSearchAutocomplete"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "categorySearchInLangEnable",
+          "fieldLabel": "Show search categories in search suggestions within LANG site"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "allProductsCategoryId",
+          "fieldLabel": "Enter CategoryId which is having all products for Calendars"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "allLangProductsCategoryId",
+          "fieldLabel": "Enter CategoryId which is having all products for Lang"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "allAtticProductsCategoryId",
+          "fieldLabel": "Enter CategoryId which is having all products for Attic Salt"
+        },
+        {
+          "xtype": "mz-input-textarea",
+          "name": "disabledSuggestionCategories",
+          "fieldLabel": "Hide results on the Autocomplete Search Results (Comma separated category CODES to filter - all products or categories that belong to the category code listed here will be hidden)"
+        },
+        {
+          "xtype": "mz-input-textarea",
+          "name": "langEnabledSearchBrands",
+          "fieldLabel": "LANG Brands Filter (Comma separated brand names to filter)"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Layout",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "gutterWidth",
+          "fieldLabel": "Base Margin Width",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": ["15px", "20px", "25px", "30px", "35px"]
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Suppress CVV During Express Checkout",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "isCvvSuppressed",
+          "fieldLabel": "CVV Suppressed"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Anonymous Account Verification Options",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "zipCodeEnabled",
+          "fieldLabel": "Billing Zip Code"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "phoneNumberEnabled",
+          "fieldLabel": "Billing Phone Number"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "billingEmailEnabled",
+          "fieldLabel": "Billing Email"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Text",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-selectmulti",
+          "name": "loadGoogleFonts",
+          "fieldLabel": "Load Google Fonts",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": ["Source Sans Pro", "Open Sans", "Raleway", "Lora", "Rokkitt"]
+        },
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "primaryFont",
+          "fieldLabel": "Primary Font",
+          "allowBlank": false,
+          "storeFrom": "loadGoogleFonts",
+          "forceSelection": true
+        },
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "fontSize",
+          "fieldLabel": "Font Size",
+          "allowBlank": false,
+          "editable": false,
+          "forceSelection": true,
+          "store": ["12px", "14px", "16px", "18px", "20px"]
+        },
+        {
+          "xtype": "mz-input-color",
+          "name": "textColor",
+          "fieldLabel": "Text Color"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Footer",
+      "collapsed": false,
+      "items": [
+        {
+          "fieldLabel": "Enable XS Mini footer",
+          "xtype": "mz-input-checkbox",
+          "name": "footerEnableMini"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Header",
+      "collapsed": false,
+      "items": [
+        {
+          "fieldLabel": "Header Links [Calendars]: First link href",
+          "xtype": "mz-input-text",
+          "name": "headerLinksFirstLinkHrefCalendars"
+        },
+        {
+          "fieldLabel": "Header Links [Lang]: First link href",
+          "xtype": "mz-input-text",
+          "name": "headerLinksFirstLinkHrefLang"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "isCalendarsHeaderTopBannerCloseButtonHidden",
+          "fieldLabel": "Hide Close Button in Calendars Header's Top Banner"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "isLangHeaderTopBannerCloseButtonHidden",
+          "fieldLabel": "Hide Close Button in Lang Header's Top Banner"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "isAtticSaltHeaderTopBannerCloseButtonHidden",
+          "fieldLabel": "Hide Close Button in Attic Salt Header's Top Banner"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "isCalendarsHeaderBottomBannerCloseButtonHidden",
+          "fieldLabel": "Hide Close Button in Calendar Header's Bottom Banner"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "isLangHeaderBottomBannerCloseButtonHidden",
+          "fieldLabel": "Hide Close Button in Lang Header's Bottom Banner"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "isAtticSaltHeaderBottomBannerCloseButtonHidden",
+          "fieldLabel": "Hide Close Button in Attic Salt Header's Bottom Banner"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Global Cart",
+      "collapsed": false,
+      "items": [
+        {
+          "fieldLabel": "Free Promo Threshold",
+          "xtype": "mz-input-number",
+          "name": "freePromoThreshhold"
+        },
+        {
+          "fieldLabel": "Free Promo Special Product Threshold",
+          "xtype": "mz-input-number",
+          "name": "freePromoSpecialProductThreshold"
+        },
+        {
+          "fieldLabel": "Free Promo Default Message Calendars",
+          "xtype": "mz-input-textarea",
+          "name": "freePromoThresholdMessageDefaultCalendars"
+        },
+        {
+          "fieldLabel": "Free Promo Default Message Attic",
+          "xtype": "mz-input-textarea",
+          "name": "freePromoThresholdMessageDefaultAttic"
+        },
+        {
+          "fieldLabel": "Free Promo Message Calendars [Incomplete]",
+          "xtype": "mz-input-textarea",
+          "name": "freePromoThresholdMessageLeftCalendars"
+        },
+        {
+          "fieldLabel": "Free Promo Message Attic [Incomplete]",
+          "xtype": "mz-input-textarea",
+          "name": "freePromoThresholdMessageLeftAttic"
+        },
+        {
+          "fieldLabel": "Free Promo Message Calendars [Complete]",
+          "xtype": "mz-input-textarea",
+          "name": "freePromoThresholdMessageEarnedCalendars"
+        },
+        {
+          "fieldLabel": "Free Promo Message Attic [Complete]",
+          "xtype": "mz-input-textarea",
+          "name": "freePromoThresholdMessageEarnedAttic"
+        },
+        {
+          "fieldLabel": "Enable Up sells",
+          "xtype": "mz-input-checkbox",
+          "name": "globalCartRelatedProducts"
+        },
+        {
+          "fieldLabel": "Maximum number of Up sells products",
+          "xtype": "mz-input-number",
+          "name": "globalCartRelatedProductsSize"
+        },
+        {
+          "fieldLabel": "Enable Save Cart",
+          "xtype": "mz-input-checkbox",
+          "name": "globalCartEnableSaveCart"
+        },
+        {
+          "fieldLabel": "Maximum number of items to show in global Cart",
+          "xtype": "mz-input-number",
+          "name": "globalCartMaxItemCount"
+        },
+        {
+          "fieldLabel": "Max width of global Cart item image",
+          "xtype": "mz-input-number",
+          "name": "globalCartItemImageMaxWidth"
+        },
+        {
+          "fieldLabel": "Hide popover for empty global cart",
+          "xtype": "mz-input-checkbox",
+          "name": "globalCartHidePopover"
+        },
+        {
+          "fieldLabel": "Show Subtotal",
+          "xtype": "mz-input-checkbox",
+          "name": "globalCartShowSubtotal"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Cart",
+      "collapsed": false,
+      "items": [
+        {
+          "fieldLabel": "Enable Paypal and AmazonPay Checkout on the Cart page",
+          "xtype": "mz-input-checkbox",
+          "name": "cartEnableCheckoutWithThirdpartyPayment"
+        },
+        {
+          "fieldLabel": "Certona's container names that don't have to show the title",
+          "xtype": "mz-input-text",
+          "name": "certonaContainerNamesToNotShowTitle"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Navigation",
+      "collapsed": false,
+      "items": [
+        {
+          "fieldLabel": "Maximum Items In Main Nav",
+          "xtype": "mz-input-number",
+          "name": "maxTopLevelNavItems",
+          "hideTrigger": false,
+          "allowDecimal": false,
+          "minValue": 1
+        },
+        {
+          "fieldLabel": "Maximum Nav Item Label Length",
+          "xtype": "mz-input-number",
+          "name": "maxTopLevelNavLabelLength",
+          "hideTrigger": false,
+          "allowDecimal": false,
+          "minValue": 4,
+          "allowBlank": false
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Recently Viewed",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-number",
+          "name": "maxRecentlyViewedItems",
+          "fieldLabel": "Maximum number of Recently Viewed Items supported"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Form Validations",
+      "collapsed": false,
+      "items": [
+        {
+          "fieldLabel": "Full Name Length",
+          "xtype": "mz-input-number",
+          "name": "fullNameLength"
+        },
+        {
+          "fieldLabel": "First Name Length",
+          "xtype": "mz-input-number",
+          "name": "firstNameLength"
+        },
+        {
+          "fieldLabel": "Last Name Length",
+          "xtype": "mz-input-number",
+          "name": "lastNameLength"
+        },
+        {
+          "fieldLabel": "Email Length",
+          "xtype": "mz-input-number",
+          "name": "emailLength"
+        },
+        {
+          "fieldLabel": "Password Minimum Length",
+          "xtype": "mz-input-number",
+          "name": "passwordMinLength"
+        },
+        {
+          "fieldLabel": "Password Maximum Length",
+          "xtype": "mz-input-number",
+          "name": "passwordMaxLength"
+        },
+        {
+          "fieldLabel": "Phone number Length",
+          "xtype": "mz-input-number",
+          "name": "phoneNumberLength"
+        },
+        {
+          "fieldLabel": "Address Length",
+          "xtype": "mz-input-number",
+          "name": "addressLength"
+        },
+        {
+          "fieldLabel": "Company Name Length",
+          "xtype": "mz-input-number",
+          "name": "companyNameLength"
+        },
+        {
+          "fieldLabel": "City Name Length",
+          "xtype": "mz-input-number",
+          "name": "cityNameLength"
+        },
+        {
+          "fieldLabel": "State Name Length",
+          "xtype": "mz-input-number",
+          "name": "stateNameLength"
+        },
+        {
+          "fieldLabel": "Zipcode Length",
+          "xtype": "mz-input-number",
+          "name": "zipcodeLength"
+        },
+        {
+          "fieldLabel": "Credit Card Number Length",
+          "xtype": "mz-input-number",
+          "name": "creditCardNumberLength"
+        },
+        {
+          "fieldLabel": "Security Code For Payment Length",
+          "xtype": "mz-input-number",
+          "name": "paymentSecurityCodeLength"
+        },
+        {
+          "fieldLabel": "Gift Card Length",
+          "xtype": "mz-input-number",
+          "name": "giftCardLength"
+        },
+        {
+          "fieldLabel": "Coupon Code Length",
+          "xtype": "mz-input-number",
+          "name": "couponCodeLength"
+        },
+        {
+          "fieldLabel": "Gift Message Length",
+          "xtype": "mz-input-number",
+          "name": "checkoutGiftMessageLength"
+        },
+        {
+          "fieldLabel": "Checkout Comments Length",
+          "xtype": "mz-input-number",
+          "name": "checkoutCommentsLength"
+        },
+        {
+          "fieldLabel": "Order Number Length",
+          "xtype": "mz-input-number",
+          "name": "orderNumberLength"
+        },
+        {
+          "fieldLabel": "Order Verification Code Length",
+          "xtype": "mz-input-number",
+          "name": "orderVerificationCodeLength"
+        },
+        {
+          "fieldLabel": "Product Quantity Field Length",
+          "xtype": "mz-input-number",
+          "name": "productQuantityLength"
+        },
+        {
+          "fieldLabel": "Max dimesion for PO Box (inches)",
+          "xtype": "mz-input-number",
+          "name": "maxDimensionForPOBox"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Store Locator",
+      "collapsed": false,
+      "items": [
+        {
+          "fieldLabel": "Google Map API key",
+          "xtype": "mz-input-text",
+          "name": "googleMapAPIKey"
+        },
+        {
+          "fieldLabel": "Google Map Center Latitude",
+          "xtype": "mz-input-text",
+          "name": "googleMapLatitude"
+        },
+        {
+          "fieldLabel": "Google Map Center Longitude",
+          "xtype": "mz-input-text",
+          "name": "googleMapLongitude"
+        },
+        {
+          "fieldLabel": "Google Map Center Zoom",
+          "xtype": "mz-input-number",
+          "name": "googleMapZoom"
+        },
+        {
+          "fieldLabel": "Google Map Pin Icon URL",
+          "xtype": "mz-input-text",
+          "name": "googleMapPinIcon"
+        },
+        {
+          "fieldLabel": "Google Map Max Nearby Distance",
+          "xtype": "mz-input-text",
+          "name": "googleMapMaxNearbyDistance"
+        },
+        {
+          "fieldLabel": "Store Page Size",
+          "xtype": "mz-input-text",
+          "name": "storesPageSize"
+        },
+        {
+          "fieldLabel": "Social Share Link",
+          "xtype": "mz-input-text",
+          "name": "socialShareLink"
+        },
+        {
+          "fieldLabel": "Facebook Share Link",
+          "xtype": "mz-input-text",
+          "name": "facebookShareLink"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Paging",
+      "collapsed": false,
+      "items": [
+        {
+          "fieldLabel": "Show these page size options",
+          "xtype": "mz-input-selectmulti",
+          "name": "pageSizeOptions",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": [36, 72]
+        },
+        {
+          "fieldLabel": "Default items per page",
+          "xtype": "mz-input-dropdown",
+          "name": "defaultPageSize",
+          "allowBlank": false,
+          "forceSelection": true,
+          "storeFrom": "pageSizeOptions"
+        },
+        {
+          "fieldLabel": "Default Sort Order",
+          "xtype": "mz-input-text",
+          "name": "defaultSort",
+          "allowBlank": true,
+          "allowOnlyWhitespace": true
+        },
+        {
+          "fieldLabel": "Page size options for order history(myaccount)",
+          "xtype": "mz-input-selectmulti",
+          "name": "pageSizeOptionsOrderHistory",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": [5, 15]
+        },
+        {
+          "fieldLabel": "Default items per page for order history(myaccount)",
+          "xtype": "mz-input-dropdown",
+          "name": "defaultPageSizeOrderHistory",
+          "allowBlank": false,
+          "forceSelection": true,
+          "storeFrom": "pageSizeOptionsOrderHistory"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "viewAllPageSizeOrderHistory",
+          "fieldLabel": "View All Page Size for order history(myaccount)"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Colors",
+      "items": [
+        {
+          "xtype": "panel",
+          "title": "Calendars",
+          "style": "display: inline-block; width: 30%; margin-right: 1%; float: left",
+          "items": [
+            {
+              "xtype": "mz-input-color",
+              "name": "colorsCalMain",
+              "fieldLabel": "Main color"
+            }
+          ]
+        },
+        {
+          "xtype": "panel",
+          "title": "Attic Salt",
+          "style": "display: inline-block; width: 30%; margin-right: 1%; float: left",
+          "items": [
+            {
+              "xtype": "mz-input-color",
+              "name": "colorsATSMain",
+              "fieldLabel": "Main color"
+            }
+          ]
+        },
+        {
+          "xtype": "panel",
+          "title": "Lang",
+          "style": "display: inline-block; width: 30%; float: left",
+          "items": [
+            {
+              "xtype": "mz-input-color",
+              "name": "colorsLangMain",
+              "fieldLabel": "Main color"
+            },
+            {
+              "xtype": "mz-input-color",
+              "name": "colorsLangFooterEmailColor",
+              "fieldLabel": "Footer>Signup text color"
+            },
+            {
+              "xtype": "mz-input-color",
+              "name": "colorsLangFooterEmailBackground",
+              "fieldLabel": "Footer>Signup background color"
+            },
+            {
+              "xtype": "mz-input-color",
+              "name": "colorsLangFooterEmailButton",
+              "fieldLabel": "Footer > Signup submit button color"
+            },
+            {
+              "xtype": "mz-input-color",
+              "name": "colorsLangSitenavBackground",
+              "fieldLabel": "Sitenav Background color"
+            },
+            {
+              "xtype": "mz-input-color",
+              "name": "colorsLangHoverCartIconBackground",
+              "fieldLabel": "Hover Cart Icon color"
+            },
+            {
+              "xtype": "mz-input-text",
+              "name": "footerCopyrightingBackground",
+              "fieldLabel": "Copyright Footer background"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Color Swatches",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "colorSwatchesChangeAlternate",
+          "fieldLabel": "Also change alternate images"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Category Filters",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-textarea",
+          "name": "filterConfiguration",
+          "fieldLabel": "Filter's Configuration of Category Page"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "facetMoreColorCount",
+          "fieldLabel": "Show see more after number of colors"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "viewAllPageSize",
+          "fieldLabel": "View All Page Size"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Family Products",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-text",
+          "name": "familyProductType",
+          "fieldLabel": "Family Product Type"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "familyProductAttribute",
+          "fieldLabel": "Family Product Attribute"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "familyProductImageMaxWidth",
+          "fieldLabel": "Family Product image max width (px)"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "PDP",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "pdpEnlargeImageMobileEnable",
+          "fieldLabel": "Enable Enlarge Image on mobile"
+        },
+        {
+          "xtype": "mz-input-textarea",
+          "name": "pdpPublisherLinks",
+          "fieldLabel": "PDP Custom Publisher Links"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Product Images",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-text",
+          "name": "pdpMainImageNameSwatch",
+          "fieldLabel": "Main Image Name for hover/click on swatche images"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "pdpMainImageNameAlt",
+          "fieldLabel": "Main Image Name for hover/click on alternate images"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "pdpMainImageMaxWidth",
+          "fieldLabel": "Main Image Max Width"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "pdpAltImageName",
+          "fieldLabel": "Alternate Image Name"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "pdpAltImageMaxWidth",
+          "fieldLabel": "Alternate Image Max Width"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "pdpSwatchImageName",
+          "fieldLabel": "Swatch Image Name"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "pdpSwatchImageMaxWidth",
+          "fieldLabel": "Swatch Image Max Width"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "colorSwatchesChangeMain",
+          "fieldLabel": "Enable Image change on Hover on Swatch"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "colorSwatchesChangeAlternate",
+          "fieldLabel": "Enable Alternate Image change on Hover on Swatch"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Badges",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "showBadges",
+          "fieldLabel": "Enable Badges on PLP and PDP"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "lowInventoryThreshold",
+          "fieldLabel": "Low Inventory Threshold"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Quick View",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "enableQuickView",
+          "fieldLabel": "Enable Quick View"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Product Carousel",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "enableProductCarousel",
+          "fieldLabel": "Enable Product Carousel"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "productCarouselSize",
+          "fieldLabel": "Number of Product Carousels"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "productInfinitySize",
+          "fieldLabel": "Number of Product in Infinity Scroll"
+        },
+        {
+          "xtype": "mz-input-number",
+          "name": "productCarouselImageWidth",
+          "fieldLabel": "Product Carousel Image Width (in px)"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "User Account",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-textarea",
+          "name": "returnsInfo",
+          "fieldLabel": "Returns Description"
+        },
+        {
+          "xtype": "mz-input-textarea",
+          "name": "paymentsMethodInfo",
+          "fieldLabel": "Payment Methods Description"
+        },
+        {
+          "xtype": "mz-input-textarea",
+          "name": "giftCardsInfo",
+          "fieldLabel": " Gift Card Description"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Product Attributes",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-text",
+          "name": "oneSizeAttributeName",
+          "fieldLabel": "One Size Attribute Name"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "oneSizeProductType",
+          "fieldLabel": "One Size Product Type"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "globalProductMarkupDescription",
+          "fieldLabel": "Global [Schema/OG Markup] Product Description"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Border Configuration",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "enableborderFree",
+          "fieldLabel": "Enable Border Free"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "merchantId",
+          "fieldLabel": "MerchantId"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "borderFreeUsername",
+          "fieldLabel": "Username for BorderFree"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "borderFreePassword",
+          "fieldLabel": "Password for BorderFree"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Hi Conversion",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "hiConversionEnable",
+          "fieldLabel": "Enable HiConversion"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "hiConversionSrc",
+          "fieldLabel": "HiConversion src"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "ResellerRatings",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "resellerratingsEnabled",
+          "fieldLabel": "Enable ResellerRatings"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "resellerRatingsID",
+          "fieldLabel": "Seller ID"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Login With Amazon",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "loginWithAmazonEnabled",
+          "fieldLabel": "Enable Login With Amazon"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "loginWithAmazonSandbox",
+          "fieldLabel": "Use Amazon Sandbox"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "loginWithAmazonClientId",
+          "fieldLabel": "Client Id"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Gift Wrap Configuration",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-text",
+          "name": "giftWrapProductType",
+          "fieldLabel": "Gift Wrap Product Type"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "giftWrapProductCode",
+          "fieldLabel": "Gift Wrap Product Code"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "giftWrapProductAttribute",
+          "fieldLabel": "Gift Wrap Product Attribute"
+        },
+        {
+          "xtype": "panel",
+          "title": "Gift Wrap Tooltip Configuration",
+          "collapsed": false,
+          "collapsible": true,
+          "bodyPadding": "15",
+          "items": [
+            {
+              "xtype": "mz-input-richtext",
+              "name": "giftWrapTooltipContent",
+              "fieldLabel": "Gift Wrap Tooltip Content",
+              "height": 600,
+              "width": "100%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "UPS Address Validator Configuration",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "enableUPSAddressValidator",
+          "fieldLabel": "Enable UPS Address Validator"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Personalization",
+      "collapsed": false,
+      "anchor": "100%",
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "loadCertonaRecScript",
+          "fieldLabel": "Load Resonance script on all pages"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "resonanceScriptUrl",
+          "fieldLabel": "Resonance Script URL",
+          "enableIf": "loadCertonaRecScript"
+        },
+        {
+          "xtype": "mz-input-selectmulti",
+          "name": "certonaRecPages",
+          "fieldLabel": "Pages on which to display Certona Recommendations",
+          "store": [
+            ["home", "Home"],
+            ["category", "Category"],
+            ["search", "Search"],
+            ["cart", "Cart"],
+            ["confirmation", "Confirmation"],
+            ["product", "Product Detail"],
+            ["my_account", "My Account"]
+          ]
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "recommendationParameter",
+          "fieldLabel": "Name of parameter to show in URL when shopper clicks on a recommended product"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "includeCategoryHierarchy",
+          "fieldLabel": "Report Full Category Hierarchy to Certona on category pages"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "brandParentCategoryCode",
+          "fieldLabel": "Parent Category Code for all Brand Pages"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Shipping Tracking",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-text",
+          "name": "trackingUrlUSPS",
+          "fieldLabel": "USPS"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "trackingUrlUPS",
+          "fieldLabel": "UPS"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "trackingUrlUPSMI",
+          "fieldLabel": "UPSMI"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "trackingUrlDHL",
+          "fieldLabel": "DHL"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "trackingUrlFILLOGIC",
+          "fieldLabel": "FILLOGIC"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Checkout Page",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "enableGiftCardOnCheckout",
+          "fieldLabel": "Enable/Disable GiftCard on Checkout"
+        },
+        {
+          "xtype": "mz-input-richtext",
+          "name": "dutiesAndTaxesTip",
+          "fieldLabel": "Tip for duties and taxes text",
+          "width": "100%"
+        },
+        {
+          "xtype": "mz-input-richtext",
+          "name": "reviewShippingAddressHasChanged",
+          "fieldLabel": "Message to the customer to review the shipping address ",
+          "width": "100%"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Integrations",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "googleTagManagerEnabled",
+          "fieldLabel": "Enable Google Tag Manager"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "googleTagManagerKey",
+          "fieldLabel": "Google Tag Manager Key"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Monetate",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "monetateEnabled",
+          "fieldLabel": "Enable Monetate"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "monetateDomain",
+          "fieldLabel": "Domain"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Messages Customization",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-richtext",
+          "name": "accountForGuestCheckoutAlreadyExists",
+          "fieldLabel": "Guest Checkout: account already exists",
+          "width": "100%"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Accessibe Tag Config",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "accessibeScriptEnabled",
+          "fieldLabel": "Enable Accessibe Tag"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Google Pay",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "googlePayProdEnvironment",
+          "fieldLabel": "Production"
+        },
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "googlePayButtonColor",
+          "fieldLabel": "Button Color",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": ["black", "white"]
+        },
+        {
+          "xtype": "mz-input-dropdown",
+          "name": "googlePayButtonText",
+          "fieldLabel": "Button Text",
+          "allowBlank": false,
+          "forceSelection": true,
+          "store": ["short", "long"]
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "googlePayMerchantName",
+          "fieldLabel": "Merchant Name"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "googlePayMerchantId",
+          "fieldLabel": "Merchant Id"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "googlePayProcessor",
+          "fieldLabel": "Processor"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "googlePayProcessorMerchantId",
+          "fieldLabel": "Processor Merchant Id"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Digital Products",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-text",
+          "name": "digitalDownloaderUrl",
+          "fieldLabel": "Downloader URL"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Add-on Products",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-text",
+          "name": "addonProductsAtticSalt",
+          "fieldLabel": "Attic Salt Add-on attribute id"
+        }
+      ]
+    },
+    {
+      "xtype": "panel",
+      "title": "Structured Data",
+      "collapsed": false,
+      "items": [
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataAlternateName",
+          "fieldLabel": "Alternate Name"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataLegalName",
+          "fieldLabel": "Legal Name"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataLogoRelativeUrl",
+          "fieldLabel": "Logo Relative URL"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataFoundingDate",
+          "fieldLabel": "Founding Date"
+        },
+        {
+          "xtype": "mz-input-checkbox",
+          "name": "structuredDataCeoEnable",
+          "fieldLabel": "Enable CEO Attribute"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataCeo",
+          "fieldLabel": "CEO"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataAddressLocality",
+          "fieldLabel": "Address Locality"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataAddressRegion",
+          "fieldLabel": "Address Locality"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataPostalCode",
+          "fieldLabel": "Postal Code"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataStreetAddress",
+          "fieldLabel": "Street Address"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataTelephone",
+          "fieldLabel": "Telephone"
+        },
+        {
+          "xtype": "mz-input-text",
+          "name": "structuredDataTwitterSite",
+          "fieldLabel": "Twitter site"
+        },
+        {
+          "xtype": "mz-input-textarea",
+          "name": "structuredDataSocialNetworks",
+          "fieldLabel": "SocialNetworks (quoted, comma separated)"
+        }
+      ]
+    }
+  ]
 }
